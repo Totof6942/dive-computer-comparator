@@ -51,15 +51,13 @@ On GitHub Pages the repository is detected from the address (`owner.github.io/re
 
 ## Publishing (GitHub Pages)
 
-`.github/workflows/publish.yml` runs every night, on every push to `main` and on demand (Actions → "Publier le site" → Run workflow). It:
+`.github/workflows/publish.yml` runs on every push to `main` and on demand (Actions → "Publier le site" → Run workflow). It runs `node scripts/build.mjs`, which reads the sheet, then deploys `_site/`: the app, one static page per model at `modeles/<id>/` (indexable, with link previews) and `sitemap.xml`. Nothing is committed back to the repo.
 
-1. runs `node scripts/build.mjs`, which reads the sheet and updates the committed data: `data/sheet.csv`, `data/models.json`, `data/assets.json`, `modeles/<id>/fiche.json`. Git history thus logs every change in the sheet, per model;
-2. commits those files if anything changed ("Synchro de la feuille");
-3. deploys `_site/`: the app, one static page per model at `modeles/<id>/` (indexable, with link previews) and `sitemap.xml`.
+The app always reads the sheet live; the static model pages only reflect the sheet as of the last deployment. To refresh them, run the workflow by hand.
 
-One-time setup: create a public repo, push, then Settings → Pages → Source: **GitHub Actions**.
+To update the committed data files (`data/`, `modeles/<id>/fiche.json`), run `node scripts/build.mjs` locally and commit.
 
-GitHub pauses scheduled workflows after 60 days without activity in the repo; a push or a manual run re-enables them.
+One-time setup: Settings → Pages → Source: **GitHub Actions**.
 
 ## Export
 
