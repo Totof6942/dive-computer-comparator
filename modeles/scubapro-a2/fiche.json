@@ -3,7 +3,7 @@
   "marque": "SCUBAPRO",
   "modele": "A2",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

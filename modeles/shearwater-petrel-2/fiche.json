@@ -3,7 +3,7 @@
   "marque": "SHEARWATER",
   "modele": "Petrel 2",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

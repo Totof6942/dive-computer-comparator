@@ -3,7 +3,7 @@
   "marque": "AQUALUNG",
   "modele": "i200C",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

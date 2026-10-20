@@ -3,7 +3,7 @@
   "marque": "SUUNTO",
   "modele": "D5",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

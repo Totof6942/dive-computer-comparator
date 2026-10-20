@@ -3,7 +3,7 @@
   "marque": "OCEANIC",
   "modele": "Veo 4.0",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

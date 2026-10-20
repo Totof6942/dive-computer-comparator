@@ -3,7 +3,7 @@
   "marque": "SUUNTO",
   "modele": "DX",
   "statut": "Todo",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

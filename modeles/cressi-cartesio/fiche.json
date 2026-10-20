@@ -3,7 +3,7 @@
   "marque": "CRESSI",
   "modele": "Cartesio",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

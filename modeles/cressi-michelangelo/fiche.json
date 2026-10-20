@@ -3,7 +3,7 @@
   "marque": "CRESSI",
   "modele": "Michelangelo",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

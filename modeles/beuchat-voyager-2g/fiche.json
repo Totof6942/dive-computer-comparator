@@ -3,7 +3,7 @@
   "marque": "BEUCHAT",
   "modele": "Voyager 2G",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

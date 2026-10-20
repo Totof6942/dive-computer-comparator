@@ -3,7 +3,7 @@
   "marque": "CRESSI",
   "modele": "Léonardo",
   "statut": "Todo",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

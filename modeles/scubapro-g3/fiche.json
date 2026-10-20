@@ -3,7 +3,7 @@
   "marque": "SCUBAPRO",
   "modele": "G3",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

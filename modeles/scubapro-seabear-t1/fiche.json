@@ -3,7 +3,7 @@
   "marque": "SCUBAPRO",
   "modele": "SeaBear T1",
   "statut": "Todo",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

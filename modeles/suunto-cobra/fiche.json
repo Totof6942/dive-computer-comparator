@@ -3,7 +3,7 @@
   "marque": "SUUNTO",
   "modele": "Cobra",
   "statut": "Todo",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

@@ -3,7 +3,7 @@
   "marque": "SHEARWATER",
   "modele": "Nerd 2 Fischer",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

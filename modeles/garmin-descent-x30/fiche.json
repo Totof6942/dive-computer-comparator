@@ -3,7 +3,7 @@
   "marque": "GARMIN",
   "modele": "Descent X30",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

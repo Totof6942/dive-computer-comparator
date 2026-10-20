@@ -3,7 +3,7 @@
   "marque": "CRESSI",
   "modele": "Raffaello",
   "statut": "Todo",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

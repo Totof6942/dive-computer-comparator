@@ -3,7 +3,7 @@
   "marque": "SCUBAPRO",
   "modele": "Sol",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

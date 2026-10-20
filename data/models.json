@@ -4,7 +4,7 @@
     "marque": "APEKS",
     "modele": "DSX",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -83,7 +83,7 @@
     "marque": "AQUALUNG",
     "modele": "i100",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -162,7 +162,7 @@
     "marque": "AQUALUNG",
     "modele": "i200C",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -241,7 +241,7 @@
     "marque": "AQUALUNG",
     "modele": "i300",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -320,7 +320,7 @@
     "marque": "AQUALUNG",
     "modele": "i300C",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -399,7 +399,7 @@
     "marque": "AQUALUNG",
     "modele": "i330R",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -478,7 +478,7 @@
     "marque": "AQUALUNG",
     "modele": "i450T",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -557,7 +557,7 @@
     "marque": "AQUALUNG",
     "modele": "i470TC",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -636,7 +636,7 @@
     "marque": "AQUALUNG",
     "modele": "i550C",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -715,7 +715,7 @@
     "marque": "AQUALUNG",
     "modele": "i750T",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -794,7 +794,7 @@
     "marque": "AQUALUNG",
     "modele": "i770R",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -873,7 +873,7 @@
     "marque": "AV Underwater Technologie",
     "modele": "AV1",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -952,7 +952,7 @@
     "marque": "AZOTH SYSTEMS",
     "modele": "Odyssey",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1031,7 +1031,7 @@
     "marque": "BEUCHAT",
     "modele": "Voyager 2G",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1110,7 +1110,7 @@
     "marque": "CRESSI",
     "modele": "Donatello",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1189,7 +1189,7 @@
     "marque": "CRESSI",
     "modele": "Michelangelo",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1268,7 +1268,7 @@
     "marque": "CRESSI",
     "modele": "Giotto",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1347,7 +1347,7 @@
     "marque": "CRESSI",
     "modele": "Goa",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1426,7 +1426,7 @@
     "marque": "CRESSI",
     "modele": "Cartesio",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1505,7 +1505,7 @@
     "marque": "CRESSI",
     "modele": "Neon",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1584,7 +1584,7 @@
     "marque": "CRESSI",
     "modele": "Léonardo",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1663,7 +1663,7 @@
     "marque": "CRESSI",
     "modele": "Raffaello",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1742,7 +1742,7 @@
     "marque": "CRESSI",
     "modele": "DaVinci",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1821,7 +1821,7 @@
     "marque": "DEEPBLU",
     "modele": "Cosmiq+",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1900,7 +1900,7 @@
     "marque": "DIVESOFT",
     "modele": "Freedom+",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -1979,7 +1979,7 @@
     "marque": "GARMIN",
     "modele": "Descent G1 - 45,5mm",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2058,7 +2058,7 @@
     "marque": "GARMIN",
     "modele": "Descent G1 Solar",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2137,7 +2137,7 @@
     "marque": "GARMIN",
     "modele": "Descent G2",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2216,7 +2216,7 @@
     "marque": "GARMIN",
     "modele": "Descent MK2s - 43 mm",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2295,7 +2295,7 @@
     "marque": "GARMIN",
     "modele": "Descent MK2 - 52mm",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2374,7 +2374,7 @@
     "marque": "GARMIN",
     "modele": "Descent MK2i - 52mm",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2453,7 +2453,7 @@
     "marque": "GARMIN",
     "modele": "Descent MK3 - 43mm",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2532,7 +2532,7 @@
     "marque": "GARMIN",
     "modele": "Descent MK3i - 51mm",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2611,7 +2611,7 @@
     "marque": "GARMIN",
     "modele": "Descent X30",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2690,7 +2690,7 @@
     "marque": "GARMIN",
     "modele": "Descent X50i",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2769,7 +2769,7 @@
     "marque": "HALCYON",
     "modele": "Symbios BLUE Handset",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2848,7 +2848,7 @@
     "marque": "HALCYON",
     "modele": "Symbios Handset",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -2927,7 +2927,7 @@
     "marque": "HALCYON",
     "modele": "Symbios HUD",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3006,7 +3006,7 @@
     "marque": "HW-OSTC",
     "modele": "OSTC Sport",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3085,7 +3085,7 @@
     "marque": "HW-OSTC",
     "modele": "OSTC 4",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3164,7 +3164,7 @@
     "marque": "HW-OSTC",
     "modele": "OSTC 5",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3243,7 +3243,7 @@
     "marque": "HW-OSTC",
     "modele": "OSTC nano Sport",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3322,7 +3322,7 @@
     "marque": "HW-OSTC",
     "modele": "OSTC nano Tech",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3401,7 +3401,7 @@
     "marque": "LIQUIVISION",
     "modele": "KAON",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3480,7 +3480,7 @@
     "marque": "LIQUIVISION",
     "modele": "LYNX",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3559,7 +3559,7 @@
     "marque": "LIQUIVISION",
     "modele": "XEO",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3638,7 +3638,7 @@
     "marque": "MARES",
     "modele": "Puck Pro - Pro +",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3717,7 +3717,7 @@
     "marque": "MARES",
     "modele": "Puck Lite",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3796,7 +3796,7 @@
     "marque": "MARES",
     "modele": "Puck 4",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3875,7 +3875,7 @@
     "marque": "MARES",
     "modele": "Smart",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -3954,7 +3954,7 @@
     "marque": "MARES",
     "modele": "Smart air",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -4033,7 +4033,7 @@
     "marque": "MARES",
     "modele": "Matrix",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -4112,7 +4112,7 @@
     "marque": "MARES",
     "modele": "Nemo Wide 2",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -4191,7 +4191,7 @@
     "marque": "MARES",
     "modele": "Quad",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -4270,7 +4270,7 @@
     "marque": "MARES",
     "modele": "Quad Air",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -4349,7 +4349,7 @@
     "marque": "MARES",
     "modele": "Quad 2",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -4428,7 +4428,7 @@
     "marque": "MARES",
     "modele": "Quad CI",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -4507,7 +4507,7 @@
     "marque": "MARES",
     "modele": "Icon HD",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -4586,7 +4586,7 @@
     "marque": "MARES",
     "modele": "Icon HD Net Ready",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -4665,7 +4665,7 @@
     "marque": "MARES",
     "modele": "Génius",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -4744,7 +4744,7 @@
     "marque": "MARES",
     "modele": "Sirius L",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -4823,7 +4823,7 @@
     "marque": "MARES",
     "modele": "Sirius",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -5139,7 +5139,7 @@
     "marque": "OCEANIC",
     "modele": "Veo 4.0",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -5218,7 +5218,7 @@
     "marque": "OCEANIC",
     "modele": "Géo 2",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -5297,7 +5297,7 @@
     "marque": "OCEANIC",
     "modele": "Géo 4.0",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -5376,7 +5376,7 @@
     "marque": "OCEANIC",
     "modele": "Géo Air",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -5929,7 +5929,7 @@
     "marque": "OCEANIC",
     "modele": "Pro Plux X",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6008,7 +6008,7 @@
     "marque": "OCEANIC",
     "modele": "Pro Plux 4.0",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6087,7 +6087,7 @@
     "marque": "RATIO",
     "modele": "iDive Easy",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6166,7 +6166,7 @@
     "marque": "RATIO",
     "modele": "iDive Deep",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6245,7 +6245,7 @@
     "marque": "RATIO",
     "modele": "iDive Tech+",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6324,7 +6324,7 @@
     "marque": "RATIO",
     "modele": "iX3M EASY",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6403,7 +6403,7 @@
     "marque": "RATIO",
     "modele": "IX3M DEEP",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6482,7 +6482,7 @@
     "marque": "RATIO",
     "modele": "IX3M TECH+",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6561,7 +6561,7 @@
     "marque": "RATIO",
     "modele": "IX3M REB",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6640,7 +6640,7 @@
     "marque": "RATIO",
     "modele": "iX3M2 TX Easy",
     "statut": "",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6719,7 +6719,7 @@
     "marque": "RATIO",
     "modele": "IX3M 2 Pro",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6798,7 +6798,7 @@
     "marque": "RATIO",
     "modele": "IX3M 2 Deep",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6877,7 +6877,7 @@
     "marque": "RATIO",
     "modele": "IX3M 2 Tech+",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -6956,7 +6956,7 @@
     "marque": "RATIO",
     "modele": "IX3M 2 GPS Pro",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -7035,7 +7035,7 @@
     "marque": "RATIO",
     "modele": "IX3M 2 GPS Deep",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -7114,7 +7114,7 @@
     "marque": "RATIO",
     "modele": "IX3M 2 GPS Tech+",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -7430,7 +7430,7 @@
     "marque": "SCUBAPRO",
     "modele": "Luna",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -7509,7 +7509,7 @@
     "marque": "SCUBAPRO",
     "modele": "Sol",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -7588,7 +7588,7 @@
     "marque": "SCUBAPRO",
     "modele": "Luna 2.0",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -7667,7 +7667,7 @@
     "marque": "SCUBAPRO",
     "modele": "Luna 2.0 AI",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -7746,7 +7746,7 @@
     "marque": "SCUBAPRO",
     "modele": "Chromis",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -7825,7 +7825,7 @@
     "marque": "SCUBAPRO",
     "modele": "Meridian",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -7904,7 +7904,7 @@
     "marque": "SCUBAPRO",
     "modele": "Mantis",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -7983,7 +7983,7 @@
     "marque": "SCUBAPRO",
     "modele": "Mantis 2",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8062,7 +8062,7 @@
     "marque": "SCUBAPRO",
     "modele": "Sport Matrix",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8141,7 +8141,7 @@
     "marque": "SCUBAPRO",
     "modele": "Aladin H",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8220,7 +8220,7 @@
     "marque": "SCUBAPRO",
     "modele": "SeaBear H3",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8299,7 +8299,7 @@
     "marque": "SCUBAPRO",
     "modele": "SeaBear T1",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8378,7 +8378,7 @@
     "marque": "SCUBAPRO",
     "modele": "A1",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8457,7 +8457,7 @@
     "marque": "SCUBAPRO",
     "modele": "A2",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8536,7 +8536,7 @@
     "marque": "SCUBAPRO",
     "modele": "G2",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8615,7 +8615,7 @@
     "marque": "SCUBAPRO",
     "modele": "G2 Tek",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8694,7 +8694,7 @@
     "marque": "SCUBAPRO",
     "modele": "G3",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8773,7 +8773,7 @@
     "marque": "SCUBAPRO",
     "modele": "HUD",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8852,7 +8852,7 @@
     "marque": "SEAC",
     "modele": "Jack",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -8931,7 +8931,7 @@
     "marque": "SEAC",
     "modele": "Guru",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9010,7 +9010,7 @@
     "marque": "SEAC",
     "modele": "Action",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9089,7 +9089,7 @@
     "marque": "SEAC",
     "modele": "Action HR",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9168,7 +9168,7 @@
     "marque": "SEAC",
     "modele": "Screen",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9247,7 +9247,7 @@
     "marque": "SEAC",
     "modele": "Tablet",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9326,7 +9326,7 @@
     "marque": "SHEARWATER",
     "modele": "Peregrine",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9405,7 +9405,7 @@
     "marque": "SHEARWATER",
     "modele": "Peregrine Tx",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9484,7 +9484,7 @@
     "marque": "SHEARWATER",
     "modele": "Tern",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9563,7 +9563,7 @@
     "marque": "SHEARWATER",
     "modele": "Tern Tx",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9642,7 +9642,7 @@
     "marque": "SHEARWATER",
     "modele": "Teric",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9721,7 +9721,7 @@
     "marque": "SHEARWATER",
     "modele": "Perdix",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9800,7 +9800,7 @@
     "marque": "SHEARWATER",
     "modele": "Perdix AI",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9879,7 +9879,7 @@
     "marque": "SHEARWATER",
     "modele": "Perdix 2",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -9958,7 +9958,7 @@
     "marque": "SHEARWATER",
     "modele": "Perdix 3",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10037,7 +10037,7 @@
     "marque": "SHEARWATER",
     "modele": "Petrel 2",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10116,7 +10116,7 @@
     "marque": "SHEARWATER",
     "modele": "Petrel 3",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10195,7 +10195,7 @@
     "marque": "SHEARWATER",
     "modele": "Petrel 3 Fischer",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10274,7 +10274,7 @@
     "marque": "SHEARWATER",
     "modele": "Nerd 2",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10353,7 +10353,7 @@
     "marque": "SHEARWATER",
     "modele": "Nerd 2 Fischer",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10432,7 +10432,7 @@
     "marque": "SUUNTO",
     "modele": "Zoop",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10511,7 +10511,7 @@
     "marque": "SUUNTO",
     "modele": "Zoop Novo",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10590,7 +10590,7 @@
     "marque": "SUUNTO",
     "modele": "Vyper",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10669,7 +10669,7 @@
     "marque": "SUUNTO",
     "modele": "Vyper Air",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10748,7 +10748,7 @@
     "marque": "SUUNTO",
     "modele": "Vyper Novo",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10827,7 +10827,7 @@
     "marque": "SUUNTO",
     "modele": "D4i Novo",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10906,7 +10906,7 @@
     "marque": "SUUNTO",
     "modele": "D5",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -10985,7 +10985,7 @@
     "marque": "SUUNTO",
     "modele": "Ocean",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -11064,7 +11064,7 @@
     "marque": "SUUNTO",
     "modele": "Nautic S",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -11143,7 +11143,7 @@
     "marque": "SUUNTO",
     "modele": "Nautic",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -11222,7 +11222,7 @@
     "marque": "SUUNTO",
     "modele": "Eon Core",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -11301,7 +11301,7 @@
     "marque": "SUUNTO",
     "modele": "Eon Steel",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -11380,7 +11380,7 @@
     "marque": "SUUNTO",
     "modele": "Eon Steel Black",
     "statut": "Done",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -11459,7 +11459,7 @@
     "marque": "SUUNTO",
     "modele": "D6i Novo",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -11538,7 +11538,7 @@
     "marque": "SUUNTO",
     "modele": "D9tx",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -11617,7 +11617,7 @@
     "marque": "SUUNTO",
     "modele": "Cobra",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {
@@ -11696,7 +11696,7 @@
     "marque": "SUUNTO",
     "modele": "DX",
     "statut": "Todo",
-    "photo": null,
+    "photo": "photo.png",
     "notice": null,
     "caracteristiques": {
       "Général": {

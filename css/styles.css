@@ -136,8 +136,10 @@ a.model-name:hover { color: var(--accent); }
 .m-label .field-note { display: inline; margin-left: 4px; }
 .price-note { margin-top: 2px; }
 
-.media { background: linear-gradient(180deg, #F8FAF9, #ECF0EF); display: grid; place-items: center; overflow: hidden; }
-.media img { width: 100%; height: 100%; object-fit: contain; padding: 8%; }
+.media { position: relative; background: linear-gradient(180deg, #F8FAF9, #ECF0EF); display: grid; place-items: center; overflow: hidden; }
+/* Absolutely positioned so the photo always fits the frame whole, whatever its ratio.
+   multiply melts white photo backgrounds into the tile. */
+.media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 6%; mix-blend-mode: multiply; }
 .silhouette { color: #8A99A3; width: 58%; max-width: 140px; display: block; }
 .silhouette svg { width: 100%; height: auto; display: block; }
 

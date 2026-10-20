@@ -3,7 +3,7 @@
   "marque": "SEAC",
   "modele": "Action HR",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {

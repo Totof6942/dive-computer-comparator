@@ -1,1 +1,413 @@
-{}
+{
+  "apeks-dsx": {
+    "photo": "modeles/apeks-dsx/photo.png"
+  },
+  "aqualung-i100": {
+    "photo": "modeles/aqualung-i100/photo.png"
+  },
+  "aqualung-i200c": {
+    "photo": "modeles/aqualung-i200c/photo.png"
+  },
+  "aqualung-i300": {
+    "photo": "modeles/aqualung-i300/photo.png"
+  },
+  "aqualung-i300c": {
+    "photo": "modeles/aqualung-i300c/photo.png"
+  },
+  "aqualung-i330r": {
+    "photo": "modeles/aqualung-i330r/photo.png"
+  },
+  "aqualung-i450t": {
+    "photo": "modeles/aqualung-i450t/photo.png"
+  },
+  "aqualung-i470tc": {
+    "photo": "modeles/aqualung-i470tc/photo.png"
+  },
+  "aqualung-i550c": {
+    "photo": "modeles/aqualung-i550c/photo.png"
+  },
+  "aqualung-i750t": {
+    "photo": "modeles/aqualung-i750t/photo.png"
+  },
+  "aqualung-i770r": {
+    "photo": "modeles/aqualung-i770r/photo.png"
+  },
+  "av-underwater-technologie-av1": {
+    "photo": "modeles/av-underwater-technologie-av1/photo.png"
+  },
+  "azoth-systems-odyssey": {
+    "photo": "modeles/azoth-systems-odyssey/photo.png"
+  },
+  "beuchat-voyager-2g": {
+    "photo": "modeles/beuchat-voyager-2g/photo.png"
+  },
+  "cressi-cartesio": {
+    "photo": "modeles/cressi-cartesio/photo.png"
+  },
+  "cressi-davinci": {
+    "photo": "modeles/cressi-davinci/photo.png"
+  },
+  "cressi-donatello": {
+    "photo": "modeles/cressi-donatello/photo.png"
+  },
+  "cressi-giotto": {
+    "photo": "modeles/cressi-giotto/photo.png"
+  },
+  "cressi-goa": {
+    "photo": "modeles/cressi-goa/photo.png"
+  },
+  "cressi-leonardo": {
+    "photo": "modeles/cressi-leonardo/photo.png"
+  },
+  "cressi-michelangelo": {
+    "photo": "modeles/cressi-michelangelo/photo.png"
+  },
+  "cressi-neon": {
+    "photo": "modeles/cressi-neon/photo.png"
+  },
+  "cressi-raffaello": {
+    "photo": "modeles/cressi-raffaello/photo.png"
+  },
+  "deepblu-cosmiq": {
+    "photo": "modeles/deepblu-cosmiq/photo.png"
+  },
+  "divesoft-freedom": {
+    "photo": "modeles/divesoft-freedom/photo.png"
+  },
+  "garmin-descent-g1-45-5mm": {
+    "photo": "modeles/garmin-descent-g1-45-5mm/photo.png"
+  },
+  "garmin-descent-g1-solar": {
+    "photo": "modeles/garmin-descent-g1-solar/photo.png"
+  },
+  "garmin-descent-g2": {
+    "photo": "modeles/garmin-descent-g2/photo.png"
+  },
+  "garmin-descent-mk2-52mm": {
+    "photo": "modeles/garmin-descent-mk2-52mm/photo.png"
+  },
+  "garmin-descent-mk2i-52mm": {
+    "photo": "modeles/garmin-descent-mk2i-52mm/photo.png"
+  },
+  "garmin-descent-mk2s-43-mm": {
+    "photo": "modeles/garmin-descent-mk2s-43-mm/photo.png"
+  },
+  "garmin-descent-mk3-43mm": {
+    "photo": "modeles/garmin-descent-mk3-43mm/photo.png"
+  },
+  "garmin-descent-mk3i-51mm": {
+    "photo": "modeles/garmin-descent-mk3i-51mm/photo.png"
+  },
+  "garmin-descent-x30": {
+    "photo": "modeles/garmin-descent-x30/photo.png"
+  },
+  "garmin-descent-x50i": {
+    "photo": "modeles/garmin-descent-x50i/photo.png"
+  },
+  "halcyon-symbios-blue-handset": {
+    "photo": "modeles/halcyon-symbios-blue-handset/photo.png"
+  },
+  "halcyon-symbios-handset": {
+    "photo": "modeles/halcyon-symbios-handset/photo.png"
+  },
+  "halcyon-symbios-hud": {
+    "photo": "modeles/halcyon-symbios-hud/photo.png"
+  },
+  "hw-ostc-ostc-4": {
+    "photo": "modeles/hw-ostc-ostc-4/photo.png"
+  },
+  "hw-ostc-ostc-5": {
+    "photo": "modeles/hw-ostc-ostc-5/photo.png"
+  },
+  "hw-ostc-ostc-nano-sport": {
+    "photo": "modeles/hw-ostc-ostc-nano-sport/photo.png"
+  },
+  "hw-ostc-ostc-nano-tech": {
+    "photo": "modeles/hw-ostc-ostc-nano-tech/photo.png"
+  },
+  "hw-ostc-ostc-sport": {
+    "photo": "modeles/hw-ostc-ostc-sport/photo.png"
+  },
+  "liquivision-kaon": {
+    "photo": "modeles/liquivision-kaon/photo.png"
+  },
+  "liquivision-lynx": {
+    "photo": "modeles/liquivision-lynx/photo.png"
+  },
+  "liquivision-xeo": {
+    "photo": "modeles/liquivision-xeo/photo.png"
+  },
+  "mares-genius": {
+    "photo": "modeles/mares-genius/photo.png"
+  },
+  "mares-icon-hd": {
+    "photo": "modeles/mares-icon-hd/photo.png"
+  },
+  "mares-icon-hd-net-ready": {
+    "photo": "modeles/mares-icon-hd-net-ready/photo.png"
+  },
+  "mares-matrix": {
+    "photo": "modeles/mares-matrix/photo.png"
+  },
+  "mares-nemo-wide-2": {
+    "photo": "modeles/mares-nemo-wide-2/photo.png"
+  },
+  "mares-puck-4": {
+    "photo": "modeles/mares-puck-4/photo.png"
+  },
+  "mares-puck-lite": {
+    "photo": "modeles/mares-puck-lite/photo.png"
+  },
+  "mares-puck-pro-pro": {
+    "photo": "modeles/mares-puck-pro-pro/photo.png"
+  },
+  "mares-quad": {
+    "photo": "modeles/mares-quad/photo.png"
+  },
+  "mares-quad-2": {
+    "photo": "modeles/mares-quad-2/photo.png"
+  },
+  "mares-quad-air": {
+    "photo": "modeles/mares-quad-air/photo.png"
+  },
+  "mares-quad-ci": {
+    "photo": "modeles/mares-quad-ci/photo.png"
+  },
+  "mares-sirius": {
+    "photo": "modeles/mares-sirius/photo.png"
+  },
+  "mares-sirius-l": {
+    "photo": "modeles/mares-sirius-l/photo.png"
+  },
+  "mares-smart": {
+    "photo": "modeles/mares-smart/photo.png"
+  },
+  "mares-smart-air": {
+    "photo": "modeles/mares-smart-air/photo.png"
+  },
+  "oceanic-geo-2": {
+    "photo": "modeles/oceanic-geo-2/photo.png"
+  },
+  "oceanic-geo-4-0": {
+    "photo": "modeles/oceanic-geo-4-0/photo.png"
+  },
+  "oceanic-geo-air": {
+    "photo": "modeles/oceanic-geo-air/photo.png"
+  },
+  "oceanic-pro-plux-4-0": {
+    "photo": "modeles/oceanic-pro-plux-4-0/photo.png"
+  },
+  "oceanic-pro-plux-x": {
+    "photo": "modeles/oceanic-pro-plux-x/photo.png"
+  },
+  "oceanic-veo-4-0": {
+    "photo": "modeles/oceanic-veo-4-0/photo.png"
+  },
+  "ratio-idive-deep": {
+    "photo": "modeles/ratio-idive-deep/photo.png"
+  },
+  "ratio-idive-easy": {
+    "photo": "modeles/ratio-idive-easy/photo.png"
+  },
+  "ratio-idive-tech": {
+    "photo": "modeles/ratio-idive-tech/photo.png"
+  },
+  "ratio-ix3m-2-deep": {
+    "photo": "modeles/ratio-ix3m-2-deep/photo.png"
+  },
+  "ratio-ix3m-2-gps-deep": {
+    "photo": "modeles/ratio-ix3m-2-gps-deep/photo.png"
+  },
+  "ratio-ix3m-2-gps-pro": {
+    "photo": "modeles/ratio-ix3m-2-gps-pro/photo.png"
+  },
+  "ratio-ix3m-2-gps-tech": {
+    "photo": "modeles/ratio-ix3m-2-gps-tech/photo.png"
+  },
+  "ratio-ix3m-2-pro": {
+    "photo": "modeles/ratio-ix3m-2-pro/photo.png"
+  },
+  "ratio-ix3m-2-tech": {
+    "photo": "modeles/ratio-ix3m-2-tech/photo.png"
+  },
+  "ratio-ix3m-deep": {
+    "photo": "modeles/ratio-ix3m-deep/photo.png"
+  },
+  "ratio-ix3m-easy": {
+    "photo": "modeles/ratio-ix3m-easy/photo.png"
+  },
+  "ratio-ix3m-reb": {
+    "photo": "modeles/ratio-ix3m-reb/photo.png"
+  },
+  "ratio-ix3m-tech": {
+    "photo": "modeles/ratio-ix3m-tech/photo.png"
+  },
+  "ratio-ix3m2-tx-easy": {
+    "photo": "modeles/ratio-ix3m2-tx-easy/photo.png"
+  },
+  "scubapro-a1": {
+    "photo": "modeles/scubapro-a1/photo.png"
+  },
+  "scubapro-a2": {
+    "photo": "modeles/scubapro-a2/photo.png"
+  },
+  "scubapro-aladin-h": {
+    "photo": "modeles/scubapro-aladin-h/photo.png"
+  },
+  "scubapro-chromis": {
+    "photo": "modeles/scubapro-chromis/photo.png"
+  },
+  "scubapro-g2": {
+    "photo": "modeles/scubapro-g2/photo.png"
+  },
+  "scubapro-g2-tek": {
+    "photo": "modeles/scubapro-g2-tek/photo.png"
+  },
+  "scubapro-g3": {
+    "photo": "modeles/scubapro-g3/photo.png"
+  },
+  "scubapro-hud": {
+    "photo": "modeles/scubapro-hud/photo.png"
+  },
+  "scubapro-luna": {
+    "photo": "modeles/scubapro-luna/photo.png"
+  },
+  "scubapro-luna-2-0": {
+    "photo": "modeles/scubapro-luna-2-0/photo.png"
+  },
+  "scubapro-luna-2-0-ai": {
+    "photo": "modeles/scubapro-luna-2-0-ai/photo.png"
+  },
+  "scubapro-mantis": {
+    "photo": "modeles/scubapro-mantis/photo.png"
+  },
+  "scubapro-mantis-2": {
+    "photo": "modeles/scubapro-mantis-2/photo.png"
+  },
+  "scubapro-meridian": {
+    "photo": "modeles/scubapro-meridian/photo.png"
+  },
+  "scubapro-seabear-h3": {
+    "photo": "modeles/scubapro-seabear-h3/photo.png"
+  },
+  "scubapro-seabear-t1": {
+    "photo": "modeles/scubapro-seabear-t1/photo.png"
+  },
+  "scubapro-sol": {
+    "photo": "modeles/scubapro-sol/photo.png"
+  },
+  "scubapro-sport-matrix": {
+    "photo": "modeles/scubapro-sport-matrix/photo.png"
+  },
+  "seac-action": {
+    "photo": "modeles/seac-action/photo.png"
+  },
+  "seac-action-hr": {
+    "photo": "modeles/seac-action-hr/photo.png"
+  },
+  "seac-guru": {
+    "photo": "modeles/seac-guru/photo.png"
+  },
+  "seac-jack": {
+    "photo": "modeles/seac-jack/photo.png"
+  },
+  "seac-screen": {
+    "photo": "modeles/seac-screen/photo.png"
+  },
+  "seac-tablet": {
+    "photo": "modeles/seac-tablet/photo.png"
+  },
+  "shearwater-nerd-2": {
+    "photo": "modeles/shearwater-nerd-2/photo.png"
+  },
+  "shearwater-nerd-2-fischer": {
+    "photo": "modeles/shearwater-nerd-2-fischer/photo.png"
+  },
+  "shearwater-perdix": {
+    "photo": "modeles/shearwater-perdix/photo.png"
+  },
+  "shearwater-perdix-2": {
+    "photo": "modeles/shearwater-perdix-2/photo.png"
+  },
+  "shearwater-perdix-3": {
+    "photo": "modeles/shearwater-perdix-3/photo.png"
+  },
+  "shearwater-perdix-ai": {
+    "photo": "modeles/shearwater-perdix-ai/photo.png"
+  },
+  "shearwater-peregrine": {
+    "photo": "modeles/shearwater-peregrine/photo.png"
+  },
+  "shearwater-peregrine-tx": {
+    "photo": "modeles/shearwater-peregrine-tx/photo.png"
+  },
+  "shearwater-petrel-2": {
+    "photo": "modeles/shearwater-petrel-2/photo.png"
+  },
+  "shearwater-petrel-3": {
+    "photo": "modeles/shearwater-petrel-3/photo.png"
+  },
+  "shearwater-petrel-3-fischer": {
+    "photo": "modeles/shearwater-petrel-3-fischer/photo.png"
+  },
+  "shearwater-teric": {
+    "photo": "modeles/shearwater-teric/photo.png"
+  },
+  "shearwater-tern": {
+    "photo": "modeles/shearwater-tern/photo.png"
+  },
+  "shearwater-tern-tx": {
+    "photo": "modeles/shearwater-tern-tx/photo.png"
+  },
+  "suunto-cobra": {
+    "photo": "modeles/suunto-cobra/photo.png"
+  },
+  "suunto-d4i-novo": {
+    "photo": "modeles/suunto-d4i-novo/photo.png"
+  },
+  "suunto-d5": {
+    "photo": "modeles/suunto-d5/photo.png"
+  },
+  "suunto-d6i-novo": {
+    "photo": "modeles/suunto-d6i-novo/photo.png"
+  },
+  "suunto-d9tx": {
+    "photo": "modeles/suunto-d9tx/photo.png"
+  },
+  "suunto-dx": {
+    "photo": "modeles/suunto-dx/photo.png"
+  },
+  "suunto-eon-core": {
+    "photo": "modeles/suunto-eon-core/photo.png"
+  },
+  "suunto-eon-steel": {
+    "photo": "modeles/suunto-eon-steel/photo.png"
+  },
+  "suunto-eon-steel-black": {
+    "photo": "modeles/suunto-eon-steel-black/photo.png"
+  },
+  "suunto-nautic": {
+    "photo": "modeles/suunto-nautic/photo.png"
+  },
+  "suunto-nautic-s": {
+    "photo": "modeles/suunto-nautic-s/photo.png"
+  },
+  "suunto-ocean": {
+    "photo": "modeles/suunto-ocean/photo.png"
+  },
+  "suunto-vyper": {
+    "photo": "modeles/suunto-vyper/photo.png"
+  },
+  "suunto-vyper-air": {
+    "photo": "modeles/suunto-vyper-air/photo.png"
+  },
+  "suunto-vyper-novo": {
+    "photo": "modeles/suunto-vyper-novo/photo.png"
+  },
+  "suunto-zoop": {
+    "photo": "modeles/suunto-zoop/photo.png"
+  },
+  "suunto-zoop-novo": {
+    "photo": "modeles/suunto-zoop-novo/photo.png"
+  }
+}

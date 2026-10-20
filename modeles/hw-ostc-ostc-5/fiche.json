@@ -3,7 +3,7 @@
   "marque": "HW-OSTC",
   "modele": "OSTC 5",
   "statut": "Done",
-  "photo": null,
+  "photo": "photo.png",
   "notice": null,
   "caracteristiques": {
     "Général": {
