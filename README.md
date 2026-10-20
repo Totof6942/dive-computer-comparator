@@ -1,4 +1,4 @@
-# Palier
+# Bathy
 
 Static web app to browse, filter and compare dive computers: plain HTML, CSS and JS modules. The app itself needs no build step; `scripts/build.mjs` only prepares the published site (data snapshot, one static page per model).
 
@@ -59,13 +59,8 @@ To update the committed data files (`data/`, `modeles/<id>/fiche.json`), run `no
 
 One-time setup: Settings → Pages → Source: **GitHub Actions**.
 
-## Export
-
-The catalogue (current filtered list) and the comparison can be exported to `.xlsx`. SheetJS is loaded from cdnjs on first use.
-
 ## Routes
 
-- `#/?prix=300-800&marques=SUUNTO,MARES&algos=vpm&formats=Montre&options=trimix,bluetooth&tri=priceAsc&q=…`: catalogue. The filters are mirrored in the URL so a search can be shared; `#/` alone restores the session's filters.
+- `#/?prix=300-800&marques=SUUNTO,MARES&algos=vpm&formats=Montre&modes=trimix&options=sonde,bungee&alimentation=batterie&tri=priceAsc&q=…`: catalogue. The filters are mirrored in the URL so a search can be shared; `#/` alone restores the session's filters.
 - `#/modele/<id>`: model page
-- `#/guide`: "Trouver mon ordinateur" quiz. Results are shareable: `#/guide?pratique=loisir&usages=apnee&format=any&budget=800&fonctions=air,bluetooth&algo=any`. Questions and scoring live in `js/guide.js`.
 - `#/comparer/<id>,<id>,<id>`: comparison (shareable link)

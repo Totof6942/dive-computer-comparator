@@ -14,7 +14,7 @@ AQUALUNG,i200C,,Done,Aqualung - i200C [EN].pdf,2019,"299,00 €",ZH-L16C,Off / O
 Désactivable",???,9m/min,Bargraphe - Segments : remontée,24h - Profondimètre,Sans déco,Oui,Oui,Oui,Oui,Non,Non,Non,2 mélanges,"1,1 - 1,6",21 à 100%,Non,Oui,Oui,Non,Montre,Oui,Non,Segment,Non,Oui,Non,Pile - CR2430,100 heures de plongée,Utilisateur,100m,"Automatique
 4 270m max plongée",24 plongées,Sur application,Oui,Non,Oui,Oui,Non,,Non,Non,Non,Non,Non,Non,Non
 AQUALUNG,i300,,Done,Aqualung - i300 [EN].pdf,2016,,ZH-L16C,Off / On,-,-,-,-,-,-,Désactivable,"3min à 5min de 3m à 6m
-Désactivable",???,9m/min,Bargraphe - Segments : remontée,24h - Profondimètre,Sans déco,Oui,Oui,Oui,Oui,Non,Non,Non,1 ménage,"1,1 - 1,6",21 à 50%,Non,Oui,Oui,Non,Montre,Oui,Non,Segment,Non,Oui,Non,Pile - CR2450,100 heures de plongée,Utilisateur,100m,"Automatique
+Désactivable",???,9m/min,Bargraphe - Segments : remontée,24h - Profondimètre,Sans déco,Oui,Oui,Oui,Oui,Non,Non,Non,1 mélange,"1,1 - 1,6",21 à 50%,Non,Oui,Oui,Non,Montre,Oui,Non,Segment,Non,Oui,Non,Pile - CR2450,100 heures de plongée,Utilisateur,100m,"Automatique
 4 270m max plongée",24 plongées,Sur PC,Oui,Oui,Non,Non,Non,,Non,Non,Non,Non,Non,Non,Non
 AQUALUNG,i300C,,Done,Aqualung - i300C [FR].pdf,2018,"299,00 €",ZH-L16C,Off / On,-,-,-,-,-,-,Désactivable,"3min à 5min de 3m à 6m
 Désactivable",???,9m/min,Bargraphe - Segments : remontée,24h - Profondimètre,Sans déco,Oui,Oui,Oui,Oui,Non,Non,Non,3 mélanges,"1,1 - 1,6",21 à 100%,Non,Oui,Oui,Non,Montre,Oui,Non,Segment,Non,Oui,Non,Pile - CR2450,100 à 300 heures de plongées,Utilisateur,100m,"Automatique
@@ -49,7 +49,7 @@ Numérique : uniquement en cas de remontée",???,Avec déco,Oui,Oui,,Non,Oui,Oui
 BEUCHAT,Voyager 2G,,Done,Beuchat - Voyager 2G [FR].pdf,???,,ZH-L16C,Off / On,-,-,-,-,-,-,Désactivable,3min au dessus de 6m,???,9 à 18m/min,,24h,Sans Déco,Oui,Oui,Oui,Oui,Non,Non,Non,2 mélanges,"1,2 - 1,6",21 à 100%,Non,Oui,Oui,Non,Rond,Oui,Non,Segment,Non,Oui,Non,Pile - CR2450,300 heures de plongée,Utilisateur,100m,0 à 4270m,24 plongées,Sur PC,???,Oui,Non,Non,Non,,Non,Non,Non,Non,Non,Non,Non
 CRESSI,Donatello,,Done,Cressi - Michelangelo Donatello [FR].pdf,2019,"199,00 €",-,-,"9C/2,5-480","SF0
 SF1
-SF2",-,-,-,-,Désactivable,3min de 3m à 5m,???,12m/min,,48h,Sans Déco,Oui,Oui,Oui,Oui,Non,Non,Non,1 ménage,"1,2 - 1,6",21 à 50%,Non,Oui,Oui,Non,Rond,Oui,Non,Segment,Non,Oui,Non,Pile - CR2430,2 ans,Utilisateur,120m,"0m - 700m
+SF2",-,-,-,-,Désactivable,3min de 3m à 5m,???,12m/min,,48h,Sans Déco,Oui,Oui,Oui,Oui,Non,Non,Non,1 mélange,"1,2 - 1,6",21 à 50%,Non,Oui,Oui,Non,Rond,Oui,Non,Segment,Non,Oui,Non,Pile - CR2430,2 ans,Utilisateur,120m,"0m - 700m
 700m - 1 500m
 1 500m - 2 400m
 2 400m - 3 400m",50 plongées,Sur application,Oui,En option,En option,Oui,Non,,Non,Non,Non,Non,Non,Non,Non
@@ -519,10 +519,15 @@ Haut = 35/75",-,-,VPM-B (Optionnel),"0
 +3
 +4
 +5",-,Optionnel,GF,3min à 5min de 3m à 6m,???,10m/min,"Bargraphe - 3m/min/barre
-Numérique : remontée + descente",Non,Avec déco,Oui,Oui,Oui,Non,Oui,Oui,Oui,5 mélanges,"1,0 - 1,6 (Nx)",21 à 99% (Nx),"
+Numérique : remontée + descente",Non,Avec déco,Oui,Oui,Oui,Non,Oui,Oui,Oui,5 OC + 5 CC,"1,0 - 1,6 (Nx)",21 à 99% (Nx),"
 ???",Oui,Non,Oui,Rectangulaire,Double sangles,Oui,LCD,Oui,Oui,Non,Pile - AA,45 à 100 heures de plongées,Utilisateur,260m,Automatique,1000 heures,Oui,Oui,Non,Oui,Oui,Oui,Oui,4 émetteurs,Non,Non,Non,Oui,Non,Non
-SHEARWATER,Perdix 3,,Todo,,2026,,ZHL-16C,,-,-,,,,,GF,,???,10m/min,"Bargraphe - 3m/min/barre
-Numérique : remontée + descente",,Avec déco,Oui,Oui,Oui,Oui,Oui,Oui,Oui,,,,,Oui,Non,Oui,Rectangulaire,Double sangles,Oui,AMOLED,Oui,Oui,Non,Pile - AA,35 à 60 heures de plongées,Utilisateur,260m,Automatique,1000 heures,Oui,Oui,Non,Oui,Oui,Oui,Oui,4 émetteurs,Non,Non,Non,Oui,Non,Non
+SHEARWATER,Perdix 3,,Done,Shearwater - Perdix 3 [EN].pdf,2026,"1 395,00 €",ZHL-16C,"GF libres
+Bas = 50/95
+Moyen = 50/85
+Haut = 50/75
+Défaut Rec 50/85 
+Défaut Tek 50/70",-,-,-,-,-,-,GF,3min à 5min de 3m à 6m,???,10m/min,"Bargraphe - 3m/min/barre
+Numérique : remontée + descente",Non,Avec déco,Oui,Oui,Oui,Oui,Oui,Oui,Oui,5 OC + 5 CC,"1,0 - 1,6 (Nx)",21 à 99% (Nx),???,Oui,Non,Oui,Rectangulaire,Double sangles,Oui,AMOLED,Oui,Oui,Non,Pile - AA,35 à 60 heures de plongées,Utilisateur,260m,Automatique,1000 heures,Oui,Oui,Non,Oui,Oui,Oui,Oui,4 émetteurs,Non,Non,Non,Oui,Non,Non
 SHEARWATER,Petrel 2,,Done,Shearwater - Petrel 2 [FR].pdf,2014,,"ZH-L16C - 2,5-720","GF libres
 Défaut 30/70",-,-,"VPM-B (optionnel)
 VPM-B/GFS (optionnel)","0
@@ -602,7 +607,7 @@ P2",-,-,-,-,Désactivable,3min de 3m à 6m,???,10m/min,,48h,Sans déco,Oui,Oui,O
 1 500m - 3 000m",140 heures,Sur PC,Non,Oui,Non,Non,Oui,,1 émetteur,Non,Non,Non,Non,Non,Non
 SUUNTO,D4i Novo,,Done,Suunto - D4i [FR].pdf,2018,"419,00 €",-,-,"9C/2,5-480","P0
 P1
-P2",-,-,-,-,Désactivable,3min de 3m à 6m,???,10m/min,,48h,Sans déco,Oui,Oui,Non,Oui,Non,Non,Non,1 ménage,"1,2 - 1,6",21 à 50%,Non,Oui,Oui,Non,Montre,Oui,Non,???,Non,Oui,Non,Pile - CR2450,18 mois - 100 plongées,Utilisateur,120m,"0m - 300m
+P2",-,-,-,-,Désactivable,3min de 3m à 6m,???,10m/min,,48h,Sans déco,Oui,Oui,Non,Oui,Non,Non,Non,1 mélange,"1,2 - 1,6",21 à 50%,Non,Oui,Oui,Non,Montre,Oui,Non,???,Non,Oui,Non,Pile - CR2450,18 mois - 100 plongées,Utilisateur,120m,"0m - 300m
 300m - 1500m
 1500m - 3000m",40 heures,Non,En usine,Oui,Non,Non,Non,,1 émetteur,Non,Non,Non,Non,Non,Non
 SUUNTO,D5,,Done,Suunto - D5 [FR].pdf,2019,"575,00 €",-,-,15C/1-720,"-2

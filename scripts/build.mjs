@@ -15,8 +15,8 @@ import { mkdir, readdir, readFile, rm, writeFile, cp, stat } from 'node:fs/promi
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  CSV_URL, SHEET_URL, PRICE_NOTE, SECTIONS, FIELDS,
-  parseCSV, buildModels, formatPrice, algoSummary, manualUrl,
+  CSV_URL, SHEET_URL, SECTIONS, FIELDS,
+  parseCSV, buildModels, formatPrice, algoSummary, algoLabels, manualUrl, keyOf,
 } from '../js/data.js';
 import { silhouette } from '../js/silhouettes.js';
 
@@ -123,25 +123,25 @@ async function pruneModels(ids) {
 // ---------------------------------------------------------------------------
 // 3. Static pages
 
-function valueHtml(v, f) {
+function valueHtml(v, f, manualHref = null) {
   if (v.state === 'unknown') return '<span class="flag flag-unknown"><span aria-hidden="true">?</span> Inconnu</span>';
   if (v.state === 'na') return '<span class="na">—<span class="sr-only">Non applicable</span></span>';
   if (v.state === 'empty') return '<span class="flag flag-empty">Non renseigné</span>';
   if (f.type === 'bool' && /^oui$/i.test(v.text)) return '<span class="yes"><span aria-hidden="true">✓</span> Oui</span>';
   if (f.type === 'bool' && /^non$/i.test(v.text)) return '<span class="no"><span aria-hidden="true">✕</span> Non</span>';
   if (f.format === 'price' && v.score != null) return `<span class="mono">${esc(formatPrice(v.score))}</span>`;
+  if (manualHref && f.key === keyOf('Notice')) return `<a href="${esc(manualHref)}" rel="noopener">${esc(v.text).replace(/\n/g, '<br>')}</a>`;
   return `<span class="mono">${esc(v.text).replace(/\n/g, '<br>')}</span>`;
 }
 
 function header(prefix) {
   return `<header class="site-header"><div class="header-inner">
-    <a class="logo" href="${prefix}#/" aria-label="Palier, accueil">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 8h22M5 16h15M5 24h8" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg>
-      <span class="logo-text">Palier</span></a>
+    <a class="logo" href="${prefix}#/" aria-label="Bathy, accueil">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 7h4l6 15h9l2-5h3l2-6" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="logo-text">Bathy</span></a>
     <span class="tagline">Comparateur d’ordinateurs de plongée</span>
     <nav class="nav" aria-label="Navigation principale">
       <a href="${prefix}#/">Catalogue</a>
-      <a href="${prefix}#/guide"><span class="nav-long">Trouver mon ordinateur</span><span class="nav-short">Guide</span></a>
       <a href="${prefix}#/comparer/">Comparer</a>
     </nav></div></header>`;
 }
@@ -150,7 +150,6 @@ function footer(disclaimer, builtAt) {
   return `<footer class="site-footer"><div class="footer-inner">
     <p class="disclaimer-title">Avertissement</p>
     <p class="disclaimer">${esc(disclaimer)}</p>
-    <p class="disclaimer">${esc(PRICE_NOTE)}</p>
     <p class="data-status">Page générée le ${builtAt} depuis la <a href="${SHEET_URL}" rel="noopener">feuille source</a>.</p>
   </div></footer>`;
 }
@@ -169,14 +168,16 @@ function modelPage(m, disclaimer, builtAt) {
   const url = SITE_URL ? `${SITE_URL}modeles/${m.id}/` : '';
   const image = m.photo && SITE_URL ? (/^https?:/.test(m.photo) ? m.photo : SITE_URL + m.photo) : '';
   const manual = manualUrl(m);
-  const tags = [algo, m.trimix && 'Trimix', m.ccr && 'CCR', m.airIntegration && 'Intégration d’air'].filter(Boolean);
+  const manualHref = manual && (/^https?:/.test(manual) ? manual : prefix + manual);
+  // Same tags as the app: one per algorithm, coloured by family.
+  const tags = algoLabels(m, { short: true }).map((t, i) => `<li class="tag tag-${m.algos[i]}">${esc(t)}</li>`).join('');
 
   const media = m.photo
     ? `<img src="${esc(/^https?:/.test(m.photo) ? m.photo : prefix + m.photo)}" alt="${esc(fullName)}">`
     : `<span class="silhouette" role="img" aria-label="Silhouette ${esc(m.formats[0] || 'générique')}">${silhouette(m.formats)}</span>`;
 
   const sections = SECTIONS.map((s) => `<section class="spec-card"><h2>${esc(s.label)}</h2><dl>
-      ${FIELDS.filter((f) => f.section === s.id).map((f) => `<div class="spec-row"><dt>${esc(f.label)}${f.note ? ` <span class="field-note">${esc(f.note)}</span>` : ''}</dt><dd>${valueHtml(m.values[f.key], f)}</dd></div>`).join('')}
+      ${FIELDS.filter((f) => f.section === s.id).map((f) => `<div class="spec-row"><dt>${esc(f.label)}</dt><dd>${valueHtml(m.values[f.key], f, manualHref)}</dd></div>`).join('')}
     </dl></section>`).join('');
 
   return `<!doctype html>
@@ -184,19 +185,19 @@ function modelPage(m, disclaimer, builtAt) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(fullName)} · Palier</title>
+  <title>${esc(fullName)} · Bathy</title>
   <meta name="description" content="${esc(description)}">
   ${url ? `<link rel="canonical" href="${esc(url)}">` : ''}
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="Palier">
+  <meta property="og:site_name" content="Bathy">
   <meta property="og:title" content="${esc(fullName)}">
   <meta property="og:description" content="${esc(description)}">
   ${url ? `<meta property="og:url" content="${esc(url)}">` : ''}
   ${image ? `<meta property="og:image" content="${esc(image)}">` : ''}
   <meta name="twitter:card" content="${image ? 'summary_large_image' : 'summary'}">
   <meta name="theme-color" content="#0E1A24">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1A24'/%3E%3Cpath d='M7 9h18M7 16h12M7 23h6' stroke='%23FB923C' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1A24'/%3E%3Cpath d='M5 9h3l4.5 11.5h7l1.5-4h2.5l1.5-5' fill='none' stroke='%2300AEEF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -212,17 +213,15 @@ function modelPage(m, disclaimer, builtAt) {
         <p class="brand">${esc(m.brand)}</p>
         <h1 class="model-name hero-name">${esc(m.name)}</h1>
         <p class="hero-price">${m.price != null ? `<span class="price">${esc(formatPrice(m.price))}</span>` : '<span class="price price-missing">Prix non renseigné</span>'}${m.year ? ` <span class="muted">· sorti en <span class="mono">${m.year}</span></span>` : ''}</p>
-        ${m.price != null ? '<p class="hint price-note">Prix indicatif, observé chez les revendeurs français hors promotion.</p>' : ''}
         ${m.onSale === false ? '<p class="hero-meta"><span class="badge badge-off">Plus commercialisé</span></p>' : ''}
-        <ul class="tags">${tags.map((t) => `<li class="tag">${esc(t)}</li>`).join('')}</ul>
+        <ul class="tags">${tags}</ul>
         <div class="hero-actions">
           <a class="btn btn-primary" href="${prefix}#/modele/${encodeURIComponent(m.id)}">Comparer avec d’autres modèles</a>
-          ${manual ? `<a class="btn btn-ghost" href="${esc(/^https?:/.test(manual) ? manual : prefix + manual)}" rel="noopener">Notice (PDF)</a>` : ''}
         </div>
         <p class="hint">Fiche complète à ${m.completeness} %.</p>
       </div>
     </section>
-    <div class="spec-grid" style="margin-top:16px">${sections}</div>
+    <div class="spec-grid">${sections}</div>
   </main>
   ${footer(disclaimer, builtAt)}
 </body>

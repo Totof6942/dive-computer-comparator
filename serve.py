@@ -18,6 +18,6 @@ class NoCacheHandler(http.server.SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print(f"Palier: http://localhost:{PORT} ({DIRECTORY})")
+    print(f"Bathy: http://localhost:{PORT} ({DIRECTORY})")
     handler = functools.partial(NoCacheHandler, directory=DIRECTORY)
     http.server.ThreadingHTTPServer(("", PORT), handler).serve_forever()

@@ -24,7 +24,11 @@ function repoFromPagesUrl() {
 // Snapshot of the sheet written by scripts/build.mjs, used when Google can't be reached.
 const SNAPSHOT_URL = 'data/sheet.csv';
 
-const CACHE_KEY = 'palier.csv.v1';
+const CACHE_KEY = 'bathy.csv';
+
+// Shown instead of the e-mail address of the sheet's credit line, written so
+// that address-harvesting bots don't pick it up.
+const CONTACT_EMAIL = 'poulette.christophe[at]gmail[dot]com';
 
 // ---------------------------------------------------------------------------
 // CSV (RFC 4180: quoted fields, doubled quotes, line breaks inside quotes)
@@ -91,9 +95,6 @@ function parseCell(raw, field) {
 // Field catalogue: which column goes in which section, how to read it and
 // which direction is "better" when comparing.
 
-// Shown wherever prices are used to decide (footer, model page, filters, export).
-export const PRICE_NOTE = 'Les prix sont donnés à titre indicatif : ce sont les prix observés chez différents revendeurs français, hors période de promotion.';
-
 export const SECTIONS = [
   { id: 'general', label: 'Général' },
   { id: 'deco', label: 'Décompression' },
@@ -106,7 +107,7 @@ const F = (section, col, label, type = null, better = null, extra = {}) =>
   ({ section, col, key: keyOf(col), label: label || col, type, better, ...extra });
 
 export const FIELDS = [
-  F('general', 'Prix France', 'Prix', 'price', 'lower', { format: 'price', note: 'indicatif' }),
+  F('general', 'Prix France', 'Prix', 'price', 'lower', { format: 'price' }),
   F('general', 'Sortie', 'Année de sortie', 'year', 'higher'),
   F('general', 'Format'),
   F('general', 'Bracelet', null, 'bool', 'higher'),
@@ -175,7 +176,7 @@ export const FIELD = Object.fromEntries(FIELDS.map((f) => [f.key, f]));
 const K = Object.fromEntries(FIELDS.map((f) => [f.col, f.key]));
 
 export const ALGOS = [
-  { id: 'buhlmann', label: 'Bühlmann', col: 'Bühlmann' },
+  { id: 'buhlmann', label: 'Bühlmann', filterLabel: 'Bühlmann (ZHL)', col: 'Bühlmann' },
   { id: 'rgbm', label: 'RGBM', col: 'RGBM' },
   { id: 'vpm', label: 'VPM', col: 'VPM' },
   { id: 'pelagic', label: 'Pelagic', col: 'Pelagic' },
@@ -183,6 +184,38 @@ export const ALGOS = [
 ];
 
 export const FORMATS = ['Montre', 'Rectangulaire', 'Rond', 'Console', 'HUD'];
+
+// Equipment options offered as filters. Yes or "En option" counts, unless
+// `match` is given (the cell text must match it) or `min` (the parsed number
+// must reach it).
+export const OPTIONS = [
+  { id: 'alarme-sonore', label: 'Alarme sonore', col: 'Alarme sonore' },
+  { id: 'vibration', label: 'Alarme par vibrations', col: 'Alarme vibration' },
+  { id: 'appli', label: 'Application mobile', col: 'Application smartphone' },
+  { id: 'compas', label: 'Compas numérique', col: 'Compas' },
+  { id: 'bungee', label: 'Fixation bungee', col: 'Bungee' },
+  { id: 'multigaz', label: 'Multi-gaz', col: 'Nombre de gaz', min: 2 },
+  { id: 'couleur', label: 'Écran couleur', col: 'Écran couleur' },
+  { id: 'sonde', label: 'Intégration d’air (sonde)', col: 'Gestion gaz' },
+  { id: 'deco', label: 'Planification avec déco', col: 'Plannification', match: /avec/i },
+];
+
+// Power source, from "Type batterie": "Pile - CR2450" vs "Lithium-ion".
+export const POWER = [
+  { id: 'pile', label: 'Pile' },
+  { id: 'batterie', label: 'Batterie' },
+];
+
+// Dive modes offered as filters, in display order: from the most common gas
+// to the most technical, then the side modes. "En option" counts as available.
+export const MODES = [
+  { id: 'air', label: 'Air', col: 'Mode Air' },
+  { id: 'nitrox', label: 'Nitrox', col: 'Mode Nitrox' },
+  { id: 'trimix', label: 'Trimix', col: 'Mode Hypoxique' },
+  { id: 'ccr', label: 'CCR', col: 'Mode CCR' },
+  { id: 'apnee', label: 'Apnée', col: 'Mode Apnée' },
+  { id: 'profondimetre', label: 'Profondimètre', col: 'Mode Profond' },
+];
 
 // ---------------------------------------------------------------------------
 // Rows → models
@@ -198,7 +231,9 @@ export function buildModels(rows, assets = {}) {
   // Row 1 = credit line, row 2 = headers. Be tolerant if the credit line moves.
   const headerIdx = rows.findIndex((r) => r.some((c) => keyOf(c) === 'marque') && r.some((c) => keyOf(c) === 'modele'));
   if (headerIdx < 0) throw new Error('En-têtes introuvables dans la feuille');
-  const disclaimer = rows.slice(0, headerIdx).flat().map((c) => c.trim()).filter(Boolean).join(' ');
+  const disclaimer = rows.slice(0, headerIdx).flat().map((c) => c.trim()).filter(Boolean).join(' ')
+    .replace(/\s*Libre de diffusion\s*-\s*/i, ' ')
+    .replace(/[\w.+-]+@[\w-]+(\.[\w-]+)+/, CONTACT_EMAIL);
   const headers = rows[headerIdx].map(keyOf);
   const col = (key) => headers.indexOf(key);
   const iBrand = col('marque'), iModel = col('modele'), iStatus = col('statut');
@@ -232,6 +267,10 @@ export function buildModels(rows, assets = {}) {
 
     const formats = ok('Format') ? v('Format').text.split(/\s*[|\n/]\s*/).filter(Boolean) : [];
     const algos = ALGOS.filter((a) => ok(a.col)).map((a) => a.id);
+    const modes = MODES.filter((x) => (score(x.col) ?? 0) >= 1).map((x) => x.id);
+    const options = OPTIONS.filter((o) => (o.match ? ok(o.col) && o.match.test(v(o.col).text) : (score(o.col) ?? 0) >= (o.min ?? 1))).map((o) => o.id);
+    const battery = ok('Type batterie') ? v('Type batterie').text : '';
+    const power = /^pile/i.test(battery) ? 'pile' : /lithium|recharge|batterie/i.test(battery) ? 'batterie' : null;
     const filled = FIELDS.filter((f) => values[f.key].state === 'ok' || values[f.key].state === 'na').length;
 
     const photoCell = iPhoto >= 0 ? (r[iPhoto] || '').trim() : '';
@@ -246,6 +285,9 @@ export function buildModels(rows, assets = {}) {
       gases: score('Nombre de gaz'),
       formats,
       algos,
+      modes,
+      options,
+      power,
       trimix: score('Mode Hypoxique') === 2,
       ccr: (score('Mode CCR') ?? 0) >= 1,
       airIntegration: (score('Gestion gaz') ?? 0) > 0,
@@ -353,16 +395,26 @@ export function issueUrl(template, fields = {}) {
   return `https://github.com/${GITHUB_REPO}/issues/new?${p}`;
 }
 
-/** Short algorithm label for cards, e.g. "Bühlmann ZH-L16C". */
-export function algoSummary(m) {
-  if (!m.algos.length) return null;
+/**
+ * Algorithm labels, e.g. ["Bühlmann ZH-L16C", "VPM"]. With `short`, a known
+ * Bühlmann variant is shown alone ("ZH-L16C"); "Bühlmann" stays when unspecified.
+ */
+export function algoLabels(m, { short = false } = {}) {
   const b = m.values[keyOf('Bühlmann')];
   return m.algos.map((id) => {
     const a = ALGOS.find((x) => x.id === id);
     if (id === 'buhlmann' && b.state === 'ok') {
-      const variant = b.text.split(/\n/)[0].match(/ZH-L\s?\d+[A-Z]?/);
-      return variant ? `Bühlmann ${variant[0]}` : a.label;
+      // Accept "ZH-L16C" as well as "ZHL-16C" / "ZHL16C", shown as "ZH-L16C".
+      const v = b.text.split(/\n/)[0].match(/ZH-?L-?\s?(\d+)([A-Z]?)/i);
+      const variant = v && `ZH-L${v[1]}${v[2].toUpperCase()}`;
+      if (variant) return short ? variant : `Bühlmann ${variant}`;
+      return a.label;
     }
     return a.label;
-  }).join(' · ');
+  });
+}
+
+/** The same labels on one line, e.g. "Bühlmann ZH-L16C · VPM". */
+export function algoSummary(m, { separator = ' · ', short = false } = {}) {
+  return m.algos.length ? algoLabels(m, { short }).join(separator) : null;
 }

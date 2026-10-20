@@ -1,11 +1,8 @@
 import {
-  loadData, SECTIONS, FIELDS, ALGOS, FORMATS, SHEET_URL,
-  formatPrice, manualUrl, algoSummary, keyOf, issueUrl, PRICE_NOTE,
+  loadData, SECTIONS, FIELDS, ALGOS, FORMATS, MODES, OPTIONS, POWER, SHEET_URL,
+  formatPrice, manualUrl, algoLabels, keyOf, issueUrl,
 } from './data.js';
 import { silhouette } from './silhouettes.js';
-import {
-  QUESTIONS, emptyAnswers, answersToQuery, queryToAnswers, optionLabel, recommend, catalogueFilters,
-} from './guide.js';
 
 const MAX_COMPARE = 3;
 const app = document.getElementById('app');
@@ -29,14 +26,6 @@ const storage = (area) => ({
 const local = storage(window.localStorage);
 const session = storage(window.sessionStorage);
 
-const FLAGS = [
-  { key: 'trimix', label: 'Trimix' },
-  { key: 'ccr', label: 'CCR' },
-  { key: 'airIntegration', label: 'Intégration d’air' },
-  { key: 'rechargeable', label: 'Batterie rechargeable' },
-  { key: 'bluetooth', label: 'Bluetooth' },
-];
-
 const nullsLast = (get, dir) => (a, b) => {
   const x = get(a), y = get(b);
   if (x == null && y == null) return 0;
@@ -50,28 +39,27 @@ const SORTS = {
   priceAsc: { label: 'Prix croissant', fn: nullsLast((m) => m.price, 1) },
   priceDesc: { label: 'Prix décroissant', fn: nullsLast((m) => m.price, -1) },
   recent: { label: 'Plus récents', fn: nullsLast((m) => m.year, -1) },
-  depth: { label: 'Profondeur max', fn: nullsLast((m) => m.depth, -1) },
-  complete: { label: 'Fiches les plus complètes', fn: (a, b) => b.completeness - a.completeness },
 };
 
 const defaultFilters = () => ({
   q: '', sort: 'brand', priceMin: null, priceMax: null,
-  algos: [], formats: [], brands: [], onSaleOnly: false,
-  ...Object.fromEntries(FLAGS.map((f) => [f.key, false])),
+  algos: [], formats: [], brands: [], modes: [], options: [], power: [], onSaleOnly: false,
 });
 
 const state = {
   data: null,
   byId: new Map(),
-  compare: local.get('palier.compare', []),
-  filters: { ...defaultFilters(), ...session.get('palier.filters.v2', {}) },
+  compare: local.get('bathy.compare', []),
+  filters: { ...defaultFilters(), ...session.get('bathy.filters', {}) },
   catalogueScroll: 0,
   route: null,
   diffOnly: false,
   mobileTab: 'general',
   mobilePair: [0, 1],
-  guide: { step: 0, answers: emptyAnswers() },
+  openGroups: new Set(),
 };
+// A sort option saved in the session may no longer exist.
+if (!SORTS[state.filters.sort]) state.filters.sort = 'brand';
 
 // ---------------------------------------------------------------------------
 // Shared fragments
@@ -89,14 +77,9 @@ function priceHtml(m) {
     : `<span class="price price-missing">Prix non renseigné</span>`;
 }
 
-function tags(m) {
-  const list = [];
-  const algo = algoSummary(m);
-  if (algo) list.push(algo);
-  if (m.trimix) list.push('Trimix');
-  if (m.ccr) list.push('CCR');
-  if (m.airIntegration) list.push('Intégration d’air');
-  return list.map((t) => `<li class="tag">${esc(t)}</li>`).join('');
+/** One tag per decompression algorithm, coloured by family (same on cards and model pages). */
+function algoTags(m) {
+  return algoLabels(m, { short: true }).map((t, i) => `<li class="tag tag-${m.algos[i]}">${esc(t)}</li>`).join('');
 }
 
 function compareButton(m, variant = '') {
@@ -108,9 +91,8 @@ function compareButton(m, variant = '') {
 
 function card(m) {
   const figures = [
-    m.depth != null ? `${m.depth} m` : null,
-    m.gases != null ? plural(m.gases, 'gaz', 'gaz') : null,
     m.year != null ? `${m.year}${m.yearUncertain ? ' ?' : ''}` : null,
+    m.gases != null ? plural(m.gases, 'gaz', 'gaz') : null,
   ].filter(Boolean);
   return `<article class="card">
     <a class="card-link" href="#/modele/${esc(m.id)}">
@@ -120,7 +102,7 @@ function card(m) {
         <h3 class="model-name">${esc(m.name)}</h3>
         ${priceHtml(m)}
         ${figures.length ? `<p class="figures mono">${figures.map(esc).join('<span aria-hidden="true"> · </span>')}</p>` : ''}
-        <ul class="tags">${tags(m)}</ul>
+        <ul class="tags">${algoTags(m)}</ul>
       </div>
     </a>
     ${compareButton(m)}
@@ -128,7 +110,7 @@ function card(m) {
 }
 
 /** Render one cell value with the unknown / not-applicable / empty states made explicit. */
-function valueHtml(v, field) {
+function valueHtml(v, field, model = null) {
   if (v.state === 'unknown') return `<span class="flag flag-unknown" title="Absent de la notice du fabricant"><span aria-hidden="true">?</span> Inconnu</span>`;
   if (v.state === 'na') return `<span class="na" title="Non applicable">—<span class="sr-only">Non applicable</span></span>`;
   if (v.state === 'empty') return `<span class="flag flag-empty" title="Pas encore renseigné dans la feuille">Non renseigné</span>`;
@@ -140,9 +122,10 @@ function valueHtml(v, field) {
   else if (field.format === 'price' && v.score != null) html = `<span class="mono">${esc(formatPrice(v.score))}</span>`;
   else if (field.unit && v.score != null && /^\d+\s*\w*$/.test(v.text)) html = `<span class="mono">${v.score} ${field.unit}</span>`;
   else if (field.key === keyOf('Notice')) {
-    const url = manualUrl({ manual: v.text });
+    // The model knows about a PDF dropped in its folder; a bare cell value doesn't.
+    const url = manualUrl(model ?? { manual: v.text });
     html = url
-      ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(v.text)}</a>`
+      ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(v.text).replace(/\n/g, '<br>')}</a>`
       : `<span class="mono small">${esc(v.text)}</span>`;
   } else html = `<span class="mono">${esc(v.text).replace(/\n/g, '<br>')}</span>`;
 
@@ -167,9 +150,6 @@ function rowInfo(field, models) {
   return { vals, same, best };
 }
 
-/** Field label, with its short note (e.g. "indicatif" under the price). */
-const fieldLabel = (f) => `${esc(f.label)}${f.note ? ` <span class="field-note">${esc(f.note)}</span>` : ''}`;
-
 function toast(msg) {
   const el = document.getElementById('toast');
   el.textContent = msg;
@@ -183,7 +163,7 @@ function toast(msg) {
 
 function setCompare(ids) {
   state.compare = ids.slice(0, MAX_COMPARE);
-  local.set('palier.compare', state.compare);
+  local.set('bathy.compare', state.compare);
   renderTray();
   document.querySelectorAll('[data-compare]').forEach((btn) => {
     const m = state.byId.get(btn.dataset.compare);
@@ -231,8 +211,13 @@ function renderTray() {
 // Catalogue
 
 function filtered(f = state.filters) {
+  return state.data.models.filter(matcher(f)).sort(SORTS[f.sort]?.fn || byName);
+}
+
+/** Predicate: does a model pass the filters `f`? */
+function matcher(f) {
   const terms = norm(f.q).split(/\s+/).filter(Boolean);
-  return state.data.models.filter((m) => {
+  return (m) => {
     if (terms.length) {
       const hay = norm(`${m.brand} ${m.name}`);
       if (!terms.every((t) => hay.includes(t))) return false;
@@ -244,8 +229,10 @@ function filtered(f = state.filters) {
     if (f.onSaleOnly && m.onSale === false) return false;
     if (f.algos.length && !f.algos.some((a) => m.algos.includes(a))) return false;
     if (f.formats.length && !f.formats.some((x) => m.formats.includes(x))) return false;
-    return FLAGS.every(({ key }) => !f[key] || m[key]);
-  }).sort(SORTS[f.sort]?.fn || byName);
+    if (f.power.length && !f.power.includes(m.power)) return false;
+    if (!f.modes.every((x) => m.modes.includes(x))) return false;
+    return f.options.every((x) => m.options.includes(x));
+  };
 }
 
 const bounds = () => {
@@ -261,8 +248,8 @@ const brandList = () => [...new Set(state.data.models.map((m) => m.brand))].sort
 
 const activeFilterCount = () => {
   const f = state.filters;
-  return (f.priceMin != null || f.priceMax != null) + f.onSaleOnly + f.brands.length + f.algos.length + f.formats.length
-    + FLAGS.filter(({ key }) => f[key]).length;
+  return (f.priceMin != null || f.priceMax != null) + f.onSaleOnly + f.brands.length + f.algos.length + f.formats.length + f.modes.length
+    + f.options.length + f.power.length;
 };
 
 function priceLabel(lo, hi) {
@@ -285,63 +272,94 @@ function paintPriceRange() {
   document.getElementById('f-price-out').textContent = priceLabel(state.filters.priceMin, state.filters.priceMax);
 }
 
+/** Copy of a filter option list in French alphabetical order of its labels. */
+const alpha = (list, label = (x) => x.label ?? x) =>
+  [...list].sort((a, b) => label(a).localeCompare(label(b), 'fr', { sensitivity: 'base' }));
+
+/**
+ * Checkbox groups of the filter panel, in display order. Each item:
+ * { value, label, count, tag? } — `tag` is the label of its active-filter tag.
+ */
+function filterGroups() {
+  const f = state.filters;
+  // Counts follow the other active filters (faceted search):
+  // - "any of" groups (brand, format…) ignore their own selection, otherwise
+  //   ticking one brand would drop every other brand to 0;
+  // - "all of" groups (modes, options) count what is left once the item is added.
+  const pool = (key, anyOf) => state.data.models.filter(matcher(anyOf ? { ...f, [key]: [] } : f));
+  const items = (key, anyOf, list, value, label, has) => {
+    const ms = pool(key, anyOf);
+    return list.map((x) => ({ value: value(x), label: label(x), count: ms.filter((m) => has(m, value(x))).length }));
+  };
+  const id = (x) => x.id, lbl = (x) => x.label, same = (x) => x;
+  const algoLabel = (a) => a.filterLabel ?? a.label;
+  const groups = [
+    { key: 'brands', title: 'Marque', items: items('brands', true, brandList(), same, same, (m, v) => m.brand === v) },
+    { key: 'formats', title: 'Format', items: items('formats', true, alpha(FORMATS), same, same, (m, v) => m.formats.includes(v)) },
+    { key: 'modes', title: 'Modes', items: items('modes', false, MODES, id, lbl, (m, v) => m.modes.includes(v)) },
+    { key: 'options', title: 'Options', items: items('options', false, alpha(OPTIONS), id, lbl, (m, v) => m.options.includes(v)) },
+    { key: 'algos', title: 'Algorithme', items: items('algos', true, alpha(ALGOS, algoLabel), id, algoLabel, (m, v) => m.algos.includes(v)) },
+    { key: 'power', title: 'Alimentation', items: items('power', true, alpha(POWER), id, lbl, (m, v) => m.power === v) },
+  ];
+  if (state.data.has.onSale) {
+    // Here the count is the number of models the option would hide.
+    const ms = state.data.models.filter(matcher({ ...f, onSaleOnly: false }));
+    groups.push({ key: 'onSaleOnly', title: 'Disponibilité', items: [{
+      value: '1', label: 'Masquer les modèles plus commercialisés', tag: 'Plus commercialisés masqués',
+      count: ms.filter((m) => m.onSale === false).length,
+    }] });
+  }
+  return groups;
+}
+
+const isActive = (key, value) => (key === 'onSaleOnly' ? state.filters.onSaleOnly : state.filters[key].includes(value));
+const activeInGroup = (g) => g.items.filter((it) => isActive(g.key, it.value)).length;
+
 function filtersPanel() {
   const f = state.filters;
   const b = bounds();
-  const ms = state.data.models;
-  const check = (name, value, label, checked, count) => `<label class="check">
-      <input type="checkbox" data-filter="${name}" value="${esc(value)}" ${checked ? 'checked' : ''}>
-      <span>${esc(label)}</span>${count != null ? `<span class="count mono">${count}</span>` : ''}</label>`;
+  const check = (name, it) => {
+    const on = isActive(name, it.value);
+    return `<label class="check ${!it.count && !on ? 'check-empty' : ''}">
+      <input type="checkbox" data-filter="${name}" value="${esc(it.value)}" ${on ? 'checked' : ''}>
+      <span>${esc(it.label)}</span><span class="count mono">${it.count}</span></label>`;
+  };
+  // Groups start folded; the ones opened during the visit stay open.
+  const groups = filterGroups().map((g) => {
+    const n = activeInGroup(g);
+    return `<details class="filter-group" data-group="${g.key}" ${state.openGroups.has(g.key) ? 'open' : ''}>
+      <summary><span>${esc(g.title)}</span>
+        <span class="group-count" data-group-count="${g.key}" aria-label="${n ? plural(n, 'filtre actif', 'filtres actifs') : ''}">${n || ''}</span>
+        <span class="chev" aria-hidden="true"></span></summary>
+      <div class="group-body">${g.items.map((it) => check(g.key, it)).join('')}</div>
+    </details>`;
+  }).join('');
   return `<aside class="filters" id="filters" aria-label="Filtres">
     <div class="filters-head">
       <h2>Filtres</h2>
       <button type="button" class="btn-link" data-action="reset-filters">Réinitialiser</button>
       <button type="button" class="icon-btn only-mobile" data-action="close-filters" aria-label="Fermer les filtres">✕</button>
     </div>
-    <fieldset>
+    <fieldset class="budget">
       <legend>Budget</legend>
       <div class="dual-range">
         <input type="range" id="f-price-min" min="${b.priceMin}" max="${b.priceMax}" step="50" value="${f.priceMin ?? b.priceMin}" aria-label="Prix minimum" aria-describedby="f-price-out">
         <input type="range" id="f-price-max" min="${b.priceMin}" max="${b.priceMax}" step="50" value="${f.priceMax ?? b.priceMax}" aria-label="Prix maximum" aria-describedby="f-price-out">
       </div>
       <output id="f-price-out" class="range-out mono">${esc(priceLabel(f.priceMin, f.priceMax))}</output>
-      <p class="hint">Prix indicatifs, hors promotion. Les modèles sans prix sont masqués dès qu’un budget est fixé.</p>
+      <p class="hint">Les modèles sans prix sont masqués dès qu’un budget est fixé.</p>
     </fieldset>
-    <fieldset>
-      <legend>Marque</legend>
-      <div class="brand-list">
-        ${brandList().map((x) => check('brands', x, x, f.brands.includes(x), ms.filter((m) => m.brand === x).length)).join('')}
-      </div>
-    </fieldset>
-    <fieldset>
-      <legend>Algorithme</legend>
-      ${ALGOS.map((a) => check('algos', a.id, a.label, f.algos.includes(a.id), ms.filter((m) => m.algos.includes(a.id)).length)).join('')}
-    </fieldset>
-    <fieldset>
-      <legend>Format</legend>
-      ${FORMATS.map((x) => check('formats', x, x, f.formats.includes(x), ms.filter((m) => m.formats.includes(x)).length)).join('')}
-    </fieldset>
-    <fieldset>
-      <legend>Équipement</legend>
-      ${FLAGS.map(({ key, label }) => check('flag', key, label, f[key], ms.filter((m) => m[key]).length)).join('')}
-    </fieldset>
-    ${state.data.has.onSale ? `<fieldset>
-      <legend>Disponibilité</legend>
-      ${check('onSaleOnly', '1', 'Masquer les modèles plus commercialisés', f.onSaleOnly, ms.filter((m) => m.onSale === false).length)}
-    </fieldset>` : ''}
+    <div class="active-filters" id="active-filters" aria-label="Filtres actifs"></div>
+    ${groups}
     <div class="filters-foot only-mobile"><button type="button" class="btn btn-primary btn-block" data-action="close-filters">Voir les résultats</button></div>
   </aside>`;
 }
 
+/** Mobile only: the button opening the filter sheet, with the number of active filters. */
 function chipsRow() {
-  const f = state.filters;
   const n = activeFilterCount();
-  const chip = (attr, val, label, on) =>
-    `<button type="button" class="chip" ${attr}="${esc(val)}" aria-pressed="${on}">${esc(label)}</button>`;
   return `<button type="button" class="chip chip-filters" data-action="open-filters" aria-expanded="false" aria-controls="filters">
-      <span aria-hidden="true">☰</span> Filtres${n ? ` <span class="chip-count">${n}</span>` : ''}</button>
-    ${FLAGS.map(({ key, label }) => chip('data-chip-flag', key, label, f[key])).join('')}
-    ${FORMATS.map((x) => chip('data-chip-format', x, x, f.formats.includes(x))).join('')}`;
+      <span aria-hidden="true">☰</span> Filtres${n ? ` <span class="chip-count">${n}</span>` : ''}</button>`;
 }
 
 function renderCatalogue() {
@@ -355,17 +373,15 @@ function renderCatalogue() {
         <p class="result-count" id="result-count" aria-live="polite"></p>
         <div class="head-actions">
           <button type="button" class="btn btn-ghost btn-small" data-action="share" data-share-msg="Lien de la recherche copié">Partager la recherche</button>
-          <button type="button" class="btn btn-ghost btn-small" data-action="export" data-export="catalogue">Exporter .xlsx</button>
         </div>
       </div>
-      <a class="guide-cta" href="#/guide"><span>Vous hésitez ? <strong>Trouvez votre ordinateur en 6 questions</strong></span><span aria-hidden="true">→</span></a>
       <div class="toolbar">
         <label class="search"><span class="sr-only">Rechercher un modèle</span>
           <input type="search" id="search" placeholder="Rechercher une marque, un modèle…" value="${esc(f.q)}" autocomplete="off"></label>
         <label class="sort"><span class="sort-label">Trier par</span>
           <select id="sort">${Object.entries(SORTS).map(([k, s]) => `<option value="${k}" ${f.sort === k ? 'selected' : ''}>${s.label}</option>`).join('')}</select></label>
       </div>
-      <div class="chips only-mobile" id="chips" role="group" aria-label="Filtres rapides"></div>
+      <div class="chips only-mobile" id="chips" role="group" aria-label="Filtres"></div>
       <div class="grid" id="grid"></div>
       ${issueUrl('nouveau-modele') ? `<p class="suggest">Un modèle manque ? <a href="${esc(issueUrl('nouveau-modele'))}" target="_blank" rel="noopener">Proposez-le</a></p>` : ''}
     </section>
@@ -376,7 +392,7 @@ function renderCatalogue() {
 }
 
 function updateResults() {
-  session.set('palier.filters.v2', state.filters);
+  session.set('bathy.filters', state.filters);
   // Mirror the filters in the URL so a search can be shared. replaceState
   // does not fire hashchange, so this never triggers a re-render.
   const qs = filtersToQuery(state.filters);
@@ -390,12 +406,50 @@ function updateResults() {
     : `<div class="empty-state"><p>Aucun modèle ne correspond à ces critères.</p>
         <button type="button" class="btn btn-ghost" data-action="reset-filters">Réinitialiser les filtres</button></div>`;
   document.getElementById('chips').innerHTML = chipsRow();
-  // Keep the sidebar in sync with changes made through the mobile chips.
-  document.querySelectorAll('[data-filter="flag"]').forEach((el) => { el.checked = state.filters[el.value]; });
-  const onSale = document.querySelector('[data-filter="onSaleOnly"]');
-  if (onSale) onSale.checked = state.filters.onSaleOnly;
-  document.querySelectorAll('[data-filter="brands"]').forEach((el) => { el.checked = state.filters.brands.includes(el.value); });
-  document.querySelectorAll('[data-filter="formats"]').forEach((el) => { el.checked = state.filters.formats.includes(el.value); });
+  // Keep the panel in sync (tags can untick boxes) and refresh the counts.
+  const groups = filterGroups();
+  for (const g of groups) {
+    for (const it of g.items) {
+      const input = document.querySelector(`[data-filter="${g.key}"][value="${CSS.escape(it.value)}"]`);
+      if (!input) continue;
+      input.checked = isActive(g.key, it.value);
+      const label = input.closest('.check');
+      label.querySelector('.count').textContent = it.count;
+      label.classList.toggle('check-empty', !it.count && !input.checked);
+    }
+    const badge = document.querySelector(`[data-group-count="${g.key}"]`);
+    const n = activeInGroup(g);
+    badge.textContent = n || '';
+    badge.setAttribute('aria-label', n ? plural(n, 'filtre actif', 'filtres actifs') : '');
+  }
+  document.getElementById('active-filters').innerHTML = activeTags(groups);
+}
+
+/** Selected filters as removable tags, shown under the budget. */
+function activeTags(groups) {
+  const f = state.filters;
+  const tags = [];
+  if (f.priceMin != null || f.priceMax != null) tags.push({ key: 'price', value: '', label: priceLabel(f.priceMin, f.priceMax) });
+  for (const g of groups) {
+    for (const it of g.items) if (isActive(g.key, it.value)) tags.push({ key: g.key, value: it.value, label: it.tag ?? it.label });
+  }
+  if (!tags.length) return '';
+  return `<ul class="active-tags">${tags.map((t) => `<li><button type="button" class="active-tag" data-unfilter="${t.key}" data-value="${esc(t.value)}"
+      aria-label="Retirer le filtre ${esc(t.label)}"><span>${esc(t.label)}</span><span class="x" aria-hidden="true">×</span></button></li>`).join('')}</ul>`;
+}
+
+function removeFilter(key, value) {
+  const f = state.filters;
+  if (key === 'price') {
+    f.priceMin = null;
+    f.priceMax = null;
+    const lo = document.getElementById('f-price-min'), hi = document.getElementById('f-price-max');
+    lo.value = lo.min;
+    hi.value = hi.max;
+    paintPriceRange();
+  } else if (key === 'onSaleOnly') f.onSaleOnly = false;
+  else f[key] = f[key].filter((x) => x !== value);
+  updateResults();
 }
 
 function setFiltersOpen(open) {
@@ -437,8 +491,8 @@ function renderCompare(ids) {
   const body = SECTIONS.map((s) => {
     const rows = FIELDS.filter((f) => f.section === s.id).map((f) => {
       const { vals, same, best } = rowInfo(f, models);
-      return `<tr class="${same ? 'same' : 'diff'}"><th scope="row">${fieldLabel(f)}</th>
-        ${vals.map((v, i) => `<td class="${best.includes(i) ? 'best' : ''}">${valueHtml(v, f)}${best.includes(i) ? '<span class="sr-only"> (meilleure valeur)</span>' : ''}</td>`).join('')}
+      return `<tr class="${same ? 'same' : 'diff'}"><th scope="row">${esc(f.label)}</th>
+        ${vals.map((v, i) => `<td class="${best.includes(i) ? 'best' : ''}">${valueHtml(v, f, models[i])}${best.includes(i) ? '<span class="sr-only"> (meilleure valeur)</span>' : ''}</td>`).join('')}
         ${blank ? '<td class="add-col"></td>' : ''}</tr>`;
     });
     const allSame = !rows.some((r) => r.startsWith('<tr class="diff"'));
@@ -455,7 +509,6 @@ function renderCompare(ids) {
       </div>
       <div class="page-actions">
         <label class="switch"><input type="checkbox" id="diff-only" ${state.diffOnly ? 'checked' : ''}><span class="track" aria-hidden="true"></span> Différences uniquement</label>
-        <button type="button" class="btn btn-ghost" data-action="export" data-export="compare">Exporter .xlsx</button>
         <button type="button" class="btn btn-ghost" data-action="share" data-share-msg="Lien de la comparaison copié">Copier le lien</button>
       </div>
     </div>
@@ -484,8 +537,8 @@ function mobileCompare(all) {
   const rows = FIELDS.filter((f) => f.section === state.mobileTab).map((f) => {
     const { vals, same, best } = rowInfo(f, pair);
     return `<div class="m-row ${same ? 'same' : 'diff'}">
-      <p class="m-label">${fieldLabel(f)}</p>
-      <div class="m-vals">${vals.map((v, i) => `<div class="m-val ${best.includes(i) ? 'best' : ''}">${valueHtml(v, f)}</div>`).join('')}</div>
+      <p class="m-label">${esc(f.label)}</p>
+      <div class="m-vals">${vals.map((v, i) => `<div class="m-val ${best.includes(i) ? 'best' : ''}">${valueHtml(v, f, pair[i])}</div>`).join('')}</div>
     </div>`;
   }).join('');
   return `<div class="m-compare only-mobile">
@@ -504,24 +557,6 @@ function mobileCompare(all) {
 // ---------------------------------------------------------------------------
 // Model page
 
-function similar(m, n = 4) {
-  const maxPrice = Math.max(...state.data.models.map((x) => x.price ?? 0)) || 1;
-  const score = (o) => {
-    let s = 0;
-    if (o.formats.some((x) => m.formats.includes(x))) s += 3;
-    s += o.algos.filter((a) => m.algos.includes(a)).length;
-    if (o.trimix === m.trimix) s += 1;
-    if (o.ccr === m.ccr) s += 1;
-    if (o.airIntegration === m.airIntegration) s += 0.5;
-    if (o.price != null && m.price != null) s += 3 * (1 - Math.min(1, Math.abs(o.price - m.price) / (maxPrice / 3)));
-    if (o.depth != null && m.depth != null) s += 1 - Math.min(1, Math.abs(o.depth - m.depth) / 100);
-    if (o.status === 'Done') s += 0.5;
-    return s;
-  };
-  return state.data.models.filter((o) => o.id !== m.id)
-    .map((o) => [o, score(o)]).sort((a, b) => b[1] - a[1]).slice(0, n).map(([o]) => o);
-}
-
 function renderModel(id) {
   const m = state.byId.get(id);
   if (!m) {
@@ -530,16 +565,8 @@ function renderModel(id) {
       <a class="btn btn-primary" href="#/">Retour au catalogue</a></div></div>`;
     return;
   }
-  const v = (col) => m.values[keyOf(col)];
   const stateCount = (st) => FIELDS.filter((f) => m.values[f.key].state === st).length;
   const unknown = stateCount('unknown'), empty = stateCount('empty');
-  const url = manualUrl(m);
-  const battery = [v('Type batterie'), v('Autonomie batterie')].filter((x) => x.state === 'ok').map((x) => x.text.split('\n')[0]).join(' · ');
-
-  const figure = (label, value, sub = '') => `<div class="figure">
-      <p class="figure-label">${esc(label)}</p>
-      <p class="figure-value">${value ?? '<span class="flag flag-unknown">? Inconnu</span>'}</p>
-      ${sub ? `<p class="figure-sub">${sub}</p>` : ''}</div>`;
 
   const fullName = `${m.brand} ${m.name}`;
   const fixUrl = (f) => {
@@ -554,7 +581,7 @@ function renderModel(id) {
       <h2>${esc(s.label)}</h2>
       <dl>${FIELDS.filter((f) => f.section === s.id).map((f) => {
         const url = fixUrl(f);
-        return `<div class="spec-row"><dt>${fieldLabel(f)}</dt><dd>${valueHtml(m.values[f.key], f)}</dd>${url
+        return `<div class="spec-row"><dt>${esc(f.label)}</dt><dd>${valueHtml(m.values[f.key], f, m)}</dd>${url
           ? `<a class="row-fix" href="${esc(url)}" target="_blank" rel="noopener" title="Signaler une erreur sur ce champ" aria-label="Signaler une erreur : ${esc(f.label)}">✎</a>` : ''}</div>`;
       }).join('')}</dl>
     </section>`).join('');
@@ -573,15 +600,12 @@ function renderModel(id) {
         <p class="brand">${esc(m.brand)}</p>
         <h1 class="model-name hero-name">${esc(m.name)}</h1>
         <p class="hero-price">${priceHtml(m)}${m.year ? ` <span class="muted">· sorti en <span class="mono">${m.year}</span>${m.yearUncertain ? ' (à vérifier)' : ''}</span>` : ''}</p>
-        ${m.price != null ? `<p class="hint price-note">Prix indicatif, observé chez les revendeurs français hors promotion.</p>` : ''}
-        <ul class="tags">${tags(m)}</ul>
+        <ul class="tags">${algoTags(m)}</ul>
         ${meta.length ? `<p class="hero-meta">${meta.join('<span aria-hidden="true"> · </span>')}</p>` : ''}
         <div class="hero-actions">
           ${compareButton(m, 'btn-large')}
           ${state.data.site ? `<button type="button" class="btn btn-ghost" data-action="share-model" data-id="${esc(m.id)}">Partager la fiche</button>` : ''}
           ${fixUrl() ? `<a class="btn btn-ghost" href="${esc(fixUrl())}" target="_blank" rel="noopener">Signaler une erreur</a>` : ''}
-          ${url ? `<a class="btn btn-ghost" href="${esc(url)}" target="_blank" rel="noopener">Notice (PDF)</a>`
-            : m.manual ? `<span class="manual-name" title="Notice utilisée pour cette fiche">Notice : <span class="mono">${esc(m.manual)}</span></span>` : ''}
         </div>
         <div class="completeness completeness-${level}">
           <div class="completeness-top"><span>Complétude de la fiche</span><span class="mono">${m.completeness} %</span></div>
@@ -590,216 +614,23 @@ function renderModel(id) {
         </div>
       </div>
     </section>
-    <section class="figures-row" aria-label="Chiffres clés">
-      ${figure('Profondeur max', m.depth != null ? `<span class="mono">${m.depth}</span> m` : null)}
-      ${figure('Gaz', m.gases != null ? `<span class="mono">${m.gases}</span>` : null, v('Nombre de gaz').state === 'ok' && !/^\d+ m\S+$/.test(v('Nombre de gaz').text) ? esc(v('Nombre de gaz').text) : '')}
-      ${figure('Algorithme', algoSummary(m) ? esc(algoSummary(m)) : null)}
-      ${figure('Batterie', battery ? esc(battery) : null, v('Changement batterie').state === 'ok' ? `Changement : ${esc(v('Changement batterie').text)}` : '')}
-      ${figure('Format', m.formats.length ? esc(m.formats.join(' / ')) : null)}
-    </section>
     <div class="spec-grid">${sections}</div>
-    <section class="similar">
-      <h2 class="section-title">Modèles similaires</h2>
-      <div class="grid grid-similar">${similar(m).map(card).join('')}</div>
-    </section>
   </div>`;
-}
-
-// ---------------------------------------------------------------------------
-// Guide ("Trouver mon ordinateur")
-
-function renderGuide(query) {
-  if (query) {
-    const { answers, complete } = queryToAnswers(query);
-    if (complete) {
-      state.guide.answers = answers;
-      return renderGuideResults();
-    }
-  }
-  renderGuideStep();
-}
-
-const guideCanAdvance = (q) => q.type === 'multi' || !!state.guide.answers[q.id];
-
-function renderGuideStep() {
-  const g = state.guide;
-  const q = QUESTIONS[g.step];
-  const n = QUESTIONS.length;
-  const last = g.step === n - 1;
-  const value = g.answers[q.id];
-  const options = q.options.map((o) => {
-    const on = q.type === 'multi' ? value.includes(o.value) : value === o.value;
-    return `<label class="guide-option">
-        <input type="${q.type === 'multi' ? 'checkbox' : 'radio'}" name="g-${q.id}" value="${esc(o.value)}" data-guide="${q.id}" ${on ? 'checked' : ''}>
-        <span class="go-mark" aria-hidden="true"></span>
-        <span class="go-body"><span class="go-label">${esc(o.label)}</span>${o.desc ? `<span class="go-desc">${esc(o.desc)}</span>` : ''}</span>
-      </label>`;
-  }).join('');
-  app.innerHTML = `<div class="page guide-page">
-    <p class="guide-kicker">Trouver mon ordinateur</p>
-    <div class="guide-card">
-      <div class="guide-progress">
-        <span class="mono">Question ${g.step + 1} / ${n}</span>
-        <div class="bar" aria-hidden="true"><span style="width:${((g.step + 1) / n) * 100}%"></span></div>
-      </div>
-      <fieldset class="guide-q">
-        <legend><h1 class="guide-title" id="guide-title" tabindex="-1">${esc(q.title)}</h1></legend>
-        ${q.help ? `<p class="hint">${esc(q.help)}</p>` : ''}
-        <div class="guide-options">${options}</div>
-      </fieldset>
-      <div class="guide-nav">
-        ${g.step > 0
-          ? '<button type="button" class="btn btn-ghost" data-action="guide-prev">← Précédent</button>'
-          : '<a class="btn btn-ghost" href="#/">Annuler</a>'}
-        <button type="button" class="btn btn-primary" data-action="guide-next" ${guideCanAdvance(q) ? '' : 'disabled'}>
-          ${last ? 'Voir mes suggestions' : 'Suivant →'}</button>
-      </div>
-    </div>
-  </div>`;
-}
-
-function guideGo(step) {
-  state.guide.step = step;
-  renderGuideStep();
-  window.scrollTo(0, 0);
-  document.getElementById('guide-title')?.focus({ preventScroll: true });
-}
-
-function renderGuideResults() {
-  const a = state.guide.answers;
-  const all = recommend(state.data.models, a);
-  const top = all.slice(0, 6);
-  const summary = QUESTIONS.flatMap((q) => {
-    const v = a[q.id];
-    if (q.type === 'multi') return v.map((x) => optionLabel(q.id, x));
-    return v && v !== 'any' ? [optionLabel(q.id, v)] : [];
-  });
-  const catFilters = { ...defaultFilters(), ...catalogueFilters(a) };
-  const catCount = filtered(catFilters).length;
-  const icon = { true: '✓', false: '✕', null: '?' };
-
-  const items = top.map(({ model: m, reasons, match }, i) => `<li class="reco">
-      <span class="reco-rank" aria-hidden="true">${i + 1}</span>
-      <a href="#/modele/${esc(m.id)}" tabindex="-1" aria-hidden="true">${media(m, 'reco-media')}</a>
-      <div class="reco-main">
-        <p class="brand">${esc(m.brand)}</p>
-        <a class="model-name" href="#/modele/${esc(m.id)}">${esc(m.name)}</a>
-        ${priceHtml(m)}
-        ${reasons.length ? `<ul class="reasons">${reasons.map((r) => `<li class="reason reason-${r.ok === true ? 'ok' : r.ok === false ? 'ko' : 'unk'}">
-            <span aria-hidden="true">${icon[r.ok]}</span> ${esc(r.label)}${r.ok == null ? ' <span class="sr-only">: </span><em>inconnu</em>' : r.ok ? '' : '<span class="sr-only"> : non</span>'}</li>`).join('')}</ul>`
-          : '<p class="hint">Répond à vos critères essentiels.</p>'}
-      </div>
-      <div class="reco-side">
-        <p class="match"><span class="match-pct">${match} %</span><span class="match-label">de correspondance</span></p>
-        ${compareButton(m)}
-      </div>
-    </li>`).join('');
-
-  app.innerHTML = `<div class="page guide-page guide-results">
-    <button type="button" class="back btn-reset" data-action="guide-edit">← Modifier mes réponses</button>
-    <div class="page-head">
-      <div>
-        <h1 class="page-title">Nos suggestions</h1>
-        <p class="muted guide-sub">${all.length
-          ? `${plural(all.length, 'modèle correspond', 'modèles correspondent')} à vos critères essentiels. Voici les mieux adaptés.`
-          : 'Aucun modèle ne correspond à vos critères essentiels.'}</p>
-      </div>
-      <div class="page-actions">
-        <button type="button" class="btn btn-ghost" data-action="share" data-share-msg="Lien des suggestions copié">Partager</button>
-        <button type="button" class="btn btn-ghost" data-action="guide-restart">Recommencer</button>
-      </div>
-    </div>
-    ${summary.length ? `<ul class="tags answer-tags" aria-label="Vos réponses">${summary.map((x) => `<li class="tag">${esc(x)}</li>`).join('')}</ul>` : ''}
-    ${top.length ? `<ol class="reco-list">${items}</ol>`
-      : `<div class="empty-state"><p>Essayez d’augmenter votre budget ou de choisir une autre pratique.</p>
-          <button type="button" class="btn btn-primary" data-action="guide-edit">Modifier mes réponses</button></div>`}
-    <div class="guide-actions">
-      ${top.length >= 2 ? `<a class="btn btn-primary" href="${compareHref(top.slice(0, 3).map((r) => r.model.id))}">Comparer les ${Math.min(3, top.length)} premiers</a>` : ''}
-      ${catCount ? `<a class="btn btn-ghost" href="#/?${filtersToQuery(catFilters)}">Voir ${plural(catCount, 'modèle', 'modèles')} dans le catalogue</a>` : ''}
-    </div>
-    <p class="hint guide-disclaimer">Ces suggestions reposent uniquement sur les données des notices, non relues par un tiers.
-      Elles ne remplacent ni l’avis d’un moniteur ou d’un magasin, ni un essai avant achat.</p>
-  </div>`;
-}
-
-// ---------------------------------------------------------------------------
-// XLSX export (SheetJS, loaded on first use only)
-
-const XLSX_SRC = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
-let xlsxLoading = null;
-
-function loadXlsx() {
-  xlsxLoading ??= new Promise((resolve, reject) => {
-    const s = document.createElement('script');
-    s.src = XLSX_SRC;
-    s.onload = () => resolve(window.XLSX);
-    s.onerror = () => { xlsxLoading = null; reject(new Error('bibliothèque XLSX indisponible')); };
-    document.head.append(s);
-  });
-  return xlsxLoading;
-}
-
-const exportValue = (v, field) => {
-  if (v.state === 'unknown') return 'Inconnu';
-  if (v.state === 'na') return 'Non applicable';
-  if (v.state === 'empty') return '';
-  return field.format === 'price' && v.score != null ? v.score : v.text;
-};
-
-async function exportXlsx(kind) {
-  const XLSX = await loadXlsx();
-  let rows, sheetName, widths;
-  if (kind === 'compare') {
-    const models = state.route.ids.map((id) => state.byId.get(id)).filter(Boolean);
-    rows = [
-      ['Section', 'Caractéristique', ...models.map((m) => `${m.brand} ${m.name}`)],
-      ...FIELDS.map((f) => [SECTIONS.find((s) => s.id === f.section).label, f.label,
-        ...models.map((m) => exportValue(m.values[f.key], f))]),
-    ];
-    sheetName = 'Comparaison';
-    widths = [22, 30, ...models.map(() => 40)];
-  } else {
-    const list = filtered();
-    rows = [
-      ['Marque', 'Modèle', 'Statut', 'Complétude (%)', ...FIELDS.map((f) => f.label)],
-      ...list.map((m) => [m.brand, m.name, m.status, m.completeness, ...FIELDS.map((f) => exportValue(m.values[f.key], f))]),
-    ];
-    sheetName = 'Catalogue';
-    widths = [16, 22, 8, 10, ...FIELDS.map(() => 22)];
-  }
-  const wb = XLSX.utils.book_new();
-  const ws = XLSX.utils.aoa_to_sheet(rows);
-  ws['!cols'] = widths.map((wch) => ({ wch }));
-  XLSX.utils.book_append_sheet(wb, ws, sheetName);
-  const about = XLSX.utils.aoa_to_sheet([
-    ['Palier, comparateur d’ordinateurs de plongée'],
-    ['Exporté le', fmtDate(new Date())],
-    ['Vue', location.href],
-    ['Source', SHEET_URL],
-    ['Prix', PRICE_NOTE],
-    [],
-    ['Avertissement'],
-    [state.data.disclaimer],
-  ]);
-  about['!cols'] = [{ wch: 20 }, { wch: 100 }];
-  XLSX.utils.book_append_sheet(wb, about, 'À propos');
-  const today = new Date().toISOString().slice(0, 10);
-  XLSX.writeFile(wb, `palier-${kind === 'compare' ? 'comparaison' : 'catalogue'}-${today}.xlsx`);
 }
 
 // ---------------------------------------------------------------------------
 // Router
 
-// Catalogue filters <-> URL query, e.g. #/?prix=200-800&marques=SUUNTO,MARES&options=trimix
-const LIST_PARAMS = { marques: 'brands', algos: 'algos', formats: 'formats' };
+// Catalogue filters <-> URL query, e.g. #/?prix=200-800&marques=SUUNTO,MARES&options=sonde,bungee
+const LIST_PARAMS = { marques: 'brands', algos: 'algos', formats: 'formats', modes: 'modes', options: 'options', alimentation: 'power' };
+// Option names used in links shared before the current filters.
+const LEGACY_OPTIONS = { airIntegration: ['options', 'sonde'], rechargeable: ['power', 'batterie'], trimix: ['modes', 'trimix'], ccr: ['modes', 'ccr'] };
 
 function filtersToQuery(f) {
   const p = new URLSearchParams();
   if (f.q.trim()) p.set('q', f.q.trim());
   if (f.priceMin != null || f.priceMax != null) p.set('prix', `${f.priceMin ?? ''}-${f.priceMax ?? ''}`);
   for (const [param, key] of Object.entries(LIST_PARAMS)) if (f[key].length) p.set(param, f[key].join(','));
-  const opts = FLAGS.filter(({ key }) => f[key]).map(({ key }) => key);
-  if (opts.length) p.set('options', opts.join(','));
   if (f.onSaleOnly) p.set('dispo', 'en-vente');
   if (f.sort !== 'brand') p.set('tri', f.sort);
   return p.toString().replace(/%2C/g, ',');
@@ -808,7 +639,10 @@ function filtersToQuery(f) {
 function queryToFilters(query) {
   const p = new URLSearchParams(query);
   const f = defaultFilters();
-  const known = { brands: brandList(), algos: ALGOS.map((a) => a.id), formats: FORMATS };
+  const known = {
+    brands: brandList(), algos: ALGOS.map((a) => a.id), formats: FORMATS,
+    modes: MODES.map((x) => x.id), options: OPTIONS.map((o) => o.id), power: POWER.map((x) => x.id),
+  };
   f.q = p.get('q') || '';
   const [lo, hi] = (p.get('prix') || '').split('-').map((x) => (x === '' || Number.isNaN(+x) ? null : +x));
   f.priceMin = lo ?? null;
@@ -816,7 +650,10 @@ function queryToFilters(query) {
   for (const [param, key] of Object.entries(LIST_PARAMS)) {
     f[key] = (p.get(param) || '').split(',').filter((x) => known[key].includes(x));
   }
-  for (const o of (p.get('options') || '').split(',')) if (FLAGS.some(({ key }) => key === o)) f[o] = true;
+  for (const o of (p.get('options') || '').split(',')) {
+    const [key, value] = LEGACY_OPTIONS[o] || [];
+    if (key && !f[key].includes(value)) f[key].push(value);
+  }
   f.onSaleOnly = p.get('dispo') === 'en-vente';
   if (SORTS[p.get('tri')]) f.sort = p.get('tri');
   return f;
@@ -826,7 +663,6 @@ function parseRoute() {
   const [path, query = ''] = location.hash.replace(/^#\/?/, '').split('?');
   const [, name, arg] = path.match(/^([^/]*)\/?(.*)$/) || [];
   if (name === 'modele') return { name: 'model', id: decodeURIComponent(arg) };
-  if (name === 'guide') return { name: 'guide', query };
   if (name === 'comparer') return { name: 'compare', ids: arg.split(',').filter(Boolean).map(decodeURIComponent).slice(0, MAX_COMPARE) };
   return { name: 'catalogue', query };
 }
@@ -841,7 +677,6 @@ function render() {
 
   if (state.route.name === 'model') renderModel(state.route.id);
   else if (state.route.name === 'compare') renderCompare(state.route.ids);
-  else if (state.route.name === 'guide') renderGuide(state.route.query);
   else {
     // A search link wins over the filters remembered for this session.
     if (state.route.query) state.filters = queryToFilters(state.route.query);
@@ -849,9 +684,8 @@ function render() {
   }
 
   const m = state.route.name === 'model' && state.byId.get(state.route.id);
-  document.title = m ? `${m.brand} ${m.name} · Palier`
-    : state.route.name === 'compare' ? 'Comparaison · Palier'
-    : state.route.name === 'guide' ? 'Trouver mon ordinateur · Palier' : 'Palier · Comparateur d’ordinateurs de plongée';
+  document.title = m ? `${m.brand} ${m.name} · Bathy`
+    : state.route.name === 'compare' ? 'Comparaison · Bathy' : 'Bathy · Comparateur d’ordinateurs de plongée';
   if (state.route.name !== 'catalogue' && prev && (prev.name !== state.route.name || prev.id !== state.route.id)) window.scrollTo(0, 0);
   renderTray();
 }
@@ -871,12 +705,7 @@ document.addEventListener('click', (e) => {
     location.hash = compareHref(ids);
     return;
   }
-  if (t.dataset.chipFlag) { f[t.dataset.chipFlag] = !f[t.dataset.chipFlag]; return updateResults(); }
-  if (t.dataset.chipFormat) {
-    const x = t.dataset.chipFormat;
-    f.formats = f.formats.includes(x) ? f.formats.filter((y) => y !== x) : [...f.formats, x];
-    return updateResults();
-  }
+  if (t.dataset.unfilter) return removeFilter(t.dataset.unfilter, t.dataset.value);
   if (t.dataset.tab) { state.mobileTab = t.dataset.tab; return renderCompare(state.route.ids); }
   if (t.dataset.pair) {
     const i = +t.dataset.pair;
@@ -902,25 +731,7 @@ document.addEventListener('click', (e) => {
         () => toast('Copie impossible'));
       return;
     }
-    case 'export':
-      exportXlsx(t.dataset.export).catch((err) => toast(`Export impossible : ${err.message}`));
-      return;
     case 'retry': return boot();
-    case 'guide-prev': return guideGo(state.guide.step - 1);
-    case 'guide-next': {
-      if (state.guide.step < QUESTIONS.length - 1) return guideGo(state.guide.step + 1);
-      location.hash = `#/guide?${answersToQuery(state.guide.answers)}`;
-      return;
-    }
-    case 'guide-edit':
-      state.guide.step = 0;
-      location.hash = '#/guide';
-      return;
-    case 'guide-restart':
-      state.guide = { step: 0, answers: emptyAnswers() };
-      if (location.hash === '#/guide') renderGuideStep();
-      else location.hash = '#/guide';
-      return;
   }
 });
 
@@ -947,21 +758,20 @@ document.addEventListener('change', (e) => {
     state.diffOnly = t.checked;
     return document.querySelector('.compare-page')?.classList.toggle('diff-only', t.checked);
   }
-  if (t.dataset.guide) {
-    const q = QUESTIONS.find((x) => x.id === t.dataset.guide);
-    const a = state.guide.answers;
-    if (q.type === 'multi') a[q.id] = t.checked ? [...a[q.id], t.value] : a[q.id].filter((x) => x !== t.value);
-    else a[q.id] = t.value;
-    document.querySelector('[data-action="guide-next"]').disabled = !guideCanAdvance(q);
-    return;
-  }
   const kind = t.dataset.filter;
   if (!kind) return;
-  if (kind === 'flag') f[t.value] = t.checked;
-  else if (kind === 'onSaleOnly') f.onSaleOnly = t.checked;
+  if (kind === 'onSaleOnly') f.onSaleOnly = t.checked;
   else f[kind] = t.checked ? [...f[kind], t.value] : f[kind].filter((x) => x !== t.value);
   updateResults();
 });
+
+// "toggle" doesn't bubble: listen in the capture phase.
+document.addEventListener('toggle', (e) => {
+  const g = e.target.dataset?.group;
+  if (!g) return;
+  if (e.target.open) state.openGroups.add(g);
+  else state.openGroups.delete(g);
+}, true);
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') setFiltersOpen(false);
@@ -989,7 +799,6 @@ async function boot() {
   state.compare = state.compare.filter((id) => state.byId.has(id));
 
   document.getElementById('disclaimer').textContent = data.disclaimer;
-  document.getElementById('price-note').textContent = PRICE_NOTE;
   document.getElementById('data-status').innerHTML = data.source === 'cache'
     ? `<span class="warn">Hors ligne : données du ${fmtDate(data.fetchedAt)}</span>`
     : data.source === 'snapshot'
