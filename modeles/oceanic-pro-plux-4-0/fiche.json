@@ -1,0 +1,79 @@
+{
+  "id": "oceanic-pro-plux-4-0",
+  "marque": "OCEANIC",
+  "modele": "Pro Plux 4.0",
+  "statut": "Todo",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "",
+      "Sortie": "???",
+      "Format": "Console",
+      "Bracelet": "Non",
+      "Bungee": "Non",
+      "Profondeur max": "???",
+      "Notice": "???"
+    },
+    "Décompression": {
+      "Bühlmann": "-",
+      "Bühlmann Conservatisme": "-",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "Dual pelagic",
+      "DCIEM": "-",
+      "Palier profond": "???",
+      "Palier facultatif": "???",
+      "Dernier palier": "???",
+      "Vitesse remontée": "???",
+      "Affichage vitesse": "",
+      "Viol Déco Blocage": "???",
+      "Plannification": "???",
+      "Réglage altitude": "???",
+      "Alarme Déco Exponentielle": "???"
+    },
+    "Gaz & modes": {
+      "Mode Air": "???",
+      "Mode Nitrox": "???",
+      "Mode Profond": "???",
+      "Mode Apnée": "???",
+      "Mode Normoxique": "???",
+      "Mode Hypoxique": "???",
+      "Mode CCR": "???",
+      "Nombre de gaz": "???",
+      "PpO₂": "???",
+      "%O₂": "???",
+      "%He": "???",
+      "Gestion gaz": "???",
+      "Analyseur d'O²": "???",
+      "Gas Blender Intégré": "???"
+    },
+    "Écran & énergie": {
+      "Écran type": "???",
+      "Écran couleur": "???",
+      "Écran éclairage": "???",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "???",
+      "Alarme sonore": "???",
+      "Alarme vibration": "???",
+      "Type batterie": "???",
+      "Autonomie batterie": "???",
+      "Changement batterie": "???"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "???",
+      "Connexion Bluetooth": "???",
+      "Application smartphone": "???",
+      "Mise à jour": "???",
+      "Mémoire": "???",
+      "Courbe plongée": "???",
+      "Compas": "???",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "???",
+      "Température corporelle": "???",
+      "Mode outdoor": "???"
+    }
+  }
+}

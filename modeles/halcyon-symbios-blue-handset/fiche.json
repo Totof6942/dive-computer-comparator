@@ -1,0 +1,79 @@
+{
+  "id": "halcyon-symbios-blue-handset",
+  "marque": "HALCYON",
+  "modele": "Symbios BLUE Handset",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "850,00 €",
+      "Sortie": "2025",
+      "Format": "Rectangulaire",
+      "Bracelet": "Non",
+      "Bungee": "Oui",
+      "Profondeur max": "120m",
+      "Notice": "Halcyon - Symbios Handset [EN].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C",
+      "Bühlmann Conservatisme": "GF",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "GF",
+      "Palier facultatif": "3min de 3m à 5m\nDésactivable",
+      "Dernier palier": "???",
+      "Vitesse remontée": "9m/min",
+      "Affichage vitesse": "Bargraphe - Segments : remontée",
+      "Viol Déco Blocage": "???",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": ""
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Non",
+      "Mode Normoxique": "Oui",
+      "Mode Hypoxique": "Oui",
+      "Mode CCR": "Oui",
+      "Nombre de gaz": "5 mélanges",
+      "PpO₂": "???",
+      "%O₂": "???",
+      "%He": "???",
+      "Gestion gaz": "4 émetteurs",
+      "Analyseur d'O²": "",
+      "Gas Blender Intégré": ""
+    },
+    "Écran & énergie": {
+      "Écran type": "TFT",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Non",
+      "Alarme vibration": "Oui",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "25 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "32GB",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "Oui",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "GPS en option"
+    }
+  }
+}

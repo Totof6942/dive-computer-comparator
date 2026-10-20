@@ -1,0 +1,79 @@
+{
+  "id": "scubapro-xp10-prime",
+  "marque": "SCUBAPRO",
+  "modele": "XP10 / Prime",
+  "statut": "Todo",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "",
+      "Sortie": "???",
+      "Format": "???",
+      "Bracelet": "???",
+      "Bungee": "???",
+      "Profondeur max": "120",
+      "Notice": "???"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L8 ADT MB",
+      "Bühlmann Conservatisme": "",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "???",
+      "Palier facultatif": "volontaire",
+      "Dernier palier": "???",
+      "Vitesse remontée": "entre 20 et 7",
+      "Affichage vitesse": "",
+      "Viol Déco Blocage": "24h",
+      "Plannification": "???",
+      "Réglage altitude": "5 - 4000m",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "???",
+      "Mode Nitrox": "???",
+      "Mode Profond": "???",
+      "Mode Apnée": "???",
+      "Mode Normoxique": "???",
+      "Mode Hypoxique": "???",
+      "Mode CCR": "???",
+      "Nombre de gaz": "???",
+      "PpO₂": "???",
+      "%O₂": "???",
+      "%He": "???",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "???",
+      "Écran couleur": "???",
+      "Écran éclairage": "???",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "???",
+      "Alarme sonore": "???",
+      "Alarme vibration": "???",
+      "Type batterie": "???",
+      "Autonomie batterie": "???",
+      "Changement batterie": "???"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "???",
+      "Connexion Bluetooth": "???",
+      "Application smartphone": "???",
+      "Mise à jour": "???",
+      "Mémoire": "25 heures",
+      "Courbe plongée": "???",
+      "Compas": "Non",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

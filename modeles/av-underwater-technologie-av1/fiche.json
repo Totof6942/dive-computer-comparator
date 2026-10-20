@@ -1,0 +1,79 @@
+{
+  "id": "av-underwater-technologie-av1",
+  "marque": "AV Underwater Technologie",
+  "modele": "AV1",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "",
+      "Sortie": "???",
+      "Format": "Rectangulaire",
+      "Bracelet": "Non",
+      "Bungee": "Oui",
+      "Profondeur max": "200m",
+      "Notice": "AV Underwater Technologie - AV1 [EN].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C - 2,5-720",
+      "Bühlmann Conservatisme": "GF",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "GF",
+      "Palier facultatif": "6m à 12m",
+      "Dernier palier": "???",
+      "Vitesse remontée": "10m/min",
+      "Affichage vitesse": "Numérique : remontée + descente",
+      "Viol Déco Blocage": "???",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique\n2 000m max plongée",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Non",
+      "Mode Normoxique": "Oui",
+      "Mode Hypoxique": "Oui",
+      "Mode CCR": "Oui",
+      "Nombre de gaz": "8 mélanges",
+      "PpO₂": "1,0 - 1,6",
+      "%O₂": "??? à 99%",
+      "%He": "???",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "OLED",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "10 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Non",
+      "Application smartphone": "Non",
+      "Mise à jour": "Oui",
+      "Mémoire": "100 plongées",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

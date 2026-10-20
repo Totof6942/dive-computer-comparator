@@ -1,0 +1,79 @@
+{
+  "id": "deepblu-cosmiq",
+  "marque": "DEEPBLU",
+  "modele": "Cosmiq+",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "345,00 €",
+      "Sortie": "2016",
+      "Format": "Montre",
+      "Bracelet": "Oui",
+      "Bungee": "Non",
+      "Profondeur max": "100m",
+      "Notice": "Deepblu - Cosmiq+ [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C",
+      "Bühlmann Conservatisme": "Conservateur / Normal / Progressif",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "???",
+      "Palier facultatif": "3min de 3m à 6m",
+      "Dernier palier": "3m",
+      "Vitesse remontée": "12m/min",
+      "Affichage vitesse": "Bargraphe - Segments : remontée",
+      "Viol Déco Blocage": "",
+      "Plannification": "Sans Déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "1 mélange",
+      "PpO₂": "1,2 - 1,6",
+      "%O₂": "21 à 40%",
+      "%He": "Non",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "Segment",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "6 heures de plongées",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Non",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "25 plongées",
+      "Courbe plongée": "Sur application",
+      "Compas": "Non",
+      "Chronomètre": "Non",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

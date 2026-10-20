@@ -1,0 +1,79 @@
+{
+  "id": "seac-jack",
+  "marque": "SEAC",
+  "modele": "Jack",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "",
+      "Sortie": "2016",
+      "Format": "Montre",
+      "Bracelet": "Oui",
+      "Bungee": "Non",
+      "Profondeur max": "150m",
+      "Notice": "Seac - Jack [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C",
+      "Bühlmann Conservatisme": "0 / 1 / 2 / 3 / 4 / 5",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Désactivable",
+      "Palier facultatif": "0min à 9min de 3m à 9m\nDésactivable",
+      "Dernier palier": "???",
+      "Vitesse remontée": "9m/min",
+      "Affichage vitesse": "",
+      "Viol Déco Blocage": "Débrayable",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "1 mélange",
+      "PpO₂": "1,2 - 1,6",
+      "%O₂": "21 à 50%",
+      "%He": "Non",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "Matriciel",
+      "Écran couleur": "Non",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "40 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Non",
+      "Application smartphone": "Non",
+      "Mise à jour": "Oui",
+      "Mémoire": "160 heures",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Altimètre / Baromètre"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "shearwater-perdix-3",
+  "marque": "SHEARWATER",
+  "modele": "Perdix 3",
+  "statut": "Todo",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "",
+      "Sortie": "2026",
+      "Format": "Rectangulaire",
+      "Bracelet": "Double sangles",
+      "Bungee": "Oui",
+      "Profondeur max": "260m",
+      "Notice": ""
+    },
+    "Décompression": {
+      "Bühlmann": "ZHL-16C",
+      "Bühlmann Conservatisme": "",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "",
+      "VPM Conservatisme": "",
+      "Pelagic": "",
+      "DCIEM": "",
+      "Palier profond": "GF",
+      "Palier facultatif": "",
+      "Dernier palier": "???",
+      "Vitesse remontée": "10m/min",
+      "Affichage vitesse": "Bargraphe - 3m/min/barre\nNumérique : remontée + descente",
+      "Viol Déco Blocage": "",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Oui"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Oui",
+      "Mode Hypoxique": "Oui",
+      "Mode CCR": "Oui",
+      "Nombre de gaz": "",
+      "PpO₂": "",
+      "%O₂": "",
+      "%He": "",
+      "Gestion gaz": "4 émetteurs",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "AMOLED",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Non",
+      "Alarme vibration": "Oui",
+      "Type batterie": "Pile - AA",
+      "Autonomie batterie": "35 à 60 heures de plongées",
+      "Changement batterie": "Utilisateur"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Non",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "1000 heures",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "Oui",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

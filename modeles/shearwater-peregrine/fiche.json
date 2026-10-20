@@ -1,0 +1,79 @@
+{
+  "id": "shearwater-peregrine",
+  "marque": "SHEARWATER",
+  "modele": "Peregrine",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "545,00 €",
+      "Sortie": "2021",
+      "Format": "Rectangulaire",
+      "Bracelet": "Oui",
+      "Bungee": "Oui",
+      "Profondeur max": "120m",
+      "Notice": "Shearwater - Peregrine [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C - 2,5-720",
+      "Bühlmann Conservatisme": "GF libres\nBas = 45/95\nMoyen = 40/85 (Défaut)\nHaut = 35/75",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "Optionnel",
+      "Palier profond": "GF",
+      "Palier facultatif": "3min à 5min de 3m à 6m",
+      "Dernier palier": "???",
+      "Vitesse remontée": "10m/min",
+      "Affichage vitesse": "Bargraphe - 3m/min/barre\nNumérique : remontée + descente",
+      "Viol Déco Blocage": "Non",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Oui"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Non",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "3 mélanges",
+      "PpO₂": "1,0 - 1,6",
+      "%O₂": "21 à 99%",
+      "%He": "Non",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "LCD",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Non",
+      "Alarme vibration": "Oui",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "30 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Non",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "200 heures",
+      "Courbe plongée": "Oui",
+      "Compas": "Non",
+      "Chronomètre": "Oui",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

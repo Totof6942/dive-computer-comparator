@@ -1,0 +1,79 @@
+{
+  "id": "apeks-dsx",
+  "marque": "APEKS",
+  "modele": "DSX",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "959,00 €",
+      "Sortie": "2023",
+      "Format": "Rectangulaire",
+      "Bracelet": "Double sangles",
+      "Bungee": "Oui",
+      "Profondeur max": "130m",
+      "Notice": "Apeks - DSX [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C",
+      "Bühlmann Conservatisme": "GF Libres\nBas = 90/90\nMoyen = 35/80\nHaut = 30/70",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Désactivable",
+      "Palier facultatif": "Oui",
+      "Dernier palier": "???",
+      "Vitesse remontée": "9m/min",
+      "Affichage vitesse": "Bargraphe - Segments : remontée",
+      "Viol Déco Blocage": "???",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Non",
+      "Mode Normoxique": "Oui",
+      "Mode Hypoxique": "Oui",
+      "Mode CCR": "Oui",
+      "Nombre de gaz": "6 mélanges",
+      "PpO₂": "0,16 - 1,9",
+      "%O₂": "7 à 100%",
+      "%He": "0 à 79%",
+      "Gestion gaz": "6 émetteurs",
+      "Analyseur d'O²": "Oui",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "TFT",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Oui",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "???",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Non",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "99 plongées",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "GPS"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "scubapro-sol",
+  "marque": "SCUBAPRO",
+  "modele": "Sol",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "",
+      "Sortie": "2007",
+      "Format": "Rectangulaire",
+      "Bracelet": "Oui",
+      "Bungee": "Non",
+      "Profondeur max": "120m",
+      "Notice": "Scubapro - Sol [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L8 ADT MB PGM",
+      "Bühlmann Conservatisme": "L0 / L1 / L2 / L3 / L4 / L5",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Désactivable",
+      "Palier facultatif": "1min à 5min de 3m à 5m\nDésactivable",
+      "Dernier palier": "???",
+      "Vitesse remontée": "7 à 20m/min",
+      "Affichage vitesse": "",
+      "Viol Déco Blocage": "24h - Débrayable",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "0m - 1 000m\n1 000m - 2 000m\n2 000m - 3 000m\n3 000m - 4 000m",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Non",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "3 mélanges",
+      "PpO₂": "1,2 - 1,6",
+      "%O₂": "21 à 100%",
+      "%He": "Non",
+      "Gestion gaz": "4 émetteurs",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "Matriciel",
+      "Écran couleur": "Non",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Pile - CR12600SE (CR2NP)",
+      "Autonomie batterie": "300 plongées",
+      "Changement batterie": "Utilisateur"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "En option",
+      "Connexion Bluetooth": "Non",
+      "Application smartphone": "Non",
+      "Mise à jour": "Oui",
+      "Mémoire": "100 heures",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "En option",
+      "Température corporelle": "En option",
+      "Mode outdoor": "Non"
+    }
+  }
+}

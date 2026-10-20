@@ -1,0 +1,79 @@
+{
+  "id": "divesoft-freedom",
+  "marque": "DIVESOFT",
+  "modele": "Freedom+",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "785,00 €",
+      "Sortie": "2023",
+      "Format": "Rectangulaire",
+      "Bracelet": "Double sangles",
+      "Bungee": "Oui",
+      "Profondeur max": "300m",
+      "Notice": "Divesoft - Freedom+ [EN].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16B\nZH-L16C",
+      "Bühlmann Conservatisme": "GF\nDéfaut 30/80",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Désactivable (Pyle)\nGF",
+      "Palier facultatif": "3min de 3m à 6m\nDésactivable",
+      "Dernier palier": "3m ou 6m",
+      "Vitesse remontée": "Personnalisable",
+      "Affichage vitesse": "",
+      "Viol Déco Blocage": "",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Non",
+      "Mode Normoxique": "Oui",
+      "Mode Hypoxique": "Oui",
+      "Mode CCR": "En option",
+      "Nombre de gaz": "9 mélanges + 8 diluants",
+      "PpO₂": "0,18 - 1,6",
+      "%O₂": "",
+      "%He": "",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "TFT",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Non",
+      "Alarme vibration": "Oui",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "20 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "100 heures",
+      "Courbe plongée": "Oui",
+      "Compas": "Non",
+      "Chronomètre": "Oui",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

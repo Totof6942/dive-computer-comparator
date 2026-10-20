@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Palier · Comparateur d’ordinateurs de plongée</title>
+  <meta name="description" content="Parcourez, filtrez et comparez les caractéristiques des ordinateurs de plongée.">
+  <meta name="theme-color" content="#0E1A24">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1A24'/%3E%3Cpath d='M7 9h18M7 16h12M7 23h6' stroke='%23FB923C' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#app">Aller au contenu</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#/" aria-label="Palier, accueil">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 8h22M5 16h15M5 24h8" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg>
+        <span class="logo-text">Palier</span>
+      </a>
+      <span class="tagline">Comparateur d’ordinateurs de plongée</span>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#/" data-route="catalogue">Catalogue</a>
+        <a href="#/guide" data-route="guide"><span class="nav-long">Trouver mon ordinateur</span><span class="nav-short">Guide</span></a>
+        <a href="#/comparer/" data-route="compare" id="nav-compare">Comparer <span class="nav-count mono" id="nav-compare-count" hidden></span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <aside id="tray" class="tray" aria-label="Modèles sélectionnés pour la comparaison" hidden></aside>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="disclaimer-title">Avertissement</p>
+      <p id="disclaimer" class="disclaimer"></p>
+      <p id="price-note" class="disclaimer"></p>
+      <p class="data-status" id="data-status"></p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

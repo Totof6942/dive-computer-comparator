@@ -1,0 +1,79 @@
+{
+  "id": "shearwater-nerd-2-fischer",
+  "marque": "SHEARWATER",
+  "modele": "Nerd 2 Fischer",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "1 990,00 €",
+      "Sortie": "2017",
+      "Format": "HUD",
+      "Bracelet": "Non",
+      "Bungee": "Non",
+      "Profondeur max": "300m",
+      "Notice": "Shearwater - Nerd 2 [EN].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C - 2,5-720",
+      "Bühlmann Conservatisme": "GF libres\nDéfaut 30/70",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "VPM-B (Optionnel)",
+      "VPM Conservatisme": "0\n+1\n+2\n+3\n+4\n+5",
+      "Pelagic": "-",
+      "DCIEM": "Optionnel",
+      "Palier profond": "GF",
+      "Palier facultatif": "3min à 5min de 3m à 6m",
+      "Dernier palier": "???",
+      "Vitesse remontée": "10m/min",
+      "Affichage vitesse": "Bargraphe - 3m/min/barre",
+      "Viol Déco Blocage": "Non",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Oui"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Non",
+      "Mode Normoxique": "Oui",
+      "Mode Hypoxique": "Oui",
+      "Mode CCR": "Oui",
+      "Nombre de gaz": "5 OC + 5 CC",
+      "PpO₂": "1,0 - 1,6 (Nx)",
+      "%O₂": "? à 100%",
+      "%He": "???",
+      "Gestion gaz": "2 émetteurs",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "QVGA",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Non",
+      "Alarme vibration": "Non",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "18 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Non",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "1000 heures",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "Non",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

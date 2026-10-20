@@ -1,0 +1,79 @@
+{
+  "id": "tabata-tusa-iq1204-montre",
+  "marque": "TABATA - TUSA",
+  "modele": "Iq1204 - Montre",
+  "statut": "Todo",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "",
+      "Sortie": "???",
+      "Format": "???",
+      "Bracelet": "???",
+      "Bungee": "???",
+      "Profondeur max": "???",
+      "Notice": "???"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C",
+      "Bühlmann Conservatisme": "",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Non",
+      "Palier facultatif": "???",
+      "Dernier palier": "???",
+      "Vitesse remontée": "???",
+      "Affichage vitesse": "",
+      "Viol Déco Blocage": "???",
+      "Plannification": "???",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "4 mélanges",
+      "PpO₂": "???",
+      "%O₂": "21 à 100%",
+      "%He": "Non",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "???",
+      "Écran couleur": "Non",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Lithium-ion / Solar",
+      "Autonomie batterie": "???",
+      "Changement batterie": "???"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "???",
+      "Mémoire": "30 plongées",
+      "Courbe plongée": "???",
+      "Compas": "Oui",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

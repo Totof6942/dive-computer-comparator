@@ -1,0 +1,79 @@
+{
+  "id": "ratio-ix3m2-tx-easy",
+  "marque": "RATIO",
+  "modele": "iX3M2 TX Easy",
+  "statut": "",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "499,99 €",
+      "Sortie": "2026",
+      "Format": "Rectangulaire",
+      "Bracelet": "Double sangles",
+      "Bungee": "Oui",
+      "Profondeur max": "120m",
+      "Notice": ""
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C",
+      "Bühlmann Conservatisme": "0 = 93/93\n1 = 90/90\n2 = 80/80\n3 = 75/75\n4 = 50/85\n5 = 48/80",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "",
+      "Palier facultatif": "",
+      "Dernier palier": "???",
+      "Vitesse remontée": "9m/min",
+      "Affichage vitesse": "",
+      "Viol Déco Blocage": "12h - Débrayable",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique\n5 000m max plongée",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "2 mélanges",
+      "PpO₂": "1,2 - 1,6",
+      "%O₂": "21 à 99%",
+      "%He": "Non",
+      "Gestion gaz": "2 émetteurs",
+      "Analyseur d'O²": "En option",
+      "Gas Blender Intégré": "Oui"
+    },
+    "Écran & énergie": {
+      "Écran type": "IPS",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Oui",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "20 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "",
+      "Application smartphone": "",
+      "Mise à jour": "Oui",
+      "Mémoire": "",
+      "Courbe plongée": "",
+      "Compas": "Oui",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "garmin-descent-mk3-43mm",
+  "marque": "GARMIN",
+  "modele": "Descent MK3 - 43mm",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "1 249,00 €",
+      "Sortie": "2024",
+      "Format": "Montre",
+      "Bracelet": "Oui",
+      "Bungee": "Non",
+      "Profondeur max": "200m",
+      "Notice": "Garmin - Descent MK3 Series [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C",
+      "Bühlmann Conservatisme": "GF",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "GF",
+      "Palier facultatif": "3min à 5min de 2m à 5m\nDésactivable",
+      "Dernier palier": "???",
+      "Vitesse remontée": "9m/min",
+      "Affichage vitesse": "Bargraphe - Segments : remontée + descente",
+      "Viol Déco Blocage": "24h - Débrayable",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Oui",
+      "Mode Hypoxique": "Oui",
+      "Mode CCR": "Oui",
+      "Nombre de gaz": "12 mélanges",
+      "PpO₂": "??? - 2,0",
+      "%O₂": "5 à 100%",
+      "%He": "???",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "AMOLED",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Oui",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Oui",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "30 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "32GB",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "Oui",
+      "Température corporelle": "Oui",
+      "Mode outdoor": "GPS / Altimètre"
+    }
+  }
+}

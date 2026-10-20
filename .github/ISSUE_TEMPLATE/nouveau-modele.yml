@@ -1,0 +1,36 @@
+name: Ajouter un modèle manquant
+description: Proposer un ordinateur de plongée absent du comparatif.
+title: "[Nouveau modèle] "
+labels: ["nouveau modèle"]
+body:
+  - type: input
+    id: marque
+    attributes:
+      label: Marque
+    validations:
+      required: true
+  - type: input
+    id: modele
+    attributes:
+      label: Modèle
+    validations:
+      required: true
+  - type: input
+    id: sortie
+    attributes:
+      label: Année de sortie
+  - type: input
+    id: prix
+    attributes:
+      label: Prix constaté en France
+  - type: input
+    id: notice
+    attributes:
+      label: Lien vers la notice
+      description: Le PDF du fabricant, indispensable pour remplir la fiche.
+    validations:
+      required: true
+  - type: textarea
+    id: remarques
+    attributes:
+      label: Remarques

@@ -1,0 +1,79 @@
+{
+  "id": "aqualung-i770r",
+  "marque": "AQUALUNG",
+  "modele": "i770R",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "699,00 €",
+      "Sortie": "2018",
+      "Format": "Rectangulaire",
+      "Bracelet": "Oui",
+      "Bungee": "Oui",
+      "Profondeur max": "100m",
+      "Notice": "Aqualung - i770R [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C",
+      "Bühlmann Conservatisme": "Off / On",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Désactivable",
+      "Palier facultatif": "3min à 5min de 3m à 6m\nDésactivable",
+      "Dernier palier": "???",
+      "Vitesse remontée": "9m/min",
+      "Affichage vitesse": "Bargraphe - Segments : remontée",
+      "Viol Déco Blocage": "24h - Profondimètre",
+      "Plannification": "Sans déco",
+      "Réglage altitude": "Automatique\n4 270m max plongée",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "4 mélanges",
+      "PpO₂": "1,1 - 1,6",
+      "%O₂": "21 à 100%",
+      "%He": "Non",
+      "Gestion gaz": "4 émetteurs",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "TFT",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "30 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "99 plongées",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

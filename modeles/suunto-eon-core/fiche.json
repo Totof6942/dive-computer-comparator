@@ -1,0 +1,79 @@
+{
+  "id": "suunto-eon-core",
+  "marque": "SUUNTO",
+  "modele": "Eon Core",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "699,00 €",
+      "Sortie": "2017",
+      "Format": "Rectangulaire",
+      "Bracelet": "Oui",
+      "Bungee": "Oui",
+      "Profondeur max": "80m",
+      "Notice": "Suunto - EON Core [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C - 4-635",
+      "Bühlmann Conservatisme": "GF",
+      "RGBM": "15C/1-720",
+      "RGBM Conservatisme": "-2\n1\n0\n1\n2",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Désactivable",
+      "Palier facultatif": "3min de 3m à 6m",
+      "Dernier palier": "???",
+      "Vitesse remontée": "10m/min",
+      "Affichage vitesse": "",
+      "Viol Déco Blocage": "48h",
+      "Plannification": "Sans déco",
+      "Réglage altitude": "0m - 300m\n300m - 1500m\n1500m - 3000m",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Non",
+      "Mode Normoxique": "Oui",
+      "Mode Hypoxique": "Oui",
+      "Mode CCR": "Oui",
+      "Nombre de gaz": "10 mélanges",
+      "PpO₂": "1,2 - 1,6",
+      "%O₂": "5 à 99%",
+      "%He": "0 à 95%",
+      "Gestion gaz": "20 émetteurs",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "LCD",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "10 à 20 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "200 heures",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

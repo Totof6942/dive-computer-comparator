@@ -1,0 +1,79 @@
+{
+  "id": "ratio-idive-easy",
+  "marque": "RATIO",
+  "modele": "iDive Easy",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "449,00 €",
+      "Sortie": "2018",
+      "Format": "Montre",
+      "Bracelet": "Oui",
+      "Bungee": "Non",
+      "Profondeur max": "150m",
+      "Notice": "Ratio - iDive Color [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16B",
+      "Bühlmann Conservatisme": "0 = 93/93\n1 = 90/90\n2 = 80/80\n3 = 75/75\n4 = 50/85\n5 = 48/80",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Off / STD",
+      "Palier facultatif": "0min à 9min de 3m à 9m\nDésactivable",
+      "Dernier palier": "???",
+      "Vitesse remontée": "9m/min",
+      "Affichage vitesse": "Bargraphe - Couleurs\nNumérique : remontée + descente",
+      "Viol Déco Blocage": "12h - Débrayable",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "2 mélanges",
+      "PpO₂": "1,2 - 1,6",
+      "%O₂": "21 à 99%",
+      "%He": "Non",
+      "Gestion gaz": "2 émetteurs",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "IPS",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "20 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Non",
+      "Application smartphone": "Non",
+      "Mise à jour": "Oui",
+      "Mémoire": "160 heures",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "Oui",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Altimètre"
+    }
+  }
+}

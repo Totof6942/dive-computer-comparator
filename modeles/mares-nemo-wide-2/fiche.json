@@ -1,0 +1,79 @@
+{
+  "id": "mares-nemo-wide-2",
+  "marque": "MARES",
+  "modele": "Nemo Wide 2",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "",
+      "Sortie": "2012",
+      "Format": "Rectangulaire",
+      "Bracelet": "Oui",
+      "Bungee": "Non",
+      "Profondeur max": "150m",
+      "Notice": "Mares - Nemo Wide 2 [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "-",
+      "Bühlmann Conservatisme": "-",
+      "RGBM": "10C/2,5-480",
+      "RGBM Conservatisme": "P0\nP1\nP2",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Désactivable",
+      "Palier facultatif": "3min de 3m à 6m",
+      "Dernier palier": "???",
+      "Vitesse remontée": "10m/min",
+      "Affichage vitesse": "Bargraphe - Segments\nNumérique : uniquement en cas de remontée",
+      "Viol Déco Blocage": "24h - Débrayable",
+      "Plannification": "Sans déco",
+      "Réglage altitude": "0m - 700m\n700m - 1 500m\n1 500m - 2 400m\n2 400m - 3 400m",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Non",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "3 mélanges",
+      "PpO₂": "1,2 - 1,6",
+      "%O₂": "21 à 100%",
+      "%He": "Non",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "Segment",
+      "Écran couleur": "Non",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Pile - CR2450",
+      "Autonomie batterie": "300 à 500 plongées",
+      "Changement batterie": "Utilisateur"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Non",
+      "Application smartphone": "Non",
+      "Mise à jour": "Oui",
+      "Mémoire": "35 heures",
+      "Courbe plongée": "Non",
+      "Compas": "Non",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "scubapro-luna-2-0",
+  "marque": "SCUBAPRO",
+  "modele": "Luna 2.0",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "329,00 €",
+      "Sortie": "2023",
+      "Format": "Rectangulaire",
+      "Bracelet": "Oui",
+      "Bungee": "Oui",
+      "Profondeur max": "120m",
+      "Notice": "Scubapro - Luna 2.0 [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C\nZH-L16D ADT MB PMG",
+      "Bühlmann Conservatisme": "ZHL : GF libres\n ADT PMG : L0 / L1 / L2 / L3 / L4 / L5",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Désactivable",
+      "Palier facultatif": "3min à 5m",
+      "Dernier palier": "???",
+      "Vitesse remontée": "3 à 10m/min",
+      "Affichage vitesse": "Bargraphe - Segments : remontée",
+      "Viol Déco Blocage": "24h - Débrayable",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "3 mélanges",
+      "PpO₂": "1,2 - 1,6",
+      "%O₂": "21 à 100%",
+      "%He": "Non",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "LED",
+      "Écran couleur": "Non",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Pile - CR2450",
+      "Autonomie batterie": "2 ans",
+      "Changement batterie": "Utilisateur"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Non",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "50 heures",
+      "Courbe plongée": "Oui",
+      "Compas": "Non",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "En option",
+      "Température corporelle": "En option",
+      "Mode outdoor": "Non"
+    }
+  }
+}

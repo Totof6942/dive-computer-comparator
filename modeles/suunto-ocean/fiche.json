@@ -1,0 +1,79 @@
+{
+  "id": "suunto-ocean",
+  "marque": "SUUNTO",
+  "modele": "Ocean",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "749,00 €",
+      "Sortie": "2024",
+      "Format": "Montre",
+      "Bracelet": "Oui",
+      "Bungee": "Non",
+      "Profondeur max": "60m",
+      "Notice": "Suunto - Ocean [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C",
+      "Bühlmann Conservatisme": "GF libres\nBas = 45/95\nMoyen = 40/85 (Défaut)\nHaut = 35/75",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "GF",
+      "Palier facultatif": "3min à 5min de 3m à 6m",
+      "Dernier palier": "???",
+      "Vitesse remontée": "10m/min",
+      "Affichage vitesse": "Bargraphe - Segments : remontée",
+      "Viol Déco Blocage": "48h",
+      "Plannification": "Sans déco",
+      "Réglage altitude": "0m - 300m\n300m - 1500m\n1500m - 3000m",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "5 mélanges",
+      "PpO₂": "1,0 - 1,6",
+      "%O₂": "21 à 99%",
+      "%He": "Non",
+      "Gestion gaz": "5 émetteurs",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "AMOLED",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Oui",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Oui",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "6 à 12 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "32GB",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "Oui",
+      "Cardio fréquencemètre": "Oui",
+      "Température corporelle": "Non",
+      "Mode outdoor": "GPS / Multisports"
+    }
+  }
+}

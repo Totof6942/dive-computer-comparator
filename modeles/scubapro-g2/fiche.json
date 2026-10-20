@@ -1,0 +1,79 @@
+{
+  "id": "scubapro-g2",
+  "marque": "SCUBAPRO",
+  "modele": "G2",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "759,00 €",
+      "Sortie": "2017",
+      "Format": "Rectangulaire",
+      "Bracelet": "Oui",
+      "Bungee": "Oui",
+      "Profondeur max": "120m",
+      "Notice": "Scubapro - G2 [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16 ADT MB PGM",
+      "Bühlmann Conservatisme": "L0 / L1 / L2 / L3 / L4 / L5 / L6 / L7 / L8 / L9",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Facultatif",
+      "Palier facultatif": "Oui",
+      "Dernier palier": "???",
+      "Vitesse remontée": "3 à 10m/min",
+      "Affichage vitesse": "",
+      "Viol Déco Blocage": "24h - Débrayable",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique\n3 000m max plongée\n4 000m max profondimètre",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Oui",
+      "Mode Hypoxique": "Oui",
+      "Mode CCR": "Oui",
+      "Nombre de gaz": "8 mélanges",
+      "PpO₂": "1,0 - 1,6",
+      "%O₂": "8 à 100%",
+      "%He": "0 à 92%",
+      "Gestion gaz": "8 émetteurs",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "TFT",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "50 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "1000 heures",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "En option",
+      "Température corporelle": "En option",
+      "Mode outdoor": "Altimètre"
+    }
+  }
+}

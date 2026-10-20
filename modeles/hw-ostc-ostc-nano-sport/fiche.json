@@ -1,0 +1,79 @@
+{
+  "id": "hw-ostc-ostc-nano-sport",
+  "marque": "HW-OSTC",
+  "modele": "OSTC nano Sport",
+  "statut": "Todo",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "515,00 €",
+      "Sortie": "2026",
+      "Format": "Rectangulaire",
+      "Bracelet": "Non",
+      "Bungee": "Oui",
+      "Profondeur max": "120m",
+      "Notice": ""
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16",
+      "Bühlmann Conservatisme": "",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "",
+      "Palier facultatif": "",
+      "Dernier palier": "???",
+      "Vitesse remontée": "",
+      "Affichage vitesse": "",
+      "Viol Déco Blocage": "",
+      "Plannification": "",
+      "Réglage altitude": "",
+      "Alarme Déco Exponentielle": ""
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "",
+      "Mode Apnée": "",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "",
+      "PpO₂": "",
+      "%O₂": "",
+      "%He": "",
+      "Gestion gaz": "",
+      "Analyseur d'O²": "",
+      "Gas Blender Intégré": ""
+    },
+    "Écran & énergie": {
+      "Écran type": "IPS",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "",
+      "Alarme sonore": "",
+      "Alarme vibration": "",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "40 heures de plongée",
+      "Changement batterie": ""
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Oui",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "",
+      "Courbe plongée": "",
+      "Compas": "Oui",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "",
+      "Température corporelle": "",
+      "Mode outdoor": ""
+    }
+  }
+}

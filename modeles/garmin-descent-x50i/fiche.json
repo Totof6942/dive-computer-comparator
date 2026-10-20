@@ -1,0 +1,79 @@
+{
+  "id": "garmin-descent-x50i",
+  "marque": "GARMIN",
+  "modele": "Descent X50i",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "1 549,99 €",
+      "Sortie": "2024",
+      "Format": "Rectangulaire",
+      "Bracelet": "Double sangles",
+      "Bungee": "Oui",
+      "Profondeur max": "200m",
+      "Notice": "Garmin - Descent X50i [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C",
+      "Bühlmann Conservatisme": "GF\nFaible / Moyen / Élevé",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "GF",
+      "Palier facultatif": "3min à 5min de 2m à 5m\nDésactivable",
+      "Dernier palier": "???",
+      "Vitesse remontée": "10m/min ???",
+      "Affichage vitesse": "Bargraphe - Segments : remontée + descente",
+      "Viol Déco Blocage": "24h - Débrayable",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Oui"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Non",
+      "Mode Normoxique": "Oui",
+      "Mode Hypoxique": "Oui",
+      "Mode CCR": "Oui",
+      "Nombre de gaz": "12 mélanges",
+      "PpO₂": "??? - 2,0",
+      "%O₂": "5 à 100%",
+      "%He": "???",
+      "Gestion gaz": "8 émetteurs",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "LCD",
+      "Écran couleur": "Oui",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Oui",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Oui",
+      "Type batterie": "Lithium-ion",
+      "Autonomie batterie": "16 heures de plongée",
+      "Changement batterie": "Atelier"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Non",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "32GB",
+      "Courbe plongée": "Oui",
+      "Compas": "Oui",
+      "Chronomètre": "Non",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "GPS"
+    }
+  }
+}

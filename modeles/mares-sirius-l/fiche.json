@@ -1,0 +1,79 @@
+{
+  "id": "mares-sirius-l",
+  "marque": "MARES",
+  "modele": "Sirius L",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "299,00 €",
+      "Sortie": "2025",
+      "Format": "Montre",
+      "Bracelet": "Oui",
+      "Bungee": "En option",
+      "Profondeur max": "100m",
+      "Notice": "Mares - Sirius L [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "ZH-L16C",
+      "Bühlmann Conservatisme": "GF libres\nR0 = 85/85 / R1 / R2 / R3 = 50/60\nT0 = 30/85 / T1 / T2 / T3 = 25/40\nDéfaut 85/85",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "-",
+      "DCIEM": "-",
+      "Palier profond": "Désactivable",
+      "Palier facultatif": "3min de 3m à 6m",
+      "Dernier palier": "???",
+      "Vitesse remontée": "> 50m - 20m/min\n30-50m - 15m/min\n10-30m - 10m/min\n< 10m - 5m/min",
+      "Affichage vitesse": "Bargraphe - Segments\nNumérique : uniquement en cas de remontée",
+      "Viol Déco Blocage": "24h - Débrayable",
+      "Plannification": "Avec déco",
+      "Réglage altitude": "Automatique",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "3 mélanges",
+      "PpO₂": "1,2 - 1,6",
+      "%O₂": "21 à 99%",
+      "%He": "Non",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "Segment",
+      "Écran couleur": "Non",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Pile - CR2450",
+      "Autonomie batterie": "100 plongées",
+      "Changement batterie": "Utilisateur"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Non",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "100 plongées",
+      "Courbe plongée": "Sur application",
+      "Compas": "Non",
+      "Chronomètre": "Oui",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}

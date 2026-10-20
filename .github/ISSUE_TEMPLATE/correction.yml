@@ -1,0 +1,40 @@
+name: Corriger une erreur
+description: Signaler une valeur fausse ou manquante sur une fiche.
+title: "[Correction] "
+labels: ["correction"]
+body:
+  - type: input
+    id: modele
+    attributes:
+      label: Modèle
+      description: Marque et modèle concernés.
+    validations:
+      required: true
+  - type: input
+    id: champ
+    attributes:
+      label: Caractéristique
+      placeholder: "ex. Profondeur max"
+    validations:
+      required: true
+  - type: input
+    id: actuel
+    attributes:
+      label: Valeur affichée
+  - type: input
+    id: correct
+    attributes:
+      label: Valeur correcte
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Page de la notice, lien vers le site du fabricant…
+    validations:
+      required: true
+  - type: input
+    id: lien
+    attributes:
+      label: Lien vers la fiche

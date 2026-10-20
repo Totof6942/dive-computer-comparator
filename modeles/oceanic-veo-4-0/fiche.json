@@ -1,0 +1,79 @@
+{
+  "id": "oceanic-veo-4-0",
+  "marque": "OCEANIC",
+  "modele": "Veo 4.0",
+  "statut": "Done",
+  "photo": null,
+  "notice": null,
+  "caracteristiques": {
+    "Général": {
+      "Prix France": "339,00 €",
+      "Sortie": "2019",
+      "Format": "Rond",
+      "Bracelet": "Oui",
+      "Bungee": "Non",
+      "Profondeur max": "100m",
+      "Notice": "Oceanic - Veo 4.0 [FR].pdf"
+    },
+    "Décompression": {
+      "Bühlmann": "-",
+      "Bühlmann Conservatisme": "-",
+      "RGBM": "-",
+      "RGBM Conservatisme": "-",
+      "VPM": "-",
+      "VPM Conservatisme": "-",
+      "Pelagic": "Dual pelagic",
+      "DCIEM": "-",
+      "Palier profond": "Désactivable",
+      "Palier facultatif": "3min à 5min de 3m à 6m\nDésactivable",
+      "Dernier palier": "???",
+      "Vitesse remontée": "9m/min",
+      "Affichage vitesse": "",
+      "Viol Déco Blocage": "24h",
+      "Plannification": "Sans déco",
+      "Réglage altitude": "Automatique\n4 270m max plongée",
+      "Alarme Déco Exponentielle": "Non"
+    },
+    "Gaz & modes": {
+      "Mode Air": "Oui",
+      "Mode Nitrox": "Oui",
+      "Mode Profond": "Oui",
+      "Mode Apnée": "Oui",
+      "Mode Normoxique": "Non",
+      "Mode Hypoxique": "Non",
+      "Mode CCR": "Non",
+      "Nombre de gaz": "3 mélanges",
+      "PpO₂": "??? - 1,6",
+      "%O₂": "21 à 100%",
+      "%He": "Non",
+      "Gestion gaz": "Non",
+      "Analyseur d'O²": "Non",
+      "Gas Blender Intégré": "Non"
+    },
+    "Écran & énergie": {
+      "Écran type": "Segment",
+      "Écran couleur": "Non",
+      "Écran éclairage": "Oui",
+      "Écran tactile": "Non",
+      "Alarme visuelle": "Oui",
+      "Alarme sonore": "Oui",
+      "Alarme vibration": "Non",
+      "Type batterie": "Pile - CR2450",
+      "Autonomie batterie": "300 heures de plongée",
+      "Changement batterie": "Utilisateur"
+    },
+    "Connectivité & extras": {
+      "Connexion USB": "Non",
+      "Connexion Bluetooth": "Oui",
+      "Application smartphone": "Oui",
+      "Mise à jour": "Oui",
+      "Mémoire": "24 plongées",
+      "Courbe plongée": "Sur application",
+      "Compas": "Non",
+      "Chronomètre": "",
+      "Cardio fréquencemètre": "Non",
+      "Température corporelle": "Non",
+      "Mode outdoor": "Non"
+    }
+  }
+}
