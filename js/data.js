@@ -10,16 +10,8 @@ export const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}`;
 export const MANUALS_BASE_URL = '';
 
 // GitHub repository ("owner/name") that receives corrections and new-model
-// requests as issues. When empty, it is derived from the GitHub Pages address
-// (owner.github.io/name); elsewhere (local dev) the links stay hidden.
-export const GITHUB_REPO = '' || repoFromPagesUrl();
-
-function repoFromPagesUrl() {
-  if (typeof location === 'undefined' || !location.hostname.endsWith('.github.io')) return '';
-  const owner = location.hostname.split('.')[0];
-  const name = location.pathname.split('/')[1];
-  return name ? `${owner}/${name}` : `${owner}/${location.hostname}`;
-}
+// requests as issues, through the forms in .github/ISSUE_TEMPLATE/.
+export const GITHUB_REPO = 'Totof6942/dive-computer-comparator';
 
 // Snapshot of the sheet written by scripts/build.mjs, used when Google can't be reached.
 const SNAPSHOT_URL = 'data/sheet.csv';

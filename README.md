@@ -48,7 +48,7 @@ Add these columns to the sheet (any position) to enable the matching features. W
 
 ## Corrections and new models
 
-On GitHub Pages the repository is detected from the address (`owner.github.io/repo`); set `GITHUB_REPO` in `js/data.js` only for a custom domain. The app then shows "Signaler une erreur" links (one per model, and one per spec row on hover) and "Proposer un modèle manquant". They open the issue forms in `.github/ISSUE_TEMPLATE/`, pre-filled with the model, field and current value.
+The repository is set in `GITHUB_REPO` (`js/data.js`); update it if the repo is renamed. The app then shows "Signaler une erreur" links (one per model, and one per spec row on hover) and "Proposer un modèle manquant". They open the issue forms in `.github/ISSUE_TEMPLATE/`, pre-filled with the model, field and current value.
 
 ## Publishing (GitHub Pages)
 

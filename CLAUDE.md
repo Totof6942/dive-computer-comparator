@@ -39,7 +39,7 @@ UI copy is in French. Code, comments and docs are in English.
 - Manual links: the "Notice" cells hold Google Drive file chips, one per manual, each with its own link. The CSV export drops links and the XLSX export keeps one per cell, so `scripts/build.mjs` reads them from the HTML export (`export?format=zip`) into `data/manuals.json` (file name → link), which the app loads. Every manual listed in a cell is linked. New links reach the app on the next build. A PDF in `modeles/<id>/` wins over the Drive link for the first manual.
 - `scripts/build.mjs` reads the sheet, updates `data/` and `modeles/<id>/fiche.json`, and writes `_site/` with one static, indexable page per model and `sitemap.xml`.
 - GitHub repo `Totof6942/dive-computer-comparator`, deployed to GitHub Pages by `.github/workflows/publish.yml` on push to `main` or on demand. The workflow does not commit anything back.
-- Corrections and missing models go through GitHub issue forms (`.github/ISSUE_TEMPLATE/`). The repo is derived from the `*.github.io` address.
+- Corrections and missing models go through GitHub issue forms (`.github/ISSUE_TEMPLATE/`). The repo is set in `GITHUB_REPO` (`js/data.js`).
 - Local dev: `python3 serve.py` (no-cache server; `python3 serve.py 8000 _site` to preview the built site).
 - Storage keys: `bathy.compare` (localStorage), `bathy.filters` (sessionStorage), `bathy.csv` (offline copy).
 
