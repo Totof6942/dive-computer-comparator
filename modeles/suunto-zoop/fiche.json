@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Suunto - Zoop [FR].pdf",
+      "url": "https://drive.google.com/file/d/1PD13JKkMxXTFc9FtmxeKMeLVXEb2ztjx/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

@@ -5,6 +5,12 @@
   "statut": "Todo",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Halcyon - Symbios HUD [EN].pdf",
+      "url": "https://drive.google.com/file/d/1Gc5304L-udNOA3A0JfJ6Cl-W7pLzblir/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 250,00 €",

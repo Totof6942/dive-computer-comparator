@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Mares - Smart [FR].pdf",
+      "url": "https://drive.google.com/file/d/1mb9Jl1fiNa6lXtIJYuH7L7kdDQgdnIJs/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "229,00 €",

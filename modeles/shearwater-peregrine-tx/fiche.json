@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Shearwater - Peregrine TX [FR].pdf",
+      "url": "https://drive.google.com/file/d/1ml5nXO8cA8XP6aN8P0-fzcZQ39rp72cn/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "795,00 €",

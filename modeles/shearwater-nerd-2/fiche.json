@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Shearwater - Nerd 2 [EN].pdf",
+      "url": "https://drive.google.com/file/d/1vUUVh7rBeOFVkYzfhWExyGeHrpNABGz9/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 749,00 €",

@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Azoth Systems - Odyssey [FR].pdf",
+      "url": "https://drive.google.com/file/d/1JmOUJr8HTP73HgZrrvTOqdtvZ6J20noc/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 095,00 €",

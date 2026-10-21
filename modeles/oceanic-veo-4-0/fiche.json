@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Oceanic - Veo 4.0 [FR].pdf",
+      "url": "https://drive.google.com/file/d/1htQp2deE7Z6rkKjjMAYHAQ0LBQmEoUmQ/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "339,00 €",

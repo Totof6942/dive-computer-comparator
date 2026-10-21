@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Deepblu - Cosmiq+ [FR].pdf",
+      "url": "https://drive.google.com/file/d/1MHTlzu1UpkIH8xWHdSDasAVy7FLc_qEY/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "345,00 €",

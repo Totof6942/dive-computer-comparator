@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Seac - Tablet [FR].pdf",
+      "url": "https://drive.google.com/file/d/1Xzv11qyZNFEsQrvy-QGvu-s_drivpGH5/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "299,00 €",

@@ -5,6 +5,12 @@
   "statut": "Todo",
   "photo": null,
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Scubapro - Aladin Square [FR].pdf",
+      "url": "https://drive.google.com/file/d/1P7K82inZpkG_AhQEYiHSEFXNcpBt9X0S/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

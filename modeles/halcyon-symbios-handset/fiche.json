@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Halcyon - Symbios Handset [EN].pdf",
+      "url": "https://drive.google.com/file/d/1n_3-O-C8DDkpIsOjf83m4q6rNeDRWS99/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 090,00 €",

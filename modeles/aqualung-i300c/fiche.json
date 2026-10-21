@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Aqualung - i300C [FR].pdf",
+      "url": "https://drive.google.com/file/d/1MSCtqM7aAuuX4KIx_DGHQhgV6at7QquJ/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "299,00 €",

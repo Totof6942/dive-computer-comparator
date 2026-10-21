@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Shearwater - Teric [FR].pdf",
+      "url": "https://drive.google.com/file/d/18pGdd5LfNcGyAbkA1vWfodMM8TyAheFg/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 099,00 €",

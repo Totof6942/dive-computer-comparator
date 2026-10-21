@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Mares - Quad Air [FR].pdf",
+      "url": "https://drive.google.com/file/d/11c-yW4x1-_gQHPzbI2vLtzcEfZxBGc55/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "329,00 €",

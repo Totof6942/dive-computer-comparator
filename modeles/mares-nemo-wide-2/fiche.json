@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Mares - Nemo Wide 2 [FR].pdf",
+      "url": "https://drive.google.com/file/d/18PuKJtfb4qkeb3LwaEI6LjFlc6EFofsK/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

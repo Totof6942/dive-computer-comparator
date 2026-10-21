@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Suunto - Vyper Novo [FR].pdf",
+      "url": "https://drive.google.com/file/d/1DRXNguCbFi5kWgfsZNGLFccmRJ_d5WxJ/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

@@ -36,6 +36,7 @@ UI copy is in French. Code, comments and docs are in English.
 - Static site, no framework and no build step for the app: `index.html`, `css/styles.css`, `js/app.js` (views, router, filters), `js/data.js` (CSV parsing, field catalogue, filter definitions), `js/silhouettes.js`.
 - Hash routes: `#/` (catalogue, filters mirrored in the query: `prix`, `marques`, `formats`, `modes`, `options`, `algos`, `alimentation`, `dispo`, `tri`, `q`), `#/modele/<id>`, `#/comparer/<id>,<id>,<id>`.
 - `modeles/<id>/` holds `photo.*`, an optional manual `.pdf` and a generated `fiche.json`.
+- Manual links: the "Notice" cells hold Google Drive file chips, one per manual, each with its own link. The CSV export drops links and the XLSX export keeps one per cell, so `scripts/build.mjs` reads them from the HTML export (`export?format=zip`) into `data/manuals.json` (file name → link), which the app loads. Every manual listed in a cell is linked. New links reach the app on the next build. A PDF in `modeles/<id>/` wins over the Drive link for the first manual.
 - `scripts/build.mjs` reads the sheet, updates `data/` and `modeles/<id>/fiche.json`, and writes `_site/` with one static, indexable page per model and `sitemap.xml`.
 - GitHub repo `Totof6942/dive-computer-comparator`, deployed to GitHub Pages by `.github/workflows/publish.yml` on push to `main` or on demand. The workflow does not commit anything back.
 - Corrections and missing models go through GitHub issue forms (`.github/ISSUE_TEMPLATE/`). The repo is derived from the `*.github.io` address.
@@ -77,7 +78,7 @@ UI copy is in French. Code, comments and docs are in English.
   - default tags `#E0F2F1` / `#134E4A`
   - algorithm tags: Bühlmann `#E0F2F1`/`#134E4A`, RGBM `#DBEAFE`/`#1E3A8A`, VPM `#EDE9FE`/`#4C1D95`, Pelagic `#FCE7F3`/`#831843`, DCIEM `#E2E8F0`/`#1E293B`
   - yellow is reserved for "Inconnu" flags
-- Logo: a dive profile (descent, bottom, ascent with a stop) next to "BATHY"; the favicon is the same curve on a dark tile.
+- Logo: a dive profile (surface, descent, bottom, ascent to a stop, back to the surface — it ends at the height it starts) next to "BATHY"; the favicon is the same curve on a dark tile.
 - Fonts:
   - Barlow Condensed for titles, model names and prices
   - IBM Plex Sans for body text

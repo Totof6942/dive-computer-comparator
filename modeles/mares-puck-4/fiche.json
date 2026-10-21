@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Mares - Puck 4 [FR].pdf",
+      "url": "https://drive.google.com/file/d/1rS3Ht6rOhDmpoO5700Kml-V9tcBcOXaK/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "279,00 €",

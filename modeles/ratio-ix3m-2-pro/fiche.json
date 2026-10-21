@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Ratio - iX3M2 [FR].pdf",
+      "url": "https://drive.google.com/file/d/10AT8Apmjm4hZM1_m1GNurYa2Oc8cr9yP/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "649,00 €",

@@ -5,6 +5,7 @@
   "statut": "Todo",
   "photo": null,
   "notice": null,
+  "notices": [],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

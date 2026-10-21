@@ -226,8 +226,9 @@ const slug = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '')
 /**
  * Rows → models. `assets` maps a model id to the files found in its
  * modeles/<id>/ folder: { photo, notice } (paths relative to the site root).
+ * `manuals` maps a manual's file name, as written in the "Notice" cells, to its link.
  */
-export function buildModels(rows, assets = {}) {
+export function buildModels(rows, assets = {}, manuals = {}) {
   // Row 1 = credit line, row 2 = headers. Be tolerant if the credit line moves.
   const headerIdx = rows.findIndex((r) => r.some((c) => keyOf(c) === 'marque') && r.some((c) => keyOf(c) === 'modele'));
   if (headerIdx < 0) throw new Error('En-têtes introuvables dans la feuille');
@@ -248,7 +249,8 @@ export function buildModels(rows, assets = {}) {
 
   const models = [];
   const seen = new Set();
-  for (const r of rows.slice(headerIdx + 1)) {
+  for (let ri = headerIdx + 1; ri < rows.length; ri++) {
+    const r = rows[ri];
     const brand = (r[iBrand] || '').trim();
     const name = (r[iModel] || '').trim();
     if (!brand || !name) continue;
@@ -300,6 +302,9 @@ export function buildModels(rows, assets = {}) {
       photo: /^https?:\/\//.test(photoCell) ? photoCell : assets[id]?.photo ?? null,
       manual: ok('Notice') ? v('Notice').text : null,
       manualFile: assets[id]?.notice ?? null,
+      // One entry per manual listed in the cell, with its link when the sheet has one.
+      manuals: ok('Notice') ? v('Notice').text.split('\n').map((name) => ({ name, url: manuals[name] ?? null })) : [],
+      row: ri + 1, // sheet row number, to match data from other exports (XLSX links)
     });
   }
   const has = { onSale: iOnSale >= 0, updatedAt: iUpdated >= 0, contributors: iContrib >= 0 };
@@ -315,21 +320,22 @@ function parseDate(raw) {
   return m ? new Date(+m[3], m[2] - 1, +m[1]) : null;
 }
 
-// Photos and manuals found in modeles/<id>/, listed by scripts/build.mjs.
-async function fetchAssets() {
+// Files written by scripts/build.mjs: data/assets.json (photos and manuals found
+// in modeles/<id>/) and data/manuals.json (file name → link of the sheet's manuals,
+// which the CSV export drops).
+async function fetchJson(url) {
   try {
-    const res = await fetch('data/assets.json', { cache: 'no-cache' });
+    const res = await fetch(url, { cache: 'no-cache' });
     return res.ok ? await res.json() : {};
   } catch { return {}; }
 }
 
-// Written by scripts/build.mjs into the published site only: { builtAt }.
-// Its presence means the static pages modeles/<id>/ exist.
-async function fetchSite() {
-  try {
-    const res = await fetch('data/site.json', { cache: 'no-cache' });
-    return res.ok ? await res.json() : null;
-  } catch { return null; }
+// The published site's index.html carries <meta name="bathy-built" content="ISO date">,
+// added by scripts/build.mjs. Its presence means the static pages modeles/<id>/ exist.
+// Read from the page itself: no request, so no 404 when serving the repo root.
+function siteInfo() {
+  const meta = typeof document !== 'undefined' && document.querySelector('meta[name="bathy-built"]');
+  return meta ? { builtAt: meta.content } : null;
 }
 
 // A hanging request to Google must not block the app: give up and fall back.
@@ -348,8 +354,8 @@ async function fetchCsv(url) {
  * then to the last good copy in localStorage, so the app still opens offline.
  */
 export async function loadData() {
-  const assetsP = fetchAssets();
-  const siteP = fetchSite();
+  const assetsP = fetchJson('data/assets.json');
+  const manualsP = fetchJson('data/manuals.json');
   let csv, source = 'live', fetchedAt = new Date();
   try {
     csv = await fetchCsv(CSV_URL);
@@ -358,7 +364,7 @@ export async function loadData() {
     try {
       csv = await fetchCsv(SNAPSHOT_URL);
       source = 'snapshot';
-      fetchedAt = new Date((await siteP)?.builtAt || Date.now());
+      fetchedAt = new Date(siteInfo()?.builtAt || Date.now());
     } catch {
       let cached = null;
       try { cached = JSON.parse(localStorage.getItem(CACHE_KEY)); } catch { /* ignore */ }
@@ -366,10 +372,10 @@ export async function loadData() {
       csv = cached.csv; source = 'cache'; fetchedAt = new Date(cached.at);
     }
   }
-  const { models, disclaimer, has } = buildModels(parseCSV(csv), await assetsP);
+  const { models, disclaimer, has } = buildModels(parseCSV(csv), await assetsP, await manualsP);
   const dates = models.map((m) => m.updatedAt).filter(Boolean);
   const lastUpdate = dates.length ? new Date(Math.max(...dates)) : null;
-  return { models, disclaimer, has, lastUpdate, source, fetchedAt, site: await siteP };
+  return { models, disclaimer, has, lastUpdate, source, fetchedAt, site: siteInfo() };
 }
 
 // ---------------------------------------------------------------------------
@@ -378,8 +384,10 @@ export async function loadData() {
 export const formatPrice = (n) => n == null ? null
   : new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: n % 1 ? 2 : 0 }).format(n);
 
+/** Link of the model's first manual: a PDF in its folder wins over the sheet's link. */
 export function manualUrl(model) {
   if (model.manualFile) return model.manualFile;
+  if (model.manuals?.[0]?.url) return model.manuals[0].url;
   if (!model.manual) return null;
   if (/^https?:\/\//.test(model.manual)) return model.manual;
   return MANUALS_BASE_URL ? MANUALS_BASE_URL + encodeURIComponent(model.manual) : null;

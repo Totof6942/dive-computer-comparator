@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Shearwater - Perdix 3 [EN].pdf",
+      "url": "https://drive.google.com/file/d/1YcIx8LLxILYkwcpF7xvLR7Pn3sC6pAFZ/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 395,00 €",

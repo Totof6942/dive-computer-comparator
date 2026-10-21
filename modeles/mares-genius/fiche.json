@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Mares - Genius [FR].pdf",
+      "url": "https://drive.google.com/file/d/1dYTN3NioGx1s0XZG6yKhCJ2L4ltka5zU/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "799,00 €",

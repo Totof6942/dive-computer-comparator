@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Divesoft - Freedom+ [EN].pdf",
+      "url": "https://drive.google.com/file/d/1Xbfa9i-dlfoYiiPQr8Br2BpHQtrWL1bn/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "785,00 €",

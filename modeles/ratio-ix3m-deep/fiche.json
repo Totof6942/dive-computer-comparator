@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Ratio - iX3M [EN].pdf",
+      "url": "https://drive.google.com/file/d/1NjQWfjIhJAFFG3hHW7n0LpyBjtFkEWkt/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

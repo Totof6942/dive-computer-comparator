@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Suunto - D4i [FR].pdf",
+      "url": "https://drive.google.com/file/d/14aTtZlhKZS3rVK-vzXglEjG26jQ1_aXz/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "419,00 €",

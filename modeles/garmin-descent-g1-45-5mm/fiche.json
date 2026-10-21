@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Garmin - Descent G1 Series [FR].pdf",
+      "url": "https://drive.google.com/file/d/1FWRjft-QC2q_iyb1Y-XtRsHEQ7w7UmXB/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "499,00 €",

@@ -5,6 +5,16 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Shearwater - Perdix 1 [FR].pdf",
+      "url": "https://drive.google.com/file/d/1HruLUe8ooSaA9MWJGQTO3KSklZQgMDGN/view?usp=drive_link"
+    },
+    {
+      "fichier": "Shearwater - Perdix 1 recreation [FR].pdf",
+      "url": "https://drive.google.com/file/d/1h7zbr5vL2shOFMSrP87Iage5T3fk0dMF/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",
@@ -13,7 +23,7 @@
       "Bracelet": "Double sangles",
       "Bungee": "Oui",
       "Profondeur max": "260m",
-      "Notice": "Shearwater - Perdix 1 [FR].pdf\n\nShearwater - Perdix 1 recreation [FR].pdf.pdf"
+      "Notice": "Shearwater - Perdix 1 [FR].pdf\n\nShearwater - Perdix 1 recreation [FR].pdf"
     },
     "Décompression": {
       "Bühlmann": "ZH-L16C - 2,5-720",

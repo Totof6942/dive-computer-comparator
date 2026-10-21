@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Aqualung - i470TC [FR].pdf",
+      "url": "https://drive.google.com/file/d/11SyYqUJvsoxGCTAzQc89_19aFLj1qi9r/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "419,00 €",

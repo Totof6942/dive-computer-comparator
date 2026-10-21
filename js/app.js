@@ -122,11 +122,15 @@ function valueHtml(v, field, model = null) {
   else if (field.format === 'price' && v.score != null) html = `<span class="mono">${esc(formatPrice(v.score))}</span>`;
   else if (field.unit && v.score != null && /^\d+\s*\w*$/.test(v.text)) html = `<span class="mono">${v.score} ${field.unit}</span>`;
   else if (field.key === keyOf('Notice')) {
-    // The model knows about a PDF dropped in its folder; a bare cell value doesn't.
-    const url = manualUrl(model ?? { manual: v.text });
-    html = url
-      ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(v.text).replace(/\n/g, '<br>')}</a>`
-      : `<span class="mono small">${esc(v.text)}</span>`;
+    // One line per manual listed in the cell, each with its own link when known.
+    // The first one may also be a PDF dropped in the model's folder.
+    const list = model?.manuals?.length ? model.manuals : v.text.split('\n').map((name) => ({ name, url: null }));
+    html = list.map(({ name, url }, i) => {
+      const href = (i === 0 && model?.manualFile) || url || (i === 0 && model ? manualUrl(model) : null);
+      return href
+        ? `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(name)}</a>`
+        : `<span class="mono small">${esc(name)}</span>`;
+    }).join('<br>');
   } else html = `<span class="mono">${esc(v.text).replace(/\n/g, '<br>')}</span>`;
 
   if (v.uncertain) html += ` <span class="flag flag-uncertain" title="Valeur incertaine dans la notice">à vérifier</span>`;

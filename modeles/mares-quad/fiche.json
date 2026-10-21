@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Mares - Quad [FR].pdf",
+      "url": "https://drive.google.com/file/d/1wHc1ZdU_qFeZ4yvMFd8rz-wWcSK4MWnG/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "279,00 €",

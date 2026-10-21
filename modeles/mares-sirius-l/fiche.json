@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Mares - Sirius L [FR].pdf",
+      "url": "https://drive.google.com/file/d/1dKSwE4l8yzTxxWvX_cXQB_5XS6-Kacx-/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "299,00 €",

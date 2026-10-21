@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Aqualung - i770R [FR].pdf",
+      "url": "https://drive.google.com/file/d/1igJIP3bplaf-weCzlXKO6y0HCO6W_YBF/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

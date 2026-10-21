@@ -14,6 +14,7 @@
 import { mkdir, readdir, readFile, rm, writeFile, cp, stat } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { inflateRawSync } from 'node:zlib';
 import {
   CSV_URL, SHEET_URL, SECTIONS, FIELDS,
   parseCSV, buildModels, formatPrice, algoSummary, algoLabels, manualUrl, keyOf,
@@ -61,6 +62,56 @@ async function fetchSheet(attempts = 3) {
 }
 
 // ---------------------------------------------------------------------------
+// 1b. Manual links. The "Notice" cells hold Google Drive file chips, one per
+// manual, each with its own link. The CSV export keeps only the text and the
+// XLSX export one link per cell, but the HTML export keeps every chip.
+
+const HTML_ZIP_URL = CSV_URL.replace('format=csv', 'format=zip');
+
+/** Minimal ZIP reader: returns the wanted entries as strings. */
+function unzip(buf, wanted) {
+  const eocd = buf.lastIndexOf(Buffer.from([0x50, 0x4b, 0x05, 0x06]));
+  if (eocd < 0) throw new Error('archive illisible');
+  const out = {};
+  let p = buf.readUInt32LE(eocd + 16);
+  for (let i = buf.readUInt16LE(eocd + 10); i > 0; i--) {
+    const method = buf.readUInt16LE(p + 10), size = buf.readUInt32LE(p + 20);
+    const nameLen = buf.readUInt16LE(p + 28), extraLen = buf.readUInt16LE(p + 30), commentLen = buf.readUInt16LE(p + 32);
+    const name = buf.toString('utf8', p + 46, p + 46 + nameLen);
+    if (wanted(name)) {
+      const local = buf.readUInt32LE(p + 42);
+      const start = local + 30 + buf.readUInt16LE(local + 26) + buf.readUInt16LE(local + 28);
+      const data = buf.subarray(start, start + size);
+      out[name] = (method === 8 ? inflateRawSync(data) : data).toString('utf8');
+    }
+    p += 46 + nameLen + extraLen + commentLen;
+  }
+  return out;
+}
+
+const decodeHtml = (s) => s.replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n))
+  .replace(/&#x([\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+  .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&');
+
+/** Manual file name (as written in the "Notice" cells) → link, for the manuals listed by the models. */
+async function fetchManualLinks(models) {
+  const res = await fetch(HTML_ZIP_URL);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const pages = Object.values(unzip(Buffer.from(await res.arrayBuffer()), (n) => n.endsWith('.html')));
+  const page = pages.find((h) => h.includes('Marque') && h.includes('Notice'));
+  if (!page) throw new Error('onglet des modèles introuvable');
+  const listed = new Set(models.flatMap((m) => m.manuals.map((x) => x.name)));
+  const links = {};
+  // A chip: <a href="https://drive…"><svg>…</svg>File name.pdf</a>
+  for (const [, href, inner] of page.matchAll(/<a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)) {
+    const name = decodeHtml(inner.replace(/<[^>]+>/g, '')).trim();
+    const url = decodeHtml(href);
+    if (listed.has(name) && /^https?:\/\//.test(url)) links[name] = url;
+  }
+  return Object.fromEntries(Object.entries(links).sort(([a], [b]) => a.localeCompare(b)));
+}
+
+// ---------------------------------------------------------------------------
 // 2. Assets and committed data
 
 const PHOTO_RE = /\.(webp|avif|jpe?g|png)$/i;
@@ -102,6 +153,7 @@ function fiche(m, has, assets) {
     ...(has.contributors ? { contributeurs: m.contributors } : {}),
     photo: assets[m.id]?.photo?.split('/').pop() ?? null,
     notice: assets[m.id]?.notice?.split('/').pop() ?? null,
+    notices: m.manuals.map(({ name, url }) => ({ fichier: name, url })),
     caracteristiques: specs,
   };
 }
@@ -123,21 +175,27 @@ async function pruneModels(ids) {
 // ---------------------------------------------------------------------------
 // 3. Static pages
 
-function valueHtml(v, f, manualHref = null) {
+function valueHtml(v, f, model = null, prefix = '') {
   if (v.state === 'unknown') return '<span class="flag flag-unknown"><span aria-hidden="true">?</span> Inconnu</span>';
   if (v.state === 'na') return '<span class="na">—<span class="sr-only">Non applicable</span></span>';
   if (v.state === 'empty') return '<span class="flag flag-empty">Non renseigné</span>';
   if (f.type === 'bool' && /^oui$/i.test(v.text)) return '<span class="yes"><span aria-hidden="true">✓</span> Oui</span>';
   if (f.type === 'bool' && /^non$/i.test(v.text)) return '<span class="no"><span aria-hidden="true">✕</span> Non</span>';
   if (f.format === 'price' && v.score != null) return `<span class="mono">${esc(formatPrice(v.score))}</span>`;
-  if (manualHref && f.key === keyOf('Notice')) return `<a href="${esc(manualHref)}" rel="noopener">${esc(v.text).replace(/\n/g, '<br>')}</a>`;
+  if (model && f.key === keyOf('Notice') && model.manuals.length) {
+    // One line per manual, each with its own link when known (a PDF in the folder wins for the first).
+    return model.manuals.map(({ name, url }, i) => {
+      const href = i === 0 && model.manualFile ? prefix + model.manualFile : url;
+      return href ? `<a href="${esc(href)}" rel="noopener">${esc(name)}</a>` : `<span class="mono small">${esc(name)}</span>`;
+    }).join('<br>');
+  }
   return `<span class="mono">${esc(v.text).replace(/\n/g, '<br>')}</span>`;
 }
 
 function header(prefix) {
   return `<header class="site-header"><div class="header-inner">
     <a class="logo" href="${prefix}#/" aria-label="Bathy, accueil">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 7h4l6 15h9l2-5h3l2-6" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 7h3l5 15h7l2.5-7h4l2.5-8h3" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span class="logo-text">Bathy</span></a>
     <span class="tagline">Comparateur d’ordinateurs de plongée</span>
     <nav class="nav" aria-label="Navigation principale">
@@ -167,8 +225,6 @@ function modelPage(m, disclaimer, builtAt) {
   const description = `${fullName} : ${facts.join(' · ')}. Caractéristiques détaillées issues de la notice du fabricant.`;
   const url = SITE_URL ? `${SITE_URL}modeles/${m.id}/` : '';
   const image = m.photo && SITE_URL ? (/^https?:/.test(m.photo) ? m.photo : SITE_URL + m.photo) : '';
-  const manual = manualUrl(m);
-  const manualHref = manual && (/^https?:/.test(manual) ? manual : prefix + manual);
   // Same tags as the app: one per algorithm, coloured by family.
   const tags = algoLabels(m, { short: true }).map((t, i) => `<li class="tag tag-${m.algos[i]}">${esc(t)}</li>`).join('');
 
@@ -177,7 +233,7 @@ function modelPage(m, disclaimer, builtAt) {
     : `<span class="silhouette" role="img" aria-label="Silhouette ${esc(m.formats[0] || 'générique')}">${silhouette(m.formats)}</span>`;
 
   const sections = SECTIONS.map((s) => `<section class="spec-card"><h2>${esc(s.label)}</h2><dl>
-      ${FIELDS.filter((f) => f.section === s.id).map((f) => `<div class="spec-row"><dt>${esc(f.label)}</dt><dd>${valueHtml(m.values[f.key], f, manualHref)}</dd></div>`).join('')}
+      ${FIELDS.filter((f) => f.section === s.id).map((f) => `<div class="spec-row"><dt>${esc(f.label)}</dt><dd>${valueHtml(m.values[f.key], f, m, prefix)}</dd></div>`).join('')}
     </dl></section>`).join('');
 
   return `<!doctype html>
@@ -197,7 +253,7 @@ function modelPage(m, disclaimer, builtAt) {
   ${image ? `<meta property="og:image" content="${esc(image)}">` : ''}
   <meta name="twitter:card" content="${image ? 'summary_large_image' : 'summary'}">
   <meta name="theme-color" content="#0E1A24">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1A24'/%3E%3Cpath d='M5 9h3l4.5 11.5h7l1.5-4h2.5l1.5-5' fill='none' stroke='%2300AEEF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1A24'/%3E%3Cpath d='M5 9h2.5l4 12h5.5l2-5.5h3l2-6.5h2.5' fill='none' stroke='%2300AEEF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -236,14 +292,27 @@ async function main() {
   const builtAt = now.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.');
 
   const csv = await fetchSheet();
+  const rows = parseCSV(csv);
   const assets = await scanAssets();
-  const { models, disclaimer, has } = buildModels(parseCSV(csv), assets);
+  const { models, disclaimer, has } = buildModels(rows, assets);
   console.log(`${models.length} modèles lus dans la feuille, ${Object.keys(assets).length} dossiers avec photo ou notice.`);
+
+  let manuals;
+  try {
+    manuals = await fetchManualLinks(models);
+    console.log(`${Object.keys(manuals).length} liens de notices lus dans la feuille.`);
+  } catch (err) {
+    // Don't lose the links over a network hiccup: keep the last known ones.
+    manuals = JSON.parse(await readFile(join(ROOT, 'data/manuals.json'), 'utf8').catch(() => '{}'));
+    console.warn(`⚠ Liens des notices non relus (${err.message}) : ${Object.keys(manuals).length} liens conservés.`);
+  }
+  for (const m of models) for (const x of m.manuals) x.url = manuals[x.name] ?? null;
 
   // Committed data
   let changed = 0;
   changed += await writeIfChanged(join(ROOT, 'data/sheet.csv'), csv);
   changed += await writeIfChanged(join(ROOT, 'data/assets.json'), json(assets));
+  changed += await writeIfChanged(join(ROOT, 'data/manuals.json'), json(manuals));
   const fiches = models.map((m) => fiche(m, has, assets));
   changed += await writeIfChanged(join(ROOT, 'data/models.json'), json(fiches));
   for (const f of fiches) changed += await writeIfChanged(join(MODELS_DIR, f.id, 'fiche.json'), json(f));
@@ -257,7 +326,10 @@ async function main() {
     if (await exists(join(ROOT, p))) await cp(join(ROOT, p), join(OUT, p), { recursive: true });
   }
   await writeFile(join(OUT, '.nojekyll'), '');
-  await writeFile(join(OUT, 'data/site.json'), json({ builtAt: now.toISOString() }));
+  // Tells the app it runs on the published site (static model pages exist), without a request.
+  const indexPath = join(OUT, 'index.html');
+  const index = await readFile(indexPath, 'utf8');
+  await writeFile(indexPath, index.replace('</head>', `  <meta name="bathy-built" content="${now.toISOString()}">\n</head>`));
   for (const m of models) await writeFile(join(OUT, 'modeles', m.id, 'index.html'), modelPage(m, disclaimer, builtAt));
 
   if (SITE_URL) {

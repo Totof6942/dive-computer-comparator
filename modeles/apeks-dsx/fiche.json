@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Apeks - DSX [FR].pdf",
+      "url": "https://drive.google.com/file/d/1Ghdvk7u77G0gM2bMGrZ57aMKaJCK0wB6/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "959,00 €",

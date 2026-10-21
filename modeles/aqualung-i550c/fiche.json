@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Aqualung - i550C [EN].pdf",
+      "url": "https://drive.google.com/file/d/1VfOSiAoXGvXkYmB1Ew-cS4Kn5U5BHSHs/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "599,00 €",

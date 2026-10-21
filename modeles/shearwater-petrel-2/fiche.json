@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Shearwater - Petrel 2 [FR].pdf",
+      "url": "https://drive.google.com/file/d/1AEUT3DyzbGHNOJ8Br29a_CYgc3dFEo6N/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

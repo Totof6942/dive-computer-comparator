@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Cressi - Goa Cartesio Neon [FR].pdf",
+      "url": "https://drive.google.com/file/d/1_kLxxtBZeoynyiantEO04FR7d91QgwGL/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "299,00 €",

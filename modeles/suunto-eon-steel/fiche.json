@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Suunto - Eon Steel [FR].pdf",
+      "url": "https://drive.google.com/file/d/1uQ9mXu2EleXAngOFbMrzD-FTk2gHKKJD/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 050,00 €",

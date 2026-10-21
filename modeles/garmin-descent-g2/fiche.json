@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Garmin - Descent G2 [FR].pdf",
+      "url": "https://drive.google.com/file/d/1GkRiOuvswPCnmHTTPAJ4sqLVZz8qI_Lp/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "699,00 €",

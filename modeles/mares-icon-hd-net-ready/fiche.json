@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Mares - Icon HD Net Ready [FR].pdf",
+      "url": "https://drive.google.com/file/d/1JlYTuQIEkfUwzEJuCs8V_9QUsGoh_6-U/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Aqualung - i300 [EN].pdf",
+      "url": "https://drive.google.com/file/d/1mXLlM_73M4rSmZOfr4fHdvE_AKshlrH9/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

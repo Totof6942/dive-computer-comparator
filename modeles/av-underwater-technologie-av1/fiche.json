@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "AV Underwater Technologie - AV1 [EN].pdf",
+      "url": "https://drive.google.com/file/d/1_Elg0eSf3I5MhApmoYNul3Ou6XXcg9yJ/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

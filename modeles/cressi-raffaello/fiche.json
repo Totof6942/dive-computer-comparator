@@ -5,6 +5,12 @@
   "statut": "Todo",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Cressi - Raffaello [FR].pdf",
+      "url": "https://drive.google.com/file/d/18OexuEMzCT6R7CIdt2qcL96LWACeHJGu/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "349,00 €",

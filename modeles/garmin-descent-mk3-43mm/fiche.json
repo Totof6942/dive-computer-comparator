@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Garmin - Descent MK3 Series [FR].pdf",
+      "url": "https://drive.google.com/file/d/1lu_lf_LI9YaRH9dkjjEKc3QaNiGBFl0D/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 249,00 €",

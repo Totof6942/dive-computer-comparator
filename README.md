@@ -34,6 +34,7 @@ Each model has a folder `modeles/<id>/`. Drop files there:
 
 - **Photo**: `photo.webp` (or `.jpg`, `.png`, `.avif`). About 600 px wide, WebP, ~50 KB. Without a photo, a silhouette of the format is shown (`js/silhouettes.js`).
 - **Manual**: any `.pdf`. GitHub refuses files over 100 MB and Pages sites over ~1 GB, so compress large manuals or link to the manufacturer instead: an `https://` URL in the `Notice` cell, or `MANUALS_BASE_URL` in `js/data.js`.
+- **Manual links from the sheet**: the "Notice" cells hold Google Drive file chips. The CSV export drops links (and the XLSX export keeps only one per cell), so `scripts/build.mjs` reads them from the HTML export into `data/manuals.json` (file name → link). Run the build (or deploy) after adding links in the sheet. A PDF dropped in the model folder takes precedence for the first manual.
 
 `fiche.json` in the same folder is generated: don't edit it, edit the sheet. A `Photo URL` column with `https://` links also works.
 

@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Cressi - Michelangelo Donatello [FR].pdf",
+      "url": "https://drive.google.com/file/d/1eHFal8EvciQfB6kOF3GOjLr_3tLJ9YZw/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "299,00 €",

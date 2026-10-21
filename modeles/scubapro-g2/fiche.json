@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Scubapro - G2 [FR].pdf",
+      "url": "https://drive.google.com/file/d/1zG3MKJmxY7PO595odMUKuhAopA88q-zB/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "759,00 €",

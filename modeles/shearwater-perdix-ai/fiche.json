@@ -5,6 +5,20 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Shearwater - Perdix 1 [FR].pdf",
+      "url": "https://drive.google.com/file/d/1HruLUe8ooSaA9MWJGQTO3KSklZQgMDGN/view?usp=drive_link"
+    },
+    {
+      "fichier": "Shearwater - Perdix 1 recreation [FR].pdf.pdf",
+      "url": "https://drive.google.com/file/d/1h7zbr5vL2shOFMSrP87Iage5T3fk0dMF/view?usp=drive_link"
+    },
+    {
+      "fichier": "Shearwater - Perdix 1 AI [FR].pdf",
+      "url": "https://drive.google.com/file/d/1jPlwX17i4DYfJ2SULLH2eeI9Ds-ARhLA/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

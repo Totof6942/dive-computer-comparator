@@ -5,6 +5,16 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Shearwater - Petrel 3 recreation [FR].pdf",
+      "url": "https://drive.google.com/file/d/1hls-fUkSvQ7nMD4SNkoa-9a5O0-K_vgZ/view?usp=drive_link"
+    },
+    {
+      "fichier": "Shearwater - Petrel 3 tek [FR].pdf",
+      "url": "https://drive.google.com/file/d/1q_PwwKLtvstg2Ua5Pqji_scszrzaAaCZ/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 290,00 €",
@@ -13,7 +23,7 @@
       "Bracelet": "Double sangles",
       "Bungee": "Oui",
       "Profondeur max": "290m",
-      "Notice": "Shearwater - Petrel 3 recration [FR].pdf\n\nShearwater - Petrel 3 tek [FR].pdf"
+      "Notice": "Shearwater - Petrel 3 recreation [FR].pdf\n\nShearwater - Petrel 3 tek [FR].pdf"
     },
     "Décompression": {
       "Bühlmann": "ZH-L16C - 2,5-720",

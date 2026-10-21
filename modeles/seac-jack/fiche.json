@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Seac - Jack [FR].pdf",
+      "url": "https://drive.google.com/file/d/14WRjkjoxohB1YUf8BQV4EklFsCaENWCD/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

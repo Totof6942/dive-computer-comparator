@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Suunto - D5 [FR].pdf",
+      "url": "https://drive.google.com/file/d/1grEwAo-iieb4aWaIspgRYN7aX8nw_pQ-/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "575,00 €",

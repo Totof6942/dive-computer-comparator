@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Scubapro - A1 [FR].pdf",
+      "url": "https://drive.google.com/file/d/1-Yy6A3jRKRMplfQsTNzcwXOkpJ5tBO00/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "375,00 €",

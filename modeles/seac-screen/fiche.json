@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Seac - Screen [FR].pdf",
+      "url": "https://drive.google.com/file/d/101-DC8W1j7lHf6W00bG-1lxqvBSB026y/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "209,00 €",

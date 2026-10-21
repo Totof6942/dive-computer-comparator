@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Suunto - Eon Steel Black [FR].pdf",
+      "url": "https://drive.google.com/file/d/17NKsj8uJttjlmaJfrDwUavdFv771mJIo/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 079,00 €",

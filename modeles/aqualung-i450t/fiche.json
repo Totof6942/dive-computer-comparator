@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Aqualung - i450T [EN].pdf",
+      "url": "https://drive.google.com/file/d/1mJ-BAsyC4aHXyT3CMFlYpm9kcKftlnk7/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

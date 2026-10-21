@@ -5,6 +5,7 @@
   "statut": "Todo",
   "photo": "photo.png",
   "notice": null,
+  "notices": [],
   "caracteristiques": {
     "Général": {
       "Prix France": "459,00 €",

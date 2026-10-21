@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Suunto - EON Core [FR].pdf",
+      "url": "https://drive.google.com/file/d/1QeEXLXXZjFSdUmqZfywQH22JIkVX1JkW/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "699,00 €",

@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Seac - Action [FR].pdf",
+      "url": "https://drive.google.com/file/d/18GSHcnvSQC5YasqONEraEpckoJiexXPO/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "239,00 €",

@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Beuchat - Voyager 2G [FR].pdf",
+      "url": "https://drive.google.com/file/d/1EqnLEasga8-ZqXlWNdVUlApX50vP-Vfu/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

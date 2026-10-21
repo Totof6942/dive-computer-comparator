@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Suunto - Zoop Novo [FR].pdf",
+      "url": "https://drive.google.com/file/d/19Kxa0Cuw70-sbeBG44lZlsuHGdhoSjem/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "189,00 €",

@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Garmin - Descent X50i [FR].pdf",
+      "url": "https://drive.google.com/file/d/1YKYYaxAoiFZ3bAUeEIKp7OiM29U6NaYQ/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 549,99 €",

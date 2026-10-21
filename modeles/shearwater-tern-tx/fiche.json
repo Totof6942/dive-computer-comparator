@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Shearwater - Tern TX [FR].pdf",
+      "url": "https://drive.google.com/file/d/1nQcygvyxVvL49ijqCg2xQPKwhM6bsNfd/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "829,00 €",

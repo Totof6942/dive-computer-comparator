@@ -5,6 +5,16 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Shearwater - Perdix 2 recreation [FR].pdf",
+      "url": "https://drive.google.com/file/d/1y27RG6pB7PpHKEeRJowAQ1U1nqZ-DOy9/view?usp=drive_link"
+    },
+    {
+      "fichier": "Shearwater - Perdix 2 tek [FR].pdf",
+      "url": "https://drive.google.com/file/d/1PeqB0SrSgAIw-mtgEC9XB5mPwRCRkGBe/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 099,00 €",

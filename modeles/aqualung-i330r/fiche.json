@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Aqualung - i330R [FR].pdf",
+      "url": "https://drive.google.com/file/d/1tAQ7Wk2On4h53JNeujvvvudM1kE6HvsA/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "299,00 €",

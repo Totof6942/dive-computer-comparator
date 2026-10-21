@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Suunto - Ocean [FR].pdf",
+      "url": "https://drive.google.com/file/d/1sqhumd9_EC0kYLW-IWuetrz2G5Sln8pd/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "749,00 €",

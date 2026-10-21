@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Mares - Quand 2 [FR].pdf",
+      "url": "https://drive.google.com/file/d/13Y-1wfLp_Q-ujPROJ4rijuYZfgHD9pnM/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "349,00 €",

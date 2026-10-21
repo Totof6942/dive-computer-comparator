@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Scubapro - Luna 2.0 AI [FR].pdf",
+      "url": "https://drive.google.com/file/d/1ERXMY1Ihi7B3fCjz0nfyaYDyL_LwAUWW/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "399,00 €",

@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Mares - Matrix [FR].pdf",
+      "url": "https://drive.google.com/file/d/1aMnBGN-4oiMSE8GMJF0bwdmqPTHa9gL_/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

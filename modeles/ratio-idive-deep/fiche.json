@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Ratio - iDive Color [FR].pdf",
+      "url": "https://drive.google.com/file/d/1sto6CpBG4Kk2jeZGLBMxTuQl5TN61p2u/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "549,00 €",

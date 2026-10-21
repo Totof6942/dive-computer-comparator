@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Mares - Icon HD [FR].pdf",
+      "url": "https://drive.google.com/file/d/1PNHxExM9e30nzIO96sUFnPBO_v9xHo62/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "",

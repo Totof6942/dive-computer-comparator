@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Suunto - Nautic S [EN].pdf",
+      "url": "https://drive.google.com/file/d/1I7AS-mQWL-zF9Mp7PS9qkbfAbkTCDYES/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "549,00 €",

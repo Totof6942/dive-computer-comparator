@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "Garmin - Descent Mk2i [FR].pdf",
+      "url": "https://drive.google.com/file/d/1TqdeNB_LteSdsOVP9RpWpyA6mNxt3B0M/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 319,00 €",

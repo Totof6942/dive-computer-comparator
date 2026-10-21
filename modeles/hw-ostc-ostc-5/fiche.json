@@ -5,6 +5,12 @@
   "statut": "Done",
   "photo": "photo.png",
   "notice": null,
+  "notices": [
+    {
+      "fichier": "HW - OSTC4-5 [EN].pdf",
+      "url": "https://drive.google.com/file/d/1WHsUsJOKAQUYqA3LOTJXVOxCoo8hnd2J/view?usp=drive_link"
+    }
+  ],
   "caracteristiques": {
     "Général": {
       "Prix France": "1 485,00 €",
