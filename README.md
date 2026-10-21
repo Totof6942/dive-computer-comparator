@@ -58,6 +58,8 @@ The app always reads the sheet live; the static model pages only reflect the she
 
 To update the committed data files (`data/`, `modeles/<id>/fiche.json`), run `node scripts/build.mjs` locally and commit.
 
+Cache busting: in `_site/`, JS and CSS files are renamed after a hash of their contents (`app.js` → `app.3f2a9c1b04.js`), imports between modules included, so phones load new versions after a deploy. A file that didn't change keeps its name and stays cached.
+
 One-time setup: Settings → Pages → Source: **GitHub Actions**.
 
 ## Routes

@@ -15,6 +15,7 @@ import { mkdir, readdir, readFile, rm, writeFile, cp, stat } from 'node:fs/promi
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { inflateRawSync } from 'node:zlib';
+import { createHash } from 'node:crypto';
 import {
   CSV_URL, SHEET_URL, SECTIONS, FIELDS,
   parseCSV, buildModels, formatPrice, algoSummary, algoLabels, manualUrl, keyOf,
@@ -31,6 +32,44 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const exists = (p) => stat(p).then(() => true, () => false);
 const json = (data) => `${JSON.stringify(data, null, 2)}\n`;
+
+// Cache busting: in the published site, js/ and css/ files are renamed after a
+// hash of their content (app.js → app.3f2a9c1b04.js), so phones fetch new
+// versions after a deploy instead of mixing cached and fresh modules. A module's
+// hash covers the hashed names of what it imports, so it changes with them.
+// Filled by fingerprintAssets(), before the pages are written: 'js/app.js' → 'js/app.<hash>.js'.
+const ASSETS = {};
+
+const fingerprint = (name, content) =>
+  name.replace(/(\.[a-z]+)$/, `.${createHash('sha1').update(content).digest('hex').slice(0, 10)}$1`);
+
+async function fingerprintAssets() {
+  // JS modules, dependencies first: relative imports are rewritten to the hashed names.
+  const done = {};
+  const hashModule = async (file) => {
+    if (done[file]) return done[file];
+    let code = await readFile(join(OUT, 'js', file), 'utf8');
+    for (const [, dep] of code.matchAll(/from\s+['"]\.\/([^'"]+\.js)['"]/g)) {
+      const hashed = await hashModule(dep);
+      code = code.replaceAll(`'./${dep}'`, `'./${hashed}'`).replaceAll(`"./${dep}"`, `"./${hashed}"`);
+    }
+    done[file] = fingerprint(file, code);
+    await writeFile(join(OUT, 'js', done[file]), code);
+    await rm(join(OUT, 'js', file));
+    return done[file];
+  };
+  for (const f of await readdir(join(OUT, 'js'))) if (f.endsWith('.js')) ASSETS[`js/${f}`] = `js/${await hashModule(f)}`;
+  for (const f of await readdir(join(OUT, 'css'))) {
+    const content = await readFile(join(OUT, 'css', f));
+    const hashed = fingerprint(f, content);
+    await writeFile(join(OUT, 'css', hashed), content);
+    await rm(join(OUT, 'css', f));
+    ASSETS[`css/${f}`] = `css/${hashed}`;
+  }
+  const indexPath = join(OUT, 'index.html');
+  const index = await readFile(indexPath, 'utf8');
+  await writeFile(indexPath, index.replace(/(href|src)="((?:css|js)\/[^"]+)"/g, (all, attr, path) => `${attr}="${ASSETS[path] ?? path}"`));
+}
 
 /** Write only when the content changes, so unchanged files keep their mtime. */
 async function writeIfChanged(path, content) {
@@ -257,7 +296,7 @@ function modelPage(m, disclaimer, builtAt) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="${prefix}css/styles.css">
+  <link rel="stylesheet" href="${prefix}${ASSETS['css/styles.css']}">
 </head>
 <body>
   ${header(prefix)}
@@ -326,6 +365,7 @@ async function main() {
     if (await exists(join(ROOT, p))) await cp(join(ROOT, p), join(OUT, p), { recursive: true });
   }
   await writeFile(join(OUT, '.nojekyll'), '');
+  await fingerprintAssets();
   // Tells the app it runs on the published site (static model pages exist), without a request.
   const indexPath = join(OUT, 'index.html');
   const index = await readFile(indexPath, 'utf8');
