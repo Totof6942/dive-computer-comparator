@@ -389,7 +389,8 @@ body.has-tray .toast { bottom: 110px; }
   .card-body { padding: 8px 4px 8px 4px; min-width: 0; }
   .card .model-name { font-size: 20px; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .card .price { font-size: 18px; }
-  .card .tags { display: none; }
+  .card .tags { margin-top: 6px; gap: 4px; }
+  .card .tag { font-size: 11px; padding: 2px 6px; }
   .card .figures { margin-top: 0; font-size: 12px; }
   .card .badge-todo { display: none; }
   .card .btn-compare { align-self: center; margin: 0 8px 0 0; padding: 0; width: var(--tap); justify-content: center; flex: none; }
