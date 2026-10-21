@@ -425,6 +425,35 @@ body.has-tray .toast { bottom: 110px; }
 .chip-filters { border-color: var(--ink); font-weight: 600; }
 .chip-count { background: var(--accent); color: #fff; border-radius: 999px; min-width: 20px; height: 20px; padding: 0 6px; display: inline-grid; place-items: center; font-size: 12px; }
 
+/* ---------- Print / PDF (comparison) ---------- */
+
+.print-only { display: none; }
+
+@media print {
+  @page { size: A4 landscape; margin: 10mm; }
+  body { background: #fff; font-size: 11px; padding: 0 !important; min-height: 0; }
+  .site-header, .tray, .toast, .skip-link, .back, .page-actions, .data-status,
+  .m-compare, .only-mobile, .add-col, .col-head .btn-link, .row-fix { display: none !important; }
+  .only-desktop { display: block !important; }
+  .print-only { display: block; }
+  .print-head { margin: 0 0 6px; font-size: 10px; color: var(--muted); }
+  .page { padding: 0; max-width: none; }
+  .page-title { font-size: 24px; }
+  .legend { margin: 6px 0 10px; }
+  .table-wrap { border: 0; }
+  .compare-table thead th, .compare-table thead td { position: static; padding: 8px; }
+  .col-head .media { width: 56px; height: 56px; margin-bottom: 4px; }
+  .compare-table tbody th[scope="row"], .compare-table tbody td { padding: 5px 8px; }
+  .compare-table tr, .section-row { break-inside: avoid; }
+  .section-row th { padding: 10px 8px 6px; }
+  /* Keep the highlights and flags: browsers drop backgrounds by default. */
+  .compare-table td.best, .section-row th, .flag, .media, .legend-best { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: inherit; text-decoration: none; }
+  .site-footer { background: none; color: var(--muted); margin-top: 12px; }
+  .footer-inner { padding: 8px 0 0; }
+  .disclaimer-title { color: var(--ink); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation-duration: .01ms !important; }
 }

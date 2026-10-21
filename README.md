@@ -62,6 +62,10 @@ Cache busting: in `_site/`, JS and CSS files are renamed after a hash of their c
 
 One-time setup: Settings → Pages → Source: **GitHub Actions**.
 
+## Comparison export
+
+On the comparison page, "Exporter .xlsx" downloads the table (SheetJS is loaded from cdnjs on first use; "Différences uniquement" is respected) and "PDF / Imprimer" opens the print dialog with a dedicated layout (A4 landscape): choose "Enregistrer au format PDF".
+
 ## Routes
 
 - `#/?prix=300-800&marques=SUUNTO,MARES&algos=vpm&formats=Montre&modes=trimix&options=sonde,bungee&alimentation=batterie&tri=priceAsc&q=…`: catalogue. The filters are mirrored in the URL so a search can be shared; `#/` alone restores the session's filters.

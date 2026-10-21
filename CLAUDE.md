@@ -58,6 +58,7 @@ UI copy is in French. Code, comments and docs are in English.
    - Side-by-side table with up to 3 models, grouped by section: Général, Décompression, Gaz & modes, Écran & énergie, Connectivité & extras.
    - A "differences only" toggle. The best value of each row is highlighted. Unknown, not applicable and not-filled values are flagged.
    - The comparison can be shared via its URL.
+   - Exports: "Exporter .xlsx" (SheetJS from cdnjs, loaded on first click; follows the "differences only" toggle; an "À propos" sheet with the date, link, source and disclaimer) and "PDF / Imprimer" (`window.print()` with a print stylesheet: A4 landscape, no header, buttons or tray, highlights kept).
 3. **Model page**
    - Header block: photo, brand, name, price and year, algorithm tags, Comparer / Partager la fiche / Signaler une erreur, data-completeness indicator.
    - Specs by section. The manual is only listed in Général (a link when the PDF is in the model folder).
@@ -66,7 +67,7 @@ UI copy is in French. Code, comments and docs are in English.
    - 2-model comparison with section tabs and the label above the values.
 
 ### Removed on purpose — don't add back without asking
-"Trouver mon ordinateur" quiz and its banner, XLSX export, the "prix indicatifs" notice, max-depth filter and sort, "fiches complètes" sort and filter, quick filter chips on mobile, the five key-figure blocks and the similar models on the model page, the nightly sheet sync commit.
+"Trouver mon ordinateur" quiz and its banner, the catalogue XLSX export (only the comparison is exported), the "prix indicatifs" notice, max-depth filter and sort, "fiches complètes" sort and filter, quick filter chips on mobile, the five key-figure blocks and the similar models on the model page, the nightly sheet sync commit.
 
 ## Visual direction
 - Colors:
@@ -88,5 +89,4 @@ UI copy is in French. Code, comments and docs are in English.
 
 ## Ideas for later
 - A chart of the GF presets per model.
-- PDF / print version of a comparison.
 - Fill in the sheet: "GF libres" where the manuals confirm custom GF, the Luna gas count (`3 mélanges (option PMG)`), the obfuscated e-mail in row 1.

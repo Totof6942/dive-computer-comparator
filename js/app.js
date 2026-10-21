@@ -506,6 +506,7 @@ function renderCompare(ids) {
   }).join('');
 
   app.innerHTML = `<div class="page compare-page ${state.diffOnly ? 'diff-only' : ''}">
+    <p class="print-only print-head">Bathy · Comparaison du ${fmtDate(new Date())} · ${esc(location.href)}</p>
     <div class="page-head">
       <div>
         <a class="back" href="#/">← Catalogue</a>
@@ -514,6 +515,8 @@ function renderCompare(ids) {
       <div class="page-actions">
         <label class="switch"><input type="checkbox" id="diff-only" ${state.diffOnly ? 'checked' : ''}><span class="track" aria-hidden="true"></span> Différences uniquement</label>
         <button type="button" class="btn btn-ghost" data-action="share" data-share-msg="Lien de la comparaison copié">Copier le lien</button>
+        <button type="button" class="btn btn-ghost" data-action="export-xlsx">Exporter .xlsx</button>
+        <button type="button" class="btn btn-ghost" data-action="print" title="Choisissez « Enregistrer au format PDF » dans la fenêtre d’impression">PDF / Imprimer</button>
       </div>
     </div>
     <p class="legend"><span class="legend-best">Meilleure valeur</span>
@@ -623,6 +626,60 @@ function renderModel(id) {
 }
 
 // ---------------------------------------------------------------------------
+// Comparison export to XLSX (SheetJS, loaded on first use only)
+
+const XLSX_SRC = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+let xlsxLoading = null;
+
+function loadXlsx() {
+  xlsxLoading ??= new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = XLSX_SRC;
+    script.onload = () => resolve(window.XLSX);
+    script.onerror = () => { xlsxLoading = null; reject(new Error('bibliothèque XLSX indisponible')); };
+    document.head.append(script);
+  });
+  return xlsxLoading;
+}
+
+const exportValue = (v, field) => {
+  if (v.state === 'unknown') return 'Inconnu';
+  if (v.state === 'na') return 'Non applicable';
+  if (v.state === 'empty') return 'Non renseigné';
+  return field.format === 'price' && v.score != null ? v.score : v.text;
+};
+
+/** Same rows as on screen: "Différences uniquement" is respected. */
+async function exportComparisonXlsx() {
+  const XLSX = await loadXlsx();
+  const models = state.route.ids.map((id) => state.byId.get(id)).filter(Boolean);
+  const fields = FIELDS.filter((f) => !state.diffOnly || !rowInfo(f, models).same);
+  const rows = [
+    ['Section', 'Caractéristique', ...models.map((m) => `${m.brand} ${m.name}`)],
+    ...fields.map((f) => [SECTIONS.find((x) => x.id === f.section).label, f.label,
+      ...models.map((m) => exportValue(m.values[f.key], f))]),
+  ];
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols'] = [{ wch: 22 }, { wch: 30 }, ...models.map(() => ({ wch: 42 }))];
+  XLSX.utils.book_append_sheet(wb, ws, 'Comparaison');
+  const about = XLSX.utils.aoa_to_sheet([
+    ['Bathy, comparateur d’ordinateurs de plongée'],
+    ['Exporté le', fmtDate(new Date())],
+    ['Comparaison en ligne', location.href],
+    ['Source des données', SHEET_URL],
+    ['Lignes', state.diffOnly ? 'Différences uniquement' : 'Toutes les caractéristiques'],
+    [],
+    ['Avertissement'],
+    [state.data.disclaimer],
+  ]);
+  about['!cols'] = [{ wch: 22 }, { wch: 100 }];
+  XLSX.utils.book_append_sheet(wb, about, 'À propos');
+  const slug = models.map((m) => m.id).join('-vs-').slice(0, 80);
+  XLSX.writeFile(wb, `bathy-comparaison-${slug}.xlsx`);
+}
+
+// ---------------------------------------------------------------------------
 // Router
 
 // Catalogue filters <-> URL query, e.g. #/?prix=200-800&marques=SUUNTO,MARES&options=sonde,bungee
@@ -728,6 +785,11 @@ document.addEventListener('click', (e) => {
       navigator.clipboard?.writeText(location.href).then(() => toast(t.dataset.shareMsg || 'Lien copié'),
         () => toast('Copie impossible : utilisez l’adresse de la page'));
       return;
+    case 'export-xlsx':
+      exportComparisonXlsx().catch((err) => toast(`Export impossible : ${err.message}`));
+      return;
+    case 'print':
+      return window.print();
     case 'share-model': {
       // The static page has a proper preview (title, photo) in messaging apps.
       const url = new URL(`modeles/${encodeURIComponent(t.dataset.id)}/`, location.href.split('#')[0]).href;
